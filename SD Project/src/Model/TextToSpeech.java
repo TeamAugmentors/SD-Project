@@ -1,5 +1,6 @@
-package application;
+package Model;
 
+import Model.AudioPlayer;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;

@@ -6,7 +6,8 @@
 package sd.project;
 
 import JFrame.SmartAssistant;
-import application.TextToSpeech;
+import Model.TextToSpeech;
+import marytts.modules.synthesis.Voice;
 
 /**
  *
