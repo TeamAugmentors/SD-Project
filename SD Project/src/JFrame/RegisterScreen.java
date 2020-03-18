@@ -14,7 +14,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     /**
      * Creates new form RegisterScreen
      */
-    private String fn, ln, pass, conpass, un, secques, secans, em;
+    private String fn = null, ln = null, pass = null, conpass = null, un = null, secques = null, secans = null, em = null;
     boolean flag, flagPass;
     boolean[] ara = new boolean[6];
 
@@ -41,7 +41,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         securityAnswer = new javax.swing.JTextField();
-        confirmPassward = new javax.swing.JTextField();
         securityQuestion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -56,10 +55,11 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabelconpass = new javax.swing.JLabel();
         jLabelpass = new javax.swing.JLabel();
         jLabelun = new javax.swing.JLabel();
-        passward = new javax.swing.JTextField();
         registerButton = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabelpassMatch = new javax.swing.JLabel();
         jLabelfn = new javax.swing.JLabel();
+        jPasswordField = new javax.swing.JPasswordField();
         jLabelln = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabelem = new javax.swing.JLabel();
@@ -105,16 +105,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(securityAnswer);
         securityAnswer.setBounds(670, 660, 330, 50);
-
-        confirmPassward.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        confirmPassward.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        confirmPassward.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmPasswardActionPerformed(evt);
-            }
-        });
-        getContentPane().add(confirmPassward);
-        confirmPassward.setBounds(670, 520, 330, 50);
 
         securityQuestion.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         securityQuestion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -210,16 +200,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabelun);
         jLabelun.setBounds(1070, 310, 140, 30);
 
-        passward.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        passward.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        passward.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwardActionPerformed(evt);
-            }
-        });
-        getContentPane().add(passward);
-        passward.setBounds(670, 450, 330, 50);
-
         registerButton.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         registerButton.setText("OK");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +209,14 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(registerButton);
         registerButton.setBounds(700, 770, 170, 50);
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(670, 520, 330, 50);
 
         jLabelpassMatch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelpassMatch.setForeground(new java.awt.Color(255, 0, 0));
@@ -241,6 +229,14 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabelfn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelfn);
         jLabelfn.setBounds(1070, 174, 140, 30);
+
+        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jPasswordField);
+        jPasswordField.setBounds(670, 450, 330, 50);
 
         jLabelln.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelln.setForeground(new java.awt.Color(255, 51, 51));
@@ -304,87 +300,90 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/JFrame/LoginScreen.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-6, 4, 1630, 900);
+        jLabel1.setBounds(0, 0, 1630, 900);
         jLabel1.getAccessibleContext().setAccessibleName("jLebel1");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameActionPerformed
-        fn = firstName.getText();
-        ara[0] = true;
+
     }//GEN-LAST:event_firstNameActionPerformed
 
     private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
-        ln = lastName.getText();
-        ara[1] = true;
+
     }//GEN-LAST:event_lastNameActionPerformed
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
-        un = userName.getText();
-        ara[2] = true;
+
     }//GEN-LAST:event_userNameActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        em = email.getText();
-        ara[3] = true;
+
     }//GEN-LAST:event_emailActionPerformed
 
-    private void passwardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwardActionPerformed
-        pass = passward.getText();
-        ara[4] = true;
-    }//GEN-LAST:event_passwardActionPerformed
-
-    private void confirmPasswardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswardActionPerformed
-        conpass = confirmPassward.getText();
-        ara[5] = true;
-    }//GEN-LAST:event_confirmPasswardActionPerformed
-
     private void securityQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionActionPerformed
-        secques = securityQuestion.getText();
+
     }//GEN-LAST:event_securityQuestionActionPerformed
 
     private void securityAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityAnswerActionPerformed
-        secans = securityAnswer.getText();
+
     }//GEN-LAST:event_securityAnswerActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         flag = false;
-        for (int i = 1; i <= 6; i++) {
-            if (ara[i - 1] == false) {
-                if (i == 1) {
-                    jLabelfn.setText("Must filled");
-                } else if (i == 2) {
-                    jLabelln.setText("Must filled");
-                } else if (i == 3) {
-                    jLabelun.setText("Must filled");
-                } else if (i == 4) {
-                    jLabelem.setText("Must filled");
-                } else if (i == 5) {
-                    jLabelpass.setText("Must filled");
-                } else if (i == 6) {
-                    jLabelconpass.setText("Must filled");
-                }
-                flag = true;
-            }
-            if (ara[i - 1] == true) {
-                if (i == 1) {
-                    jLabelfn.setText("");
-                } else if (i == 2) {
-                    jLabelln.setText("");
-                } else if (i == 3) {
-                    jLabelun.setText("");
-                } else if (i == 4) {
-                    jLabelem.setText("");
-                } else if (i == 5) {
-                    jLabelpass.setText("");
-                } else if (i == 6) {
-                    jLabelconpass.setText("");
-                }
-            }
+        fn = firstName.getText();
+        ln = lastName.getText();
+        un = userName.getText();
+        em = email.getText();
+        secques = securityQuestion.getText();
+        secans = securityAnswer.getText();
+        pass = jPasswordField.getText();
+        conpass = jPasswordField1.getText();
+        if (fn.equals("")) {
+            jLabelfn.setText("Must filled");
+            flag = true;
+        }
+        if (ln.equals("")) {
+            jLabelln.setText("Must filled");
+            flag = true;
+        }
+        if (em.equals("")) {
+            jLabelem.setText("Must filled");
+            flag = true;
+        }
+        if (un.equals("")) {
+            jLabelun.setText("Must filled");
+            flag = true;
+        }
+        if (pass.equals("")) {
+            jLabelpass.setText("Must filled");
+            flag = true;
+        }
+        if (conpass.equals("")) {
+            jLabelconpass.setText("Must filled");
+            flag = true;
+        }
+        if (!fn.equals("")) {
+            jLabelfn.setText("");
+        }
+        if (!ln.equals("")) {
+            jLabelln.setText("");
+        }
+        if (!em.equals("")) {
+            jLabelem.setText("");
+        }
+        if (!un.equals("")) {
+            jLabelun.setText("");
+        }
+        if (!pass.equals("")) {
+            jLabelpass.setText("");
+        }
+        if (!conpass.equals("")) {
+            jLabelconpass.setText("");
         }
         if (flag == false) {
-            if (pass != null && conpass != null) {
+            if (pass != "" && conpass != "") {
                 if (pass.equals(conpass) == false) {
                     System.out.println("Failed");
                     jLabelpassMatch.setText("Passward doesn't match");
@@ -397,6 +396,14 @@ public class RegisterScreen extends javax.swing.JFrame {
             System.out.println("Failed");
         }
     }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -434,7 +441,6 @@ public class RegisterScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField confirmPassward;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
@@ -460,8 +466,9 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelpass;
     private javax.swing.JLabel jLabelpassMatch;
     private javax.swing.JLabel jLabelun;
+    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField lastName;
-    private javax.swing.JTextField passward;
     private javax.swing.JButton registerButton;
     private javax.swing.JTextField securityAnswer;
     private javax.swing.JTextField securityQuestion;

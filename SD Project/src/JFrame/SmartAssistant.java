@@ -85,7 +85,9 @@ public class SmartAssistant extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        RegisterScreen Rg=new RegisterScreen();
+        Rg.setVisible(true);
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     /**
