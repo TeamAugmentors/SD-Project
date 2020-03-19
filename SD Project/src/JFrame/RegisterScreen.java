@@ -14,7 +14,12 @@ public class RegisterScreen extends javax.swing.JFrame {
     /**
      * Creates new form RegisterScreen
      */
-    private String fn = null, ln = null, pass = null, conpass = null, un = null, secques = null, secans = null, em = null;
+    //private String fn = null, ln = null, pass = null, conpass = null, un = null, secques = null, secans = null, em = null;
+    private String firstName = null, lastName = null, password = null, confirmPassword = null, un = null, securityQuestion = null, securityAnswer = null, em = null;
+    
+    //Atikur please dont name vars like this, name them fully
+    //I could not understand what un and em meant. Code that your fellow developers can not understand is not conventional code  ~Sanjid
+    
     boolean flag, flagPass;
     boolean[] ara = new boolean[6];
 
@@ -40,8 +45,8 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        securityAnswer = new javax.swing.JTextField();
-        securityQuestion = new javax.swing.JTextField();
+        securityAnswerTextField = new javax.swing.JTextField();
+        securityQuestionTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -64,8 +69,8 @@ public class RegisterScreen extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         jLabelem = new javax.swing.JLabel();
         userName = new javax.swing.JTextField();
-        lastName = new javax.swing.JTextField();
-        firstName = new javax.swing.JTextField();
+        lastNameTextField = new javax.swing.JTextField();
+        firstNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -96,25 +101,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(370, 320, 240, 40);
 
-        securityAnswer.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        securityAnswer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        securityAnswer.addActionListener(new java.awt.event.ActionListener() {
+        securityAnswerTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        securityAnswerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        securityAnswerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                securityAnswerActionPerformed(evt);
+                securityAnswerTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(securityAnswer);
-        securityAnswer.setBounds(670, 660, 330, 50);
+        getContentPane().add(securityAnswerTextField);
+        securityAnswerTextField.setBounds(670, 660, 330, 50);
 
-        securityQuestion.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        securityQuestion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        securityQuestion.addActionListener(new java.awt.event.ActionListener() {
+        securityQuestionTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        securityQuestionTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        securityQuestionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                securityQuestionActionPerformed(evt);
+                securityQuestionTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(securityQuestion);
-        securityQuestion.setBounds(670, 590, 330, 50);
+        getContentPane().add(securityQuestionTextField);
+        securityQuestionTextField.setBounds(670, 590, 330, 50);
 
         jLabel7.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -270,25 +275,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(userName);
         userName.setBounds(670, 310, 330, 50);
 
-        lastName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lastName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        lastName.addActionListener(new java.awt.event.ActionListener() {
+        lastNameTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lastNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameActionPerformed(evt);
+                lastNameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(lastName);
-        lastName.setBounds(670, 240, 330, 50);
+        getContentPane().add(lastNameTextField);
+        lastNameTextField.setBounds(670, 240, 330, 50);
 
-        firstName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        firstName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        firstName.addActionListener(new java.awt.event.ActionListener() {
+        firstNameTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        firstNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameActionPerformed(evt);
+                firstNameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(firstName);
-        firstName.setBounds(670, 170, 330, 50);
+        getContentPane().add(firstNameTextField);
+        firstNameTextField.setBounds(670, 170, 330, 50);
 
         jLabel2.setFont(new java.awt.Font("Unispace", 3, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,13 +311,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameActionPerformed
+    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
 
-    }//GEN-LAST:event_firstNameActionPerformed
+    }//GEN-LAST:event_firstNameTextFieldActionPerformed
 
-    private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
+    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
 
-    }//GEN-LAST:event_lastNameActionPerformed
+    }//GEN-LAST:event_lastNameTextFieldActionPerformed
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
 
@@ -322,29 +327,29 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_emailActionPerformed
 
-    private void securityQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionActionPerformed
+    private void securityQuestionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldActionPerformed
 
-    }//GEN-LAST:event_securityQuestionActionPerformed
+    }//GEN-LAST:event_securityQuestionTextFieldActionPerformed
 
-    private void securityAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityAnswerActionPerformed
+    private void securityAnswerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityAnswerTextFieldActionPerformed
 
-    }//GEN-LAST:event_securityAnswerActionPerformed
+    }//GEN-LAST:event_securityAnswerTextFieldActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         flag = false;
-        fn = firstName.getText();
-        ln = lastName.getText();
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
         un = userName.getText();
         em = email.getText();
-        secques = securityQuestion.getText();
-        secans = securityAnswer.getText();
-        pass = jPasswordField.getText();
-        conpass = jPasswordField1.getText();
-        if (fn.equals("")) {
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if (firstNameTextField.equals("")) {
             jLabelfn.setText("Must filled");
             flag = true;
         }
-        if (ln.equals("")) {
+        if (lastNameTextField.equals("")) {
             jLabelln.setText("Must filled");
             flag = true;
         }
@@ -356,18 +361,18 @@ public class RegisterScreen extends javax.swing.JFrame {
             jLabelun.setText("Must filled");
             flag = true;
         }
-        if (pass.equals("")) {
+        if (password.equals("")) {
             jLabelpass.setText("Must filled");
             flag = true;
         }
-        if (conpass.equals("")) {
+        if (confirmPassword.equals("")) {
             jLabelconpass.setText("Must filled");
             flag = true;
         }
-        if (!fn.equals("")) {
+        if (!firstNameTextField.equals("")) {
             jLabelfn.setText("");
         }
-        if (!ln.equals("")) {
+        if (!lastNameTextField.equals("")) {
             jLabelln.setText("");
         }
         if (!em.equals("")) {
@@ -376,15 +381,15 @@ public class RegisterScreen extends javax.swing.JFrame {
         if (!un.equals("")) {
             jLabelun.setText("");
         }
-        if (!pass.equals("")) {
+        if (!password.equals("")) {
             jLabelpass.setText("");
         }
-        if (!conpass.equals("")) {
+        if (!confirmPassword.equals("")) {
             jLabelconpass.setText("");
         }
         if (flag == false) {
-            if (pass != "" && conpass != "") {
-                if (pass.equals(conpass) == false) {
+            if (password != "" && confirmPassword != "") {
+                if (password.equals(confirmPassword) == false) {
                     System.out.println("Failed");
                     jLabelpassMatch.setText("Passward doesn't match");
                 } else {
@@ -442,7 +447,7 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField email;
-    private javax.swing.JTextField firstName;
+    private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -468,10 +473,10 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelun;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField lastName;
+    private javax.swing.JTextField lastNameTextField;
     private javax.swing.JButton registerButton;
-    private javax.swing.JTextField securityAnswer;
-    private javax.swing.JTextField securityQuestion;
+    private javax.swing.JTextField securityAnswerTextField;
+    private javax.swing.JTextField securityQuestionTextField;
     private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }

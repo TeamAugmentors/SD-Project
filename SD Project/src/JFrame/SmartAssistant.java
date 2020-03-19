@@ -5,6 +5,7 @@
  */
 package JFrame;
 
+import java.awt.Color;
 import sd.project.SDProject;
 
 /**
@@ -12,7 +13,7 @@ import sd.project.SDProject;
  * @author AST
  */
 public class SmartAssistant extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form SmartAssistant
      */
@@ -21,6 +22,13 @@ public class SmartAssistant extends javax.swing.JFrame {
         
         this.setSize(1600,900);
         this.setLocationRelativeTo(null);
+        jButtonLogin.setBackground(new Color(0,0,0,0));
+        jButtonLogin.setBorderPainted(false);
+        jButtonLogin.setOpaque(false);
+        jButtonLogin.setContentAreaFilled(false);
+        jButtonLogin.setBorderPainted(false);
+        jButtonLogin.setBorder(null);
+
     }
 
     /**
@@ -32,42 +40,32 @@ public class SmartAssistant extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelWelcome = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
-        jButtonRegister = new javax.swing.JButton();
         jLabelWelcomeBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jLabelWelcome.setFont(new java.awt.Font("Viner Hand ITC", 3, 48)); // NOI18N
-        jLabelWelcome.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelWelcome.setText("Welcome");
-        getContentPane().add(jLabelWelcome);
-        jLabelWelcome.setBounds(700, 120, 220, 70);
-
+        jButtonLogin.setBackground(new java.awt.Color(0, 0, 0));
         jButtonLogin.setFont(new java.awt.Font("Viner Hand ITC", 1, 36)); // NOI18N
-        jButtonLogin.setText("Login");
+        jButtonLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/NextButton.png"))); // NOI18N
+        jButtonLogin.setBorder(null);
+        jButtonLogin.setBorderPainted(false);
+        jButtonLogin.setContentAreaFilled(false);
+        jButtonLogin.setFocusPainted(false);
+        jButtonLogin.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/NextButtonPressed.png"))); // NOI18N
+        jButtonLogin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/NextButtonRollover.png"))); // NOI18N
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLoginActionPerformed(evt);
             }
         });
         getContentPane().add(jButtonLogin);
-        jButtonLogin.setBounds(570, 730, 180, 50);
+        jButtonLogin.setBounds(890, 430, 300, 110);
 
-        jButtonRegister.setFont(new java.awt.Font("Viner Hand ITC", 1, 36)); // NOI18N
-        jButtonRegister.setText("Register");
-        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegisterActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonRegister);
-        jButtonRegister.setBounds(880, 730, 180, 50);
-
-        jLabelWelcomeBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/LoginScreen.png"))); // NOI18N
+        jLabelWelcomeBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/Alice.gif"))); // NOI18N
+        jLabelWelcomeBg.setFocusable(false);
         getContentPane().add(jLabelWelcomeBg);
         jLabelWelcomeBg.setBounds(0, 0, 1600, 900);
 
@@ -83,12 +81,6 @@ public class SmartAssistant extends javax.swing.JFrame {
         LoginScreen Lg = new LoginScreen();
         Lg.setVisible(true);
     }//GEN-LAST:event_jButtonLoginActionPerformed
-
-    private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-        dispose();
-        RegisterScreen Rg=new RegisterScreen();
-        Rg.setVisible(true);
-    }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,8 +119,6 @@ public class SmartAssistant extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
-    private javax.swing.JButton jButtonRegister;
-    private javax.swing.JLabel jLabelWelcome;
     private javax.swing.JLabel jLabelWelcomeBg;
     // End of variables declaration//GEN-END:variables
 }

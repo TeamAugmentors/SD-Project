@@ -25,7 +25,8 @@ public class SDProject {
         
         
         TextToSpeech tts = new TextToSpeech();
-        
+        //design koi
+        //frame koi
         //printing available voices
         //Voice.getAvailableVoices().stream().forEach(System.out::println);
         
