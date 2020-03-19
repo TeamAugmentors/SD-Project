@@ -25,13 +25,12 @@ public class SDProject {
         
         
         TextToSpeech tts = new TextToSpeech();
-        //design koi
-        //frame koi
+        
         //printing available voices
         //Voice.getAvailableVoices().stream().forEach(System.out::println);
         
-        //tts.setVoice("cmu-slt-hsmm");
-        //tts.speak("Welcome to the Application! Please click the button below to proceed.", 1.0f, false, false);
+        //tts.setVoice("dfki-poppy-hsmm");
+        //tts.speak("Welcome! I am Alice. Click next to proceed.", 2.0f, false, false);
     }
     
 }

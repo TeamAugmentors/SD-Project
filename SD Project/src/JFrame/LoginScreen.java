@@ -28,66 +28,76 @@ public class LoginScreen extends javax.swing.JFrame {
         this.setSize(1600,900);
         this.setLocationRelativeTo(null);
         
+        //changing exit bar background
+        jPanelExitBar.setBackground(new Color(250,250,250,20));
         
         //setting focus on exit bar to avoid focus on text fields
         //------------------
         jPanelExitBar.requestFocusInWindow();
         //------------------
 
-        //setting background color
-        jPanelExitBar.setBackground(new Color(255, 255, 255, 20));
-        // jTextFieldUser.setBackground(new Color(255,255,255,200));
-        // jPasswordFieldPass.setBackground(new Color(255,255,255,200));
-       
         //setting Hints in email and password fields
         
         //---------------------------------------------------------------
         
-        jEmailField.setText("Email"); //initializing email and password strings
+        jLabelEmail.setText("Email"); //initializing email and password strings
         
-        jPasswordField.setText("Password");
+        jLabelPass.setText("Password");
         
         //Listening if the user has clicked on email or password fields
         
         jEmailField.addFocusListener(new FocusListener() {
 
-            
+             String email = "";
+             
             @Override
             public void focusGained(FocusEvent e) {
+                
                 //If clicked, changing color of the text to complete white
-                jEmailField.setForeground(new Color(255,255,255));
-                if (jEmailField.getText().equals("Email"))
-                    jEmailField.setText("");
+                jLabelEmail.setForeground(new Color(255,255,255));
+                email = jEmailField.getText();
+                
+                if (jLabelEmail.getText().equals("Email") || !email.isEmpty())
+                    jLabelEmail.setText("");
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (jEmailField.getText().equals("")){
-                    jEmailField.setText("Email");
+                
+                email = jEmailField.getText();
+                
+                if (jLabelEmail.getText().equals("") && email.isEmpty()){
+                    jLabelEmail.setText("Email");
                     //if deselected and field is empty, changing color back to grey
-                    jEmailField.setForeground(new Color(120,120,120));
+                    jLabelEmail.setForeground(new Color(120,120,120));
                 }
             }
         });
         jPasswordField.addFocusListener(new FocusListener() {
 
+            String pass = "";
             
             @Override
             public void focusGained(FocusEvent e) {
                 
                 //If clicked, changing color of the text to complete white
-                jPasswordField.setForeground(new Color(255,255,255));
-                if (jPasswordField.getText().equals("Password"))
-                    jPasswordField.setText("");
+                jLabelPass.setForeground(new Color(255,255,255));
+                pass = jPasswordField.getText();
+                
+                if (jLabelPass.getText().equals("Password") || !pass.isEmpty())
+                    jLabelPass.setText("");
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (jPasswordField.getText().equals("")){
-                    jPasswordField.setText("Password");
+                
+                pass = jPasswordField.getText();
+                
+                if (jLabelPass.getText().equals("") && pass.isEmpty()){
+                    jLabelPass.setText("Password");
                     
                     //if deselected and field is empty, changing color back to grey
-                    jPasswordField.setForeground(new Color(120,120,120));
+                    jLabelPass.setForeground(new Color(120,120,120));
                 }
             }
         });
@@ -107,10 +117,14 @@ public class LoginScreen extends javax.swing.JFrame {
         jPanelExitBar = new javax.swing.JPanel();
         jLabelLoginExit = new javax.swing.JLabel();
         jLabelLoginMinimize = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
         jEmailField = new javax.swing.JTextField();
-        jPasswordField = new javax.swing.JTextField();
+        jLabelPass = new javax.swing.JLabel();
+        jPasswordField = new javax.swing.JPasswordField();
         jButtonSignup = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
+        jLabelEmailWarning = new javax.swing.JLabel();
+        jLabelPassWarning = new javax.swing.JLabel();
         jLabelLoginPanelBackground = new javax.swing.JLabel();
         jLabelLoginBg = new javax.swing.JLabel();
 
@@ -176,6 +190,11 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jPanelExitBar);
         jPanelExitBar.setBounds(0, 0, 1600, 70);
 
+        jLabelEmail.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelEmail.setForeground(new java.awt.Color(120, 120, 120));
+        getContentPane().add(jLabelEmail);
+        jLabelEmail.setBounds(610, 280, 380, 90);
+
         jEmailField.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jEmailField.setForeground(new java.awt.Color(120, 120, 120));
         jEmailField.setToolTipText("");
@@ -189,16 +208,15 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jEmailField);
         jEmailField.setBounds(610, 280, 380, 90);
 
-        jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
+        jLabelPass.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelPass.setForeground(new java.awt.Color(120, 120, 120));
+        getContentPane().add(jLabelPass);
+        jLabelPass.setBounds(610, 420, 380, 80);
+
+        jPasswordField.setBackground(new java.awt.Color(38, 15, 48));
+        jPasswordField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(120, 120, 120));
-        jPasswordField.setToolTipText("");
         jPasswordField.setBorder(null);
-        jPasswordField.setOpaque(false);
-        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldActionPerformed(evt);
-            }
-        });
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(610, 420, 380, 80);
 
@@ -224,15 +242,29 @@ public class LoginScreen extends javax.swing.JFrame {
         jButtonLogin.setFocusPainted(false);
         jButtonLogin.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/loginButtonPressed.png"))); // NOI18N
         jButtonLogin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/loginButtonRollover.png"))); // NOI18N
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonLogin);
         jButtonLogin.setBounds(650, 530, 290, 120);
+
+        jLabelEmailWarning.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabelEmailWarning.setForeground(new java.awt.Color(204, 0, 51));
+        getContentPane().add(jLabelEmailWarning);
+        jLabelEmailWarning.setBounds(590, 370, 220, 20);
+
+        jLabelPassWarning.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabelPassWarning.setForeground(new java.awt.Color(204, 0, 51));
+        getContentPane().add(jLabelPassWarning);
+        jLabelPassWarning.setBounds(590, 510, 220, 20);
 
         jLabelLoginPanelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/LoginPanelBg.png"))); // NOI18N
         getContentPane().add(jLabelLoginPanelBackground);
         jLabelLoginPanelBackground.setBounds(520, 100, 540, 720);
 
         jLabelLoginBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/sd-gif.gif"))); // NOI18N
-        jLabelLoginBg.setText("jLabel4");
         getContentPane().add(jLabelLoginBg);
         jLabelLoginBg.setBounds(0, 0, 1620, 900);
 
@@ -243,7 +275,7 @@ public class LoginScreen extends javax.swing.JFrame {
         //closing window
         System.exit(0);
     }//GEN-LAST:event_jLabelLoginExitMouseClicked
-//ZOOM OUT HOI NA KEN
+
     private void jLabelLoginMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMinimizeMouseClicked
         //minimizing window
         this.setState(JFrame.ICONIFIED);
@@ -269,13 +301,46 @@ public class LoginScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jEmailFieldActionPerformed
 
-    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldActionPerformed
-
     private void jButtonSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignupActionPerformed
-        // TODO add your handling code here:
+        
+        //moving to register screen
+        RegisterScreen rg = new RegisterScreen();
+        rg.setVisible(true);
     }//GEN-LAST:event_jButtonSignupActionPerformed
+
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        
+        
+        String email = "" , pass = "";
+        email = jEmailField.getText();
+        pass = jPasswordField.getText();
+        
+        //if the user does not fill up either email or password
+        if(email.isEmpty()|| pass.isEmpty())
+        {
+            if(email.isEmpty())
+            {
+                jLabelEmailWarning.setText("Field can not be empty");
+            }
+            else
+            {
+                jLabelEmailWarning.setText("");
+            }
+            if(pass.isEmpty())
+            {
+                jLabelPassWarning.setText("Field can not be empty");
+            }
+            else
+            {
+                jLabelPassWarning.setText("");
+            }
+        }
+        else
+        {
+            jLabelEmailWarning.setText("");
+            jLabelPassWarning.setText("");
+        }
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,11 +381,15 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonSignup;
     private javax.swing.JTextField jEmailField;
+    private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelEmailWarning;
     private javax.swing.JLabel jLabelLoginBg;
     private javax.swing.JLabel jLabelLoginExit;
     private javax.swing.JLabel jLabelLoginMinimize;
     private javax.swing.JLabel jLabelLoginPanelBackground;
+    private javax.swing.JLabel jLabelPass;
+    private javax.swing.JLabel jLabelPassWarning;
     private javax.swing.JPanel jPanelExitBar;
-    private javax.swing.JTextField jPasswordField;
+    private javax.swing.JPasswordField jPasswordField;
     // End of variables declaration//GEN-END:variables
 }
