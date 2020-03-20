@@ -14,21 +14,14 @@ public class RegisterScreen extends javax.swing.JFrame {
     /**
      * Creates new form RegisterScreen
      */
-    //private String fn = null, ln = null, pass = null, conpass = null, un = null, secques = null, secans = null, em = null;
     private String firstName = null, lastName = null, password = null, confirmPassword = null, un = null, securityQuestion = null, securityAnswer = null, em = null;
-    
-    //Atikur please dont name vars like this, name them fully
-    //I could not understand what un and em meant. Code that your fellow developers can not understand is not conventional code  ~Sanjid
-    
-    
-    /*** TO DO - Make the sign up panel 450 x 939, and do the same as you did for the login (give hints) ***/
     
     boolean flag, flagPass;
     boolean[] ara = new boolean[6];
 
     public RegisterScreen() {
         initComponents();
-        this.setSize(1600, 900);
+        this.setSize(450, 939);
         this.setLocationRelativeTo(null);
         for (int i = 0; i < 6; i++) {
             ara[i] = false;
