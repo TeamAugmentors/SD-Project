@@ -20,6 +20,9 @@ public class RegisterScreen extends javax.swing.JFrame {
     //Atikur please dont name vars like this, name them fully
     //I could not understand what un and em meant. Code that your fellow developers can not understand is not conventional code  ~Sanjid
     
+    
+    /*** TO DO - Make the sign up panel 450 x 939, and do the same as you did for the login (give hints) ***/
+    
     boolean flag, flagPass;
     boolean[] ara = new boolean[6];
 
@@ -41,272 +44,134 @@ public class RegisterScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         securityAnswerTextField = new javax.swing.JTextField();
         securityQuestionTextField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabelconpass = new javax.swing.JLabel();
-        jLabelpass = new javax.swing.JLabel();
-        jLabelun = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jLabelpassMatch = new javax.swing.JLabel();
-        jLabelfn = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
-        jLabelln = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
-        jLabelem = new javax.swing.JLabel();
         userName = new javax.swing.JTextField();
         lastNameTextField = new javax.swing.JTextField();
         firstNameTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        SignupPanelBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(378, 1000));
         getContentPane().setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Security Answer");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(310, 670, 350, 40);
-
-        jLabel3.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("First Name");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(360, 180, 240, 40);
-
-        jLabel5.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Last Name");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(370, 250, 240, 40);
-
-        jLabel6.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("User Name");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(370, 320, 240, 40);
 
         securityAnswerTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         securityAnswerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        securityAnswerTextField.setBorder(null);
+        securityAnswerTextField.setOpaque(false);
         securityAnswerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securityAnswerTextFieldActionPerformed(evt);
             }
         });
         getContentPane().add(securityAnswerTextField);
-        securityAnswerTextField.setBounds(670, 660, 330, 50);
+        securityAnswerTextField.setBounds(70, 680, 330, 40);
 
         securityQuestionTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         securityQuestionTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        securityQuestionTextField.setBorder(null);
+        securityQuestionTextField.setOpaque(false);
         securityQuestionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securityQuestionTextFieldActionPerformed(evt);
             }
         });
         getContentPane().add(securityQuestionTextField);
-        securityQuestionTextField.setBounds(670, 590, 330, 50);
-
-        jLabel7.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("E-Mail");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(400, 390, 240, 40);
-
-        jLabel8.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Passward");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(370, 460, 240, 40);
-
-        jLabel9.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Confirm Passward");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(300, 520, 360, 50);
-
-        jLabel10.setFont(new java.awt.Font("Unispace", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Security Question");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(280, 600, 380, 40);
-
-        jLabel11.setFont(new java.awt.Font("Siyam Rupali", 1, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("*");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(1010, 530, 20, 30);
-
-        jLabel12.setFont(new java.awt.Font("Siyam Rupali", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("*");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(1010, 180, 20, 30);
-
-        jLabel13.setFont(new java.awt.Font("Siyam Rupali", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("*");
-        getContentPane().add(jLabel13);
-        jLabel13.setBounds(1010, 250, 20, 30);
-
-        jLabel14.setFont(new java.awt.Font("Siyam Rupali", 1, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("*");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(1010, 320, 20, 30);
-
-        jLabel15.setFont(new java.awt.Font("Siyam Rupali", 1, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("*");
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(1010, 390, 20, 30);
-
-        jLabel16.setFont(new java.awt.Font("Siyam Rupali", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("*");
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(1010, 460, 20, 30);
-
-        jLabelconpass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelconpass.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelconpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelconpass);
-        jLabelconpass.setBounds(1070, 520, 140, 30);
-
-        jLabelpass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelpass.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelpass);
-        jLabelpass.setBounds(1070, 450, 140, 30);
-
-        jLabelun.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelun.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelun.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelun);
-        jLabelun.setBounds(1070, 310, 140, 30);
+        securityQuestionTextField.setBounds(70, 600, 330, 40);
 
         registerButton.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
-        registerButton.setText("OK");
+        registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/signupButton.png"))); // NOI18N
+        registerButton.setBorder(null);
+        registerButton.setBorderPainted(false);
+        registerButton.setContentAreaFilled(false);
+        registerButton.setFocusPainted(false);
+        registerButton.setFocusable(false);
+        registerButton.setLabel("");
+        registerButton.setOpaque(false);
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
             }
         });
         getContentPane().add(registerButton);
-        registerButton.setBounds(700, 770, 170, 50);
+        registerButton.setBounds(90, 760, 280, 130);
+        registerButton.getAccessibleContext().setAccessibleName("");
 
+        jPasswordField1.setBorder(null);
+        jPasswordField1.setOpaque(false);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(670, 520, 330, 50);
+        jPasswordField1.setBounds(70, 520, 330, 40);
 
-        jLabelpassMatch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelpassMatch.setForeground(new java.awt.Color(255, 0, 0));
-        jLabelpassMatch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelpassMatch);
-        jLabelpassMatch.setBounds(650, 730, 290, 30);
-
-        jLabelfn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelfn.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelfn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelfn);
-        jLabelfn.setBounds(1070, 174, 140, 30);
-
+        jPasswordField.setBorder(null);
+        jPasswordField.setOpaque(false);
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldActionPerformed(evt);
             }
         });
         getContentPane().add(jPasswordField);
-        jPasswordField.setBounds(670, 450, 330, 50);
-
-        jLabelln.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelln.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelln.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelln);
-        jLabelln.setBounds(1070, 240, 140, 30);
+        jPasswordField.setBounds(70, 440, 330, 40);
 
         email.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        email.setBorder(null);
+        email.setOpaque(false);
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
         getContentPane().add(email);
-        email.setBounds(670, 380, 330, 50);
-
-        jLabelem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelem.setForeground(new java.awt.Color(255, 51, 51));
-        jLabelem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabelem);
-        jLabelem.setBounds(1070, 380, 140, 30);
+        email.setBounds(70, 360, 330, 40);
 
         userName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         userName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        userName.setBorder(null);
+        userName.setOpaque(false);
         userName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userNameActionPerformed(evt);
             }
         });
         getContentPane().add(userName);
-        userName.setBounds(670, 310, 330, 50);
+        userName.setBounds(70, 280, 330, 40);
 
         lastNameTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lastNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastNameTextField.setBorder(null);
+        lastNameTextField.setOpaque(false);
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTextFieldActionPerformed(evt);
             }
         });
         getContentPane().add(lastNameTextField);
-        lastNameTextField.setBounds(670, 240, 330, 50);
+        lastNameTextField.setBounds(70, 200, 330, 40);
 
-        firstNameTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        firstNameTextField.setFont(new java.awt.Font("Poppins Light", 1, 36)); // NOI18N
         firstNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        firstNameTextField.setBorder(null);
+        firstNameTextField.setOpaque(false);
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTextFieldActionPerformed(evt);
             }
         });
         getContentPane().add(firstNameTextField);
-        firstNameTextField.setBounds(670, 170, 330, 50);
+        firstNameTextField.setBounds(70, 120, 330, 40);
 
-        jLabel2.setFont(new java.awt.Font("Unispace", 3, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("REGISTER");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(670, 50, 300, 80);
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/JFrame/LoginScreen.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1630, 900);
-        jLabel1.getAccessibleContext().setAccessibleName("jLebel1");
+        SignupPanelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/signupPanelBg.png"))); // NOI18N
+        getContentPane().add(SignupPanelBg);
+        SignupPanelBg.setBounds(0, 0, 450, 939);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -446,31 +311,9 @@ public class RegisterScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SignupPanelBg;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstNameTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelconpass;
-    private javax.swing.JLabel jLabelem;
-    private javax.swing.JLabel jLabelfn;
-    private javax.swing.JLabel jLabelln;
-    private javax.swing.JLabel jLabelpass;
-    private javax.swing.JLabel jLabelpassMatch;
-    private javax.swing.JLabel jLabelun;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField lastNameTextField;

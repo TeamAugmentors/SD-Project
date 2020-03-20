@@ -190,7 +190,7 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jPanelExitBar);
         jPanelExitBar.setBounds(0, 0, 1600, 70);
 
-        jLabelEmail.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelEmail.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(120, 120, 120));
         getContentPane().add(jLabelEmail);
         jLabelEmail.setBounds(610, 280, 380, 90);
@@ -208,7 +208,7 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jEmailField);
         jEmailField.setBounds(610, 280, 380, 90);
 
-        jLabelPass.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelPass.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jLabelPass.setForeground(new java.awt.Color(120, 120, 120));
         getContentPane().add(jLabelPass);
         jLabelPass.setBounds(610, 420, 380, 80);
