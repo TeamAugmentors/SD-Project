@@ -196,7 +196,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabelEmail.setBounds(610, 280, 380, 90);
 
         jEmailField.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
-        jEmailField.setForeground(new java.awt.Color(120, 120, 120));
+        jEmailField.setForeground(new java.awt.Color(250, 250, 250));
         jEmailField.setToolTipText("");
         jEmailField.setBorder(null);
         jEmailField.setOpaque(false);
@@ -215,7 +215,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
         jPasswordField.setBackground(new java.awt.Color(38, 15, 48));
         jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
-        jPasswordField.setForeground(new java.awt.Color(120, 120, 120));
+        jPasswordField.setForeground(new java.awt.Color(250, 250, 250));
         jPasswordField.setBorder(null);
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(610, 420, 380, 80);
