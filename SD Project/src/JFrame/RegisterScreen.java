@@ -14,7 +14,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     /**
      * Creates new form RegisterScreen
      */
-    private String firstName = null, lastName = null, password = null, confirmPassword = null, userName = null, securityQuestion = null, securityAnswer = null, email = null;
+    private String firstName = "", lastName = "", password = "", confirmPassword = "", userName = "", securityQuestion = "", securityAnswer = "", email = "";
     
     boolean flag, flagPass;
     boolean[] ara = new boolean[6];
@@ -34,22 +34,34 @@ public class RegisterScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelSecurityAnswer = new javax.swing.JLabel();
         securityAnswerTextField = new javax.swing.JTextField();
-        jLabelSecurityQuestion = new javax.swing.JLabel();
+        jLabelSecurityAnswer = new javax.swing.JLabel();
         securityQuestionTextField = new javax.swing.JTextField();
+        jLabelSecurityQuestion = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
-        jLabelConfirmPassward = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jLabelPassward = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        confirmPasswordWarning = new javax.swing.JLabel();
+        jLabelConfirmPassword = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
-        jLabelemail = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        passwordWarning = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
         emailField = new javax.swing.JTextField();
-        jLabelUserName = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        emailWarning = new javax.swing.JLabel();
+        jLabelemail = new javax.swing.JLabel();
         userNameField = new javax.swing.JTextField();
-        jLabelLastName = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        userNameWarning = new javax.swing.JLabel();
+        jLabelUserName = new javax.swing.JLabel();
         lastNameTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        lastNameWarning = new javax.swing.JLabel();
+        jLabelLastName = new javax.swing.JLabel();
         firstNameTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        firstNameWarning = new javax.swing.JLabel();
         jLabelFirstName = new javax.swing.JLabel();
         SignupPanelBg = new javax.swing.JLabel();
 
@@ -57,17 +69,16 @@ public class RegisterScreen extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(378, 1000));
         getContentPane().setLayout(null);
 
-        jLabelSecurityAnswer.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelSecurityAnswer.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelSecurityAnswer.setText("Security Answer");
-        getContentPane().add(jLabelSecurityAnswer);
-        jLabelSecurityAnswer.setBounds(70, 670, 330, 60);
-
         securityAnswerTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         securityAnswerTextField.setForeground(new java.awt.Color(255, 255, 255));
         securityAnswerTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         securityAnswerTextField.setBorder(null);
         securityAnswerTextField.setOpaque(false);
+        securityAnswerTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                securityAnswerTextFieldMouseClicked(evt);
+            }
+        });
         securityAnswerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securityAnswerTextFieldActionPerformed(evt);
@@ -76,17 +87,22 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(securityAnswerTextField);
         securityAnswerTextField.setBounds(70, 680, 330, 40);
 
-        jLabelSecurityQuestion.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelSecurityQuestion.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelSecurityQuestion.setText("Security Question");
-        getContentPane().add(jLabelSecurityQuestion);
-        jLabelSecurityQuestion.setBounds(70, 590, 330, 60);
+        jLabelSecurityAnswer.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelSecurityAnswer.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSecurityAnswer.setText("Security Answer");
+        getContentPane().add(jLabelSecurityAnswer);
+        jLabelSecurityAnswer.setBounds(70, 670, 330, 60);
 
         securityQuestionTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         securityQuestionTextField.setForeground(new java.awt.Color(255, 255, 255));
         securityQuestionTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         securityQuestionTextField.setBorder(null);
         securityQuestionTextField.setOpaque(false);
+        securityQuestionTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                securityQuestionTextFieldMouseClicked(evt);
+            }
+        });
         securityQuestionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securityQuestionTextFieldActionPerformed(evt);
@@ -94,6 +110,12 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(securityQuestionTextField);
         securityQuestionTextField.setBounds(70, 600, 330, 40);
+
+        jLabelSecurityQuestion.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelSecurityQuestion.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSecurityQuestion.setText("Security Question");
+        getContentPane().add(jLabelSecurityQuestion);
+        jLabelSecurityQuestion.setBounds(70, 590, 330, 60);
 
         registerButton.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/signupButton.png"))); // NOI18N
@@ -110,17 +132,16 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(registerButton);
         registerButton.setBounds(90, 760, 280, 130);
 
-        jLabelConfirmPassward.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelConfirmPassward.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelConfirmPassward.setText("Confirm Passward");
-        getContentPane().add(jLabelConfirmPassward);
-        jLabelConfirmPassward.setBounds(70, 510, 330, 60);
-
         jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPasswordField1.setBorder(null);
         jPasswordField1.setOpaque(false);
+        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordField1MouseClicked(evt);
+            }
+        });
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -129,17 +150,33 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(70, 520, 330, 40);
 
-        jLabelPassward.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelPassward.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelPassward.setText("Passward");
-        getContentPane().add(jLabelPassward);
-        jLabelPassward.setBounds(70, 430, 330, 60);
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("*");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(420, 530, 34, 30);
+
+        confirmPasswordWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        confirmPasswordWarning.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(confirmPasswordWarning);
+        confirmPasswordWarning.setBounds(70, 570, 230, 20);
+
+        jLabelConfirmPassword.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelConfirmPassword.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelConfirmPassword.setText("Confirm Password");
+        getContentPane().add(jLabelConfirmPassword);
+        jLabelConfirmPassword.setBounds(70, 510, 330, 60);
 
         jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPasswordField.setBorder(null);
         jPasswordField.setOpaque(false);
+        jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordFieldMouseClicked(evt);
+            }
+        });
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldActionPerformed(evt);
@@ -148,17 +185,33 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(70, 440, 330, 40);
 
-        jLabelemail.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelemail.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelemail.setText("E-Mail");
-        getContentPane().add(jLabelemail);
-        jLabelemail.setBounds(70, 350, 330, 60);
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("*");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(420, 450, 34, 30);
+
+        passwordWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        passwordWarning.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(passwordWarning);
+        passwordWarning.setBounds(70, 490, 230, 20);
+
+        jLabelPassword.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelPassword.setText("Password");
+        getContentPane().add(jLabelPassword);
+        jLabelPassword.setBounds(70, 430, 330, 60);
 
         emailField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         emailField.setForeground(new java.awt.Color(255, 255, 255));
         emailField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         emailField.setBorder(null);
         emailField.setOpaque(false);
+        emailField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                emailFieldMouseClicked(evt);
+            }
+        });
         emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailFieldActionPerformed(evt);
@@ -167,17 +220,33 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(emailField);
         emailField.setBounds(70, 360, 330, 40);
 
-        jLabelUserName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelUserName.setText("User Name");
-        getContentPane().add(jLabelUserName);
-        jLabelUserName.setBounds(70, 270, 330, 60);
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("*");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(420, 370, 34, 30);
+
+        emailWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        emailWarning.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(emailWarning);
+        emailWarning.setBounds(70, 410, 230, 20);
+
+        jLabelemail.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelemail.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelemail.setText("E-Mail");
+        getContentPane().add(jLabelemail);
+        jLabelemail.setBounds(70, 350, 330, 60);
 
         userNameField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         userNameField.setForeground(new java.awt.Color(255, 255, 255));
         userNameField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         userNameField.setBorder(null);
         userNameField.setOpaque(false);
+        userNameField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userNameFieldMouseClicked(evt);
+            }
+        });
         userNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userNameFieldActionPerformed(evt);
@@ -186,17 +255,33 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(userNameField);
         userNameField.setBounds(70, 280, 330, 40);
 
-        jLabelLastName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelLastName.setText("Last Name");
-        getContentPane().add(jLabelLastName);
-        jLabelLastName.setBounds(70, 190, 330, 60);
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("*");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(420, 290, 34, 30);
+
+        userNameWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        userNameWarning.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(userNameWarning);
+        userNameWarning.setBounds(70, 330, 230, 20);
+
+        jLabelUserName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelUserName.setText("User Name");
+        getContentPane().add(jLabelUserName);
+        jLabelUserName.setBounds(70, 270, 330, 60);
 
         lastNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(255, 255, 255));
         lastNameTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         lastNameTextField.setBorder(null);
         lastNameTextField.setOpaque(false);
+        lastNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lastNameTextFieldMouseClicked(evt);
+            }
+        });
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTextFieldActionPerformed(evt);
@@ -205,11 +290,33 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(lastNameTextField);
         lastNameTextField.setBounds(70, 200, 330, 40);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("*");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(420, 210, 34, 30);
+
+        lastNameWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        lastNameWarning.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(lastNameWarning);
+        lastNameWarning.setBounds(70, 250, 230, 20);
+
+        jLabelLastName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelLastName.setText("Last Name");
+        getContentPane().add(jLabelLastName);
+        jLabelLastName.setBounds(70, 190, 330, 60);
+
         firstNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         firstNameTextField.setForeground(new java.awt.Color(255, 255, 255));
         firstNameTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         firstNameTextField.setBorder(null);
         firstNameTextField.setOpaque(false);
+        firstNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                firstNameTextFieldMouseClicked(evt);
+            }
+        });
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTextFieldActionPerformed(evt);
@@ -217,6 +324,17 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(firstNameTextField);
         firstNameTextField.setBounds(70, 120, 330, 40);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("*");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(420, 130, 34, 30);
+
+        firstNameWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        firstNameWarning.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(firstNameWarning);
+        firstNameWarning.setBounds(70, 170, 230, 20);
 
         jLabelFirstName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(120, 120, 120));
@@ -236,26 +354,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
-            jLabelFirstName.setText("");
-    }//GEN-LAST:event_firstNameTextFieldActionPerformed
-
-    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
-
-    }//GEN-LAST:event_lastNameTextFieldActionPerformed
-
-    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
-
-    }//GEN-LAST:event_userNameFieldActionPerformed
-
-    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
-
-    }//GEN-LAST:event_emailFieldActionPerformed
-
-    private void securityQuestionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldActionPerformed
-
-    }//GEN-LAST:event_securityQuestionTextFieldActionPerformed
-
     private void securityAnswerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityAnswerTextFieldActionPerformed
 
     }//GEN-LAST:event_securityAnswerTextFieldActionPerformed
@@ -270,23 +368,265 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        //if(!firstName.isEmpty())
-            //jLabelFirstName.setText("");
+        if(firstName.equals(""))
+            firstNameWarning.setText("Field cannot be empty");
+        if(lastName.equals(""))
+            lastNameWarning.setText("Field cannot be empty");
+        if(userName.equals(""))
+            userNameWarning.setText("Field cannot be empty");
+        if(email.equals(""))
+            emailWarning.setText("Field cannot be empty");
+        if(password.equals(""))
+            passwordWarning.setText("Field cannot be empty");
+        if(confirmPassword.equals(""))
+            confirmPasswordWarning.setText("Field cannot be empty");
             
+        if(!firstName.equals(""))
+            firstNameWarning.setText("");
+        if(!lastName.equals(""))
+            lastNameWarning.setText("");
+        if(!userName.equals(""))
+            userNameWarning.setText("");
+        if(!email.equals(""))
+            emailWarning.setText("");
+        if(!password.equals(""))
+            passwordWarning.setText("");
+        if(!confirmPassword.equals(""))
+            confirmPasswordWarning.setText("");
         
     }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+    private void jLabelFirstNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFirstNameMouseClicked
+        
+    }//GEN-LAST:event_jLabelFirstNameMouseClicked
 
-    }//GEN-LAST:event_jPasswordFieldActionPerformed
+    private void firstNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMouseClicked
+        jLabelFirstName.setText("");
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_firstNameTextFieldMouseClicked
+
+    private void lastNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lastNameTextFieldMouseClicked
+        jLabelLastName.setText("");
+        firstName = firstNameTextField.getText();
+        userName = userNameField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_lastNameTextFieldMouseClicked
+
+    private void userNameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameFieldMouseClicked
+        jLabelUserName.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_userNameFieldMouseClicked
+
+    private void emailFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailFieldMouseClicked
+        jLabelemail.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_emailFieldMouseClicked
+
+    private void jPasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMouseClicked
+        jLabelPassword.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        email = emailField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_jPasswordFieldMouseClicked
+
+    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+        jLabelConfirmPassword.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        email = emailField.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_jPasswordField1MouseClicked
+
+    private void securityQuestionTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldMouseClicked
+        jLabelSecurityQuestion.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        email = emailField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_securityQuestionTextFieldMouseClicked
+
+    private void securityAnswerTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_securityAnswerTextFieldMouseClicked
+        jLabelSecurityAnswer.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        email = emailField.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+    }//GEN-LAST:event_securityAnswerTextFieldMouseClicked
+
+    private void securityQuestionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_securityQuestionTextFieldActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jLabelFirstNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFirstNameMouseClicked
-        
-    }//GEN-LAST:event_jLabelFirstNameMouseClicked
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailFieldActionPerformed
+
+    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameFieldActionPerformed
+
+    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameTextFieldActionPerformed
+
+    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,12 +665,21 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SignupPanelBg;
+    private javax.swing.JLabel confirmPasswordWarning;
     private javax.swing.JTextField emailField;
+    private javax.swing.JLabel emailWarning;
     private javax.swing.JTextField firstNameTextField;
-    private javax.swing.JLabel jLabelConfirmPassward;
+    private javax.swing.JLabel firstNameWarning;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelConfirmPassword;
     private javax.swing.JLabel jLabelFirstName;
     private javax.swing.JLabel jLabelLastName;
-    private javax.swing.JLabel jLabelPassward;
+    private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelSecurityAnswer;
     private javax.swing.JLabel jLabelSecurityQuestion;
     private javax.swing.JLabel jLabelUserName;
@@ -338,9 +687,12 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField lastNameTextField;
+    private javax.swing.JLabel lastNameWarning;
+    private javax.swing.JLabel passwordWarning;
     private javax.swing.JButton registerButton;
     private javax.swing.JTextField securityAnswerTextField;
     private javax.swing.JTextField securityQuestionTextField;
     private javax.swing.JTextField userNameField;
+    private javax.swing.JLabel userNameWarning;
     // End of variables declaration//GEN-END:variables
 }
