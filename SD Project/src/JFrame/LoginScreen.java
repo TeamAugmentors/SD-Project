@@ -5,6 +5,7 @@
  */
 package JFrame;
 
+import Model.TextToSpeech;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -303,9 +304,15 @@ public class LoginScreen extends javax.swing.JFrame {
 
     private void jButtonSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignupActionPerformed
         
-        //moving to register screen
+        //opening register screen
         RegisterScreen rg = new RegisterScreen();
         rg.setVisible(true);
+        
+        //voice assistant
+        TextToSpeech tts = new TextToSpeech();
+        
+        //tts.setVoice("dfki-poppy-hsmm");
+        //tts.speak("The star fields must have to be filled up",2.0f,false,false);
     }//GEN-LAST:event_jButtonSignupActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
