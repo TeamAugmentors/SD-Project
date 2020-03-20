@@ -14,7 +14,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     /**
      * Creates new form RegisterScreen
      */
-    private String firstName = null, lastName = null, password = null, confirmPassword = null, un = null, securityQuestion = null, securityAnswer = null, em = null;
+    private String firstName = null, lastName = null, password = null, confirmPassword = null, userName = null, securityQuestion = null, securityAnswer = null, email = null;
     
     boolean flag, flagPass;
     boolean[] ara = new boolean[6];
@@ -34,20 +34,34 @@ public class RegisterScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelSecurityAnswer = new javax.swing.JLabel();
         securityAnswerTextField = new javax.swing.JTextField();
+        jLabelSecurityQuestion = new javax.swing.JLabel();
         securityQuestionTextField = new javax.swing.JTextField();
         registerButton = new javax.swing.JButton();
+        jLabelConfirmPassward = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabelPassward = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
-        email = new javax.swing.JTextField();
-        userName = new javax.swing.JTextField();
+        jLabelemail = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
+        jLabelUserName = new javax.swing.JLabel();
+        userNameField = new javax.swing.JTextField();
+        jLabelLastName = new javax.swing.JLabel();
         lastNameTextField = new javax.swing.JTextField();
         firstNameTextField = new javax.swing.JTextField();
+        jLabelFirstName = new javax.swing.JLabel();
         SignupPanelBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(378, 1000));
         getContentPane().setLayout(null);
+
+        jLabelSecurityAnswer.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelSecurityAnswer.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSecurityAnswer.setText("Security Answer");
+        getContentPane().add(jLabelSecurityAnswer);
+        jLabelSecurityAnswer.setBounds(70, 670, 330, 60);
 
         securityAnswerTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         securityAnswerTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -61,6 +75,12 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(securityAnswerTextField);
         securityAnswerTextField.setBounds(70, 680, 330, 40);
+
+        jLabelSecurityQuestion.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelSecurityQuestion.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSecurityQuestion.setText("Security Question");
+        getContentPane().add(jLabelSecurityQuestion);
+        jLabelSecurityQuestion.setBounds(70, 590, 330, 60);
 
         securityQuestionTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         securityQuestionTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,6 +110,12 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(registerButton);
         registerButton.setBounds(90, 760, 280, 130);
 
+        jLabelConfirmPassward.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelConfirmPassward.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelConfirmPassward.setText("Confirm Passward");
+        getContentPane().add(jLabelConfirmPassward);
+        jLabelConfirmPassward.setBounds(70, 510, 330, 60);
+
         jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -102,6 +128,12 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(70, 520, 330, 40);
+
+        jLabelPassward.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelPassward.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelPassward.setText("Passward");
+        getContentPane().add(jLabelPassward);
+        jLabelPassward.setBounds(70, 430, 330, 60);
 
         jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,31 +148,49 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(70, 440, 330, 40);
 
-        email.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        email.setForeground(new java.awt.Color(255, 255, 255));
-        email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        email.setBorder(null);
-        email.setOpaque(false);
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(email);
-        email.setBounds(70, 360, 330, 40);
+        jLabelemail.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelemail.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelemail.setText("E-Mail");
+        getContentPane().add(jLabelemail);
+        jLabelemail.setBounds(70, 350, 330, 60);
 
-        userName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        userName.setForeground(new java.awt.Color(255, 255, 255));
-        userName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        userName.setBorder(null);
-        userName.setOpaque(false);
-        userName.addActionListener(new java.awt.event.ActionListener() {
+        emailField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        emailField.setForeground(new java.awt.Color(255, 255, 255));
+        emailField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        emailField.setBorder(null);
+        emailField.setOpaque(false);
+        emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameActionPerformed(evt);
+                emailFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(userName);
-        userName.setBounds(70, 280, 330, 40);
+        getContentPane().add(emailField);
+        emailField.setBounds(70, 360, 330, 40);
+
+        jLabelUserName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelUserName.setText("User Name");
+        getContentPane().add(jLabelUserName);
+        jLabelUserName.setBounds(70, 270, 330, 60);
+
+        userNameField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        userNameField.setForeground(new java.awt.Color(255, 255, 255));
+        userNameField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        userNameField.setBorder(null);
+        userNameField.setOpaque(false);
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(userNameField);
+        userNameField.setBounds(70, 280, 330, 40);
+
+        jLabelLastName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelLastName.setText("Last Name");
+        getContentPane().add(jLabelLastName);
+        jLabelLastName.setBounds(70, 190, 330, 60);
 
         lastNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,6 +218,17 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(firstNameTextField);
         firstNameTextField.setBounds(70, 120, 330, 40);
 
+        jLabelFirstName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelFirstName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelFirstName.setText("First Name");
+        jLabelFirstName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelFirstNameMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabelFirstName);
+        jLabelFirstName.setBounds(70, 110, 330, 60);
+
         SignupPanelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/signupPanelBg.png"))); // NOI18N
         getContentPane().add(SignupPanelBg);
         SignupPanelBg.setBounds(0, 0, 450, 939);
@@ -176,20 +237,20 @@ public class RegisterScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
-
+            jLabelFirstName.setText("");
     }//GEN-LAST:event_firstNameTextFieldActionPerformed
 
     private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
 
     }//GEN-LAST:event_lastNameTextFieldActionPerformed
 
-    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
+    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
 
-    }//GEN-LAST:event_userNameActionPerformed
+    }//GEN-LAST:event_userNameFieldActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
 
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_emailFieldActionPerformed
 
     private void securityQuestionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldActionPerformed
 
@@ -203,67 +264,16 @@ public class RegisterScreen extends javax.swing.JFrame {
         flag = false;
         firstName = firstNameTextField.getText();
         lastName = lastNameTextField.getText();
-        un = userName.getText();
-        em = email.getText();
+        userName = userNameField.getText();
+        email = emailField.getText();
         securityQuestion = securityQuestionTextField.getText();
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if (firstNameTextField.equals("")) {
-            jLabelfn.setText("Must filled");
-            flag = true;
-        }
-        if (lastNameTextField.equals("")) {
-            jLabelln.setText("Must filled");
-            flag = true;
-        }
-        if (em.equals("")) {
-            jLabelem.setText("Must filled");
-            flag = true;
-        }
-        if (un.equals("")) {
-            jLabelun.setText("Must filled");
-            flag = true;
-        }
-        if (password.equals("")) {
-            jLabelpass.setText("Must filled");
-            flag = true;
-        }
-        if (confirmPassword.equals("")) {
-            jLabelconpass.setText("Must filled");
-            flag = true;
-        }
-        if (!firstNameTextField.equals("")) {
-            jLabelfn.setText("");
-        }
-        if (!lastNameTextField.equals("")) {
-            jLabelln.setText("");
-        }
-        if (!em.equals("")) {
-            jLabelem.setText("");
-        }
-        if (!un.equals("")) {
-            jLabelun.setText("");
-        }
-        if (!password.equals("")) {
-            jLabelpass.setText("");
-        }
-        if (!confirmPassword.equals("")) {
-            jLabelconpass.setText("");
-        }
-        if (flag == false) {
-            if (password != "" && confirmPassword != "") {
-                if (password.equals(confirmPassword) == false) {
-                    System.out.println("Failed");
-                    jLabelpassMatch.setText("Passward doesn't match");
-                } else {
-                    jLabelpassMatch.setText("");
-                    System.out.println("Successfull");
-                }
-            }
-        } else {
-            System.out.println("Failed");
-        }
+        //if(!firstName.isEmpty())
+            //jLabelFirstName.setText("");
+            
+        
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
@@ -273,6 +283,10 @@ public class RegisterScreen extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jLabelFirstNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFirstNameMouseClicked
+        
+    }//GEN-LAST:event_jLabelFirstNameMouseClicked
 
     /**
      * @param args the command line arguments
@@ -311,14 +325,22 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SignupPanelBg;
-    private javax.swing.JTextField email;
+    private javax.swing.JTextField emailField;
     private javax.swing.JTextField firstNameTextField;
+    private javax.swing.JLabel jLabelConfirmPassward;
+    private javax.swing.JLabel jLabelFirstName;
+    private javax.swing.JLabel jLabelLastName;
+    private javax.swing.JLabel jLabelPassward;
+    private javax.swing.JLabel jLabelSecurityAnswer;
+    private javax.swing.JLabel jLabelSecurityQuestion;
+    private javax.swing.JLabel jLabelUserName;
+    private javax.swing.JLabel jLabelemail;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField lastNameTextField;
     private javax.swing.JButton registerButton;
     private javax.swing.JTextField securityAnswerTextField;
     private javax.swing.JTextField securityQuestionTextField;
-    private javax.swing.JTextField userName;
+    private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }
