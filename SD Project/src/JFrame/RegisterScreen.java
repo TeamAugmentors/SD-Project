@@ -59,8 +59,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(378, 1000));
         getContentPane().setLayout(null);
 
-        securityAnswerTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        securityAnswerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        securityAnswerTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        securityAnswerTextField.setForeground(new java.awt.Color(255, 255, 255));
+        securityAnswerTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         securityAnswerTextField.setBorder(null);
         securityAnswerTextField.setOpaque(false);
         securityAnswerTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -71,8 +72,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(securityAnswerTextField);
         securityAnswerTextField.setBounds(70, 680, 330, 40);
 
-        securityQuestionTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        securityQuestionTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        securityQuestionTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        securityQuestionTextField.setForeground(new java.awt.Color(255, 255, 255));
+        securityQuestionTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         securityQuestionTextField.setBorder(null);
         securityQuestionTextField.setOpaque(false);
         securityQuestionTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -90,8 +92,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         registerButton.setContentAreaFilled(false);
         registerButton.setFocusPainted(false);
         registerButton.setFocusable(false);
-        registerButton.setLabel("");
-        registerButton.setOpaque(false);
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
@@ -99,8 +99,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(registerButton);
         registerButton.setBounds(90, 760, 280, 130);
-        registerButton.getAccessibleContext().setAccessibleName("");
 
+        jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPasswordField1.setBorder(null);
         jPasswordField1.setOpaque(false);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +113,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(70, 520, 330, 40);
 
+        jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPasswordField.setBorder(null);
         jPasswordField.setOpaque(false);
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
@@ -121,8 +126,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jPasswordField);
         jPasswordField.setBounds(70, 440, 330, 40);
 
-        email.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        email.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        email.setForeground(new java.awt.Color(255, 255, 255));
+        email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         email.setBorder(null);
         email.setOpaque(false);
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +139,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(email);
         email.setBounds(70, 360, 330, 40);
 
-        userName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        userName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        userName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        userName.setForeground(new java.awt.Color(255, 255, 255));
+        userName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         userName.setBorder(null);
         userName.setOpaque(false);
         userName.addActionListener(new java.awt.event.ActionListener() {
@@ -145,8 +152,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(userName);
         userName.setBounds(70, 280, 330, 40);
 
-        lastNameTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lastNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        lastNameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         lastNameTextField.setBorder(null);
         lastNameTextField.setOpaque(false);
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -157,8 +165,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(lastNameTextField);
         lastNameTextField.setBounds(70, 200, 330, 40);
 
-        firstNameTextField.setFont(new java.awt.Font("Poppins Light", 1, 36)); // NOI18N
-        firstNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        firstNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        firstNameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         firstNameTextField.setBorder(null);
         firstNameTextField.setOpaque(false);
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
