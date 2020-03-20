@@ -402,7 +402,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
         if(firstName.equals(""))
-            jLabelFirstName.setText("Last Name");
+            jLabelFirstName.setText("First Name");
         if(lastName.equals(""))
             jLabelLastName.setText("Last Name");
         if(userName.equals(""))
