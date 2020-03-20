@@ -393,6 +393,30 @@ public class RegisterScreen extends javax.swing.JFrame {
             passwordWarning.setText("");
         if(!confirmPassword.equals(""))
             confirmPasswordWarning.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("Last Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
         
     }//GEN-LAST:event_registerButtonActionPerformed
 
