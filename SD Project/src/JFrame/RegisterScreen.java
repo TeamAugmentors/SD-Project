@@ -30,9 +30,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         initComponents();
         this.setSize(1600, 900);
         this.setLocationRelativeTo(null);
-        for (int i = 0; i < 6; i++) {
-            ara[i] = false;
-        }
     }
 
     /**
@@ -90,8 +87,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         registerButton.setContentAreaFilled(false);
         registerButton.setFocusPainted(false);
         registerButton.setFocusable(false);
-        registerButton.setLabel("");
-        registerButton.setOpaque(false);
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
@@ -99,7 +94,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
         getContentPane().add(registerButton);
         registerButton.setBounds(90, 760, 280, 130);
-        registerButton.getAccessibleContext().setAccessibleName("");
 
         jPasswordField1.setBorder(null);
         jPasswordField1.setOpaque(false);
