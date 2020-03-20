@@ -54,7 +54,7 @@ public class LoginScreen extends javax.swing.JFrame {
             public void focusGained(FocusEvent e) {
                 
                 //If clicked, changing color of the text to complete white
-                jLabelEmail.setForeground(new Color(255,255,255));
+                jLabelEmail.setForeground(new Color(255,255,255));  /** color is not changing to white**/
                 email = jEmailField.getText();
                 
                 if (jLabelEmail.getText().equals("Email") || !email.isEmpty())
@@ -81,7 +81,7 @@ public class LoginScreen extends javax.swing.JFrame {
             public void focusGained(FocusEvent e) {
                 
                 //If clicked, changing color of the text to complete white
-                jLabelPass.setForeground(new Color(255,255,255));
+                jLabelPass.setForeground(new Color(255,255,255));  /** color is not changing to white**/
                 pass = jPasswordField.getText();
                 
                 if (jLabelPass.getText().equals("Password") || !pass.isEmpty())
@@ -214,7 +214,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabelPass.setBounds(610, 420, 380, 80);
 
         jPasswordField.setBackground(new java.awt.Color(38, 15, 48));
-        jPasswordField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(120, 120, 120));
         jPasswordField.setBorder(null);
         getContentPane().add(jPasswordField);
