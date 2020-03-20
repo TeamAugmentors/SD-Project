@@ -89,7 +89,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(securityAnswerTextField);
         securityAnswerTextField.setBounds(70, 680, 330, 40);
 
-        jLabelSecurityAnswer.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelSecurityAnswer.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelSecurityAnswer.setForeground(new java.awt.Color(120, 120, 120));
         jLabelSecurityAnswer.setText("Security Answer");
         getContentPane().add(jLabelSecurityAnswer);
@@ -113,7 +113,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(securityQuestionTextField);
         securityQuestionTextField.setBounds(70, 600, 330, 40);
 
-        jLabelSecurityQuestion.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelSecurityQuestion.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelSecurityQuestion.setForeground(new java.awt.Color(120, 120, 120));
         jLabelSecurityQuestion.setText("Security Question");
         getContentPane().add(jLabelSecurityQuestion);
@@ -163,7 +163,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(confirmPasswordWarning);
         confirmPasswordWarning.setBounds(70, 570, 230, 20);
 
-        jLabelConfirmPassword.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelConfirmPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelConfirmPassword.setForeground(new java.awt.Color(120, 120, 120));
         jLabelConfirmPassword.setText("Confirm Password");
         getContentPane().add(jLabelConfirmPassword);
@@ -198,7 +198,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(passwordWarning);
         passwordWarning.setBounds(70, 490, 230, 20);
 
-        jLabelPassword.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(120, 120, 120));
         jLabelPassword.setText("Password");
         getContentPane().add(jLabelPassword);
@@ -233,7 +233,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(emailWarning);
         emailWarning.setBounds(70, 410, 230, 20);
 
-        jLabelemail.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelemail.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelemail.setForeground(new java.awt.Color(120, 120, 120));
         jLabelemail.setText("E-Mail");
         getContentPane().add(jLabelemail);
@@ -268,7 +268,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(userNameWarning);
         userNameWarning.setBounds(70, 330, 230, 20);
 
-        jLabelUserName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelUserName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
         jLabelUserName.setText("User Name");
         getContentPane().add(jLabelUserName);
@@ -303,7 +303,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(lastNameWarning);
         lastNameWarning.setBounds(70, 250, 230, 20);
 
-        jLabelLastName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelLastName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
         jLabelLastName.setText("Last Name");
         getContentPane().add(jLabelLastName);
@@ -338,7 +338,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(firstNameWarning);
         firstNameWarning.setBounds(70, 170, 230, 20);
 
-        jLabelFirstName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelFirstName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(120, 120, 120));
         jLabelFirstName.setText("First Name");
         jLabelFirstName.addMouseListener(new java.awt.event.MouseAdapter() {
