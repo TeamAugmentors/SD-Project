@@ -80,6 +80,9 @@ public class RegisterScreen extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 securityAnswerTextFieldMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                securityAnswerTextFieldMousePressed(evt);
+            }
         });
         securityAnswerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +106,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityQuestionTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 securityQuestionTextFieldMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                securityQuestionTextFieldMousePressed(evt);
             }
         });
         securityQuestionTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +149,9 @@ public class RegisterScreen extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPasswordField1MousePressed(evt);
+            }
         });
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,6 +186,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordFieldMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPasswordFieldMousePressed(evt);
             }
         });
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
@@ -213,6 +225,9 @@ public class RegisterScreen extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 emailFieldMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                emailFieldMousePressed(evt);
+            }
         });
         emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +262,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         userNameField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userNameFieldMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userNameFieldMousePressed(evt);
             }
         });
         userNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -283,6 +301,9 @@ public class RegisterScreen extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lastNameTextFieldMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lastNameTextFieldMousePressed(evt);
+            }
         });
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +338,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         firstNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 firstNameTextFieldMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                firstNameTextFieldMousePressed(evt);
             }
         });
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -436,7 +460,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     private void jLabelFirstNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFirstNameMouseClicked
         
     }//GEN-LAST:event_jLabelFirstNameMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void firstNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMouseClicked
         jLabelFirstName.setText("");
         lastName = lastNameTextField.getText();
@@ -461,7 +485,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_firstNameTextFieldMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void lastNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lastNameTextFieldMouseClicked
         jLabelLastName.setText("");
         firstName = firstNameTextField.getText();
@@ -486,7 +510,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_lastNameTextFieldMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void userNameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameFieldMouseClicked
         jLabelUserName.setText("");
         firstName = firstNameTextField.getText();
@@ -511,7 +535,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_userNameFieldMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void emailFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailFieldMouseClicked
         jLabelemail.setText("");
         firstName = firstNameTextField.getText();
@@ -536,7 +560,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_emailFieldMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void jPasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMouseClicked
         jLabelPassword.setText("");
         firstName = firstNameTextField.getText();
@@ -561,7 +585,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_jPasswordFieldMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
         jLabelConfirmPassword.setText("");
         firstName = firstNameTextField.getText();
@@ -586,7 +610,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_jPasswordField1MouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void securityQuestionTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldMouseClicked
         jLabelSecurityQuestion.setText("");
         firstName = firstNameTextField.getText();
@@ -611,7 +635,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         if(securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_securityQuestionTextFieldMouseClicked
-
+    //Check text field whether it is empty or not. If empty show hint.
     private void securityAnswerTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_securityAnswerTextFieldMouseClicked
         jLabelSecurityAnswer.setText("");
         firstName = firstNameTextField.getText();
@@ -670,6 +694,206 @@ public class RegisterScreen extends javax.swing.JFrame {
         //closing sign up screen
         dispose();
     }//GEN-LAST:event_jLabelSignUpCancelMouseClicked
+    //Check text field whether it is empty or not. If empty show hint.
+    private void firstNameTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMousePressed
+        jLabelFirstName.setText("");
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_firstNameTextFieldMousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void lastNameTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lastNameTextFieldMousePressed
+        jLabelLastName.setText("");
+        firstName = firstNameTextField.getText();
+        userName = userNameField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_lastNameTextFieldMousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void userNameFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameFieldMousePressed
+        jLabelUserName.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        email = emailField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_userNameFieldMousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void emailFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailFieldMousePressed
+        jLabelemail.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_emailFieldMousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void jPasswordFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMousePressed
+        jLabelPassword.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        email = emailField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_jPasswordFieldMousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void jPasswordField1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MousePressed
+        jLabelConfirmPassword.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        password = jPasswordField.getText();
+        email = emailField.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_jPasswordField1MousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void securityQuestionTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_securityQuestionTextFieldMousePressed
+        jLabelSecurityQuestion.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityAnswer = securityAnswerTextField.getText();
+        email = emailField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(securityAnswer.equals(""))
+            jLabelSecurityAnswer.setText("Security Answer");
+    }//GEN-LAST:event_securityQuestionTextFieldMousePressed
+    //Check text field whether it is empty or not. If empty show hint.
+    private void securityAnswerTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_securityAnswerTextFieldMousePressed
+        jLabelSecurityAnswer.setText("");
+        firstName = firstNameTextField.getText();
+        lastName = lastNameTextField.getText();
+        userName = userNameField.getText();
+        securityQuestion = securityQuestionTextField.getText();
+        password = jPasswordField.getText();
+        confirmPassword = jPasswordField1.getText();
+        email = emailField.getText();
+        if(firstName.equals(""))
+            jLabelFirstName.setText("First Name");
+        if(lastName.equals(""))
+            jLabelLastName.setText("Last Name");
+        if(userName.equals(""))
+            jLabelUserName.setText("User Name");
+        if(email.equals(""))
+            jLabelemail.setText("E-Mail");
+        if(confirmPassword.equals(""))
+            jLabelConfirmPassword.setText("Confirm Password");
+        if(password.equals(""))
+            jLabelPassword.setText("Password");
+        if(securityQuestion.equals(""))
+            jLabelSecurityQuestion.setText("Security Question");
+    }//GEN-LAST:event_securityAnswerTextFieldMousePressed
 
     /**
      * @param args the command line arguments
