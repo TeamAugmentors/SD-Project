@@ -9,7 +9,12 @@ import Model.TextToSpeech;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import sd.project.MyConnection;
 
 /**
  *
@@ -17,13 +22,11 @@ import javax.swing.JFrame;
  */
 public class LoginScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginScreen
-     */
+    //declaring global variables to store co-ordinates of mouse pointer
     private int mousePX, mousePY;
     
     //creating object of register screen
-        RegisterScreen rg = new RegisterScreen();
+    RegisterScreen rg = new RegisterScreen();
         
     public LoginScreen() {
         initComponents();
@@ -45,11 +48,10 @@ public class LoginScreen extends javax.swing.JFrame {
         //---------------------------------------------------------------
         
         jLabelEmail.setText("Email"); //initializing email and password strings
-        
         jLabelPass.setText("Password");
         
-        //Listening if the user has clicked on email or password fields
         
+        //Listening if the user has clicked on email or password fields
         jEmailField.addFocusListener(new FocusListener() {
 
              String email = "";
@@ -327,10 +329,12 @@ public class LoginScreen extends javax.swing.JFrame {
         String email = "" , pass = "";
         email = jEmailField.getText();
         pass = jPasswordField.getText();
+        boolean loginAction = true;
         
         //if the user does not fill up either email or password
         if(email.isEmpty()|| pass.isEmpty())
         {
+            loginAction = false;
             if(email.isEmpty())
             {
                 jLabelEmailWarning.setText("Field can not be empty");
@@ -352,6 +356,40 @@ public class LoginScreen extends javax.swing.JFrame {
         {
             jLabelEmailWarning.setText("");
             jLabelPassWarning.setText("");
+        }
+        
+        //action after all information filled up 
+        if(loginAction)
+        {
+            PreparedStatement ps ;
+            ResultSet rs ;
+            
+            String searchUser = "SELECT * FROM `userinfo` WHERE `u_username` =? AND `u_pass` =?" ;
+            
+            try {
+                
+                //establishing connection to database
+                ps = MyConnection.getConnection().prepareStatement(searchUser);
+                
+                ps.setString(1, email);
+                ps.setString(2, pass);
+                
+                //searching for registered user
+                rs = ps.executeQuery();
+                
+                //if user found then showing yes, else showing no
+                if(rs.next())
+                {
+                    JOptionPane.showMessageDialog(null, "YES");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
