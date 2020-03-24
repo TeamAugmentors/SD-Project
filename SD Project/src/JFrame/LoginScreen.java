@@ -5,6 +5,7 @@
  */
 package JFrame;
 
+import Model.SpeechToText;
 import Model.TextToSpeech;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
@@ -24,90 +25,95 @@ public class LoginScreen extends javax.swing.JFrame {
 
     //declaring global variables to store co-ordinates of mouse pointer
     private int mousePX, mousePY;
-    
+
     //creating object of register screen
     RegisterScreen rg = new RegisterScreen();
-        
+    SpeechToText st = new SpeechToText();
+
     public LoginScreen() {
         initComponents();
-        
+
         //setting window screen
-        this.setSize(1600,900);
+        this.setSize(1600, 900);
         this.setLocationRelativeTo(null);
-        
+
         //changing exit bar background
-        jPanelExitBar.setBackground(new Color(250,250,250,20));
-        
+        jPanelExitBar.setBackground(new Color(250, 250, 250, 20));
+
         //setting focus on exit bar to avoid focus on text fields
         //------------------
         jPanelExitBar.requestFocusInWindow();
         //------------------
 
         //setting Hints in email and password fields
-        
         //---------------------------------------------------------------
-        
         jLabelName.setText("User Name"); //initializing email and password strings
         jLabelPass.setText("Password");
-        
-        
+
         //Listening if the user has clicked on email or password fields
         jNamelField.addFocusListener(new FocusListener() {
 
-             String username = "";
-             
+            String username = "";
+
             @Override
             public void focusGained(FocusEvent e) {
-                
+
                 //If clicked, changing color of the text to complete white
-                jLabelName.setForeground(new Color(255,255,255));  /** color is not changing to white**/
+                jLabelName.setForeground(new Color(255, 255, 255));
+                /**
+                 * color is not changing to white*
+                 */
                 username = jNamelField.getText();
-                
-                if (jLabelName.getText().equals("User Name") || !username.isEmpty())
+
+                if (jLabelName.getText().equals("User Name") || !username.isEmpty()) {
                     jLabelName.setText("");
+                }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                
+
                 username = jNamelField.getText();
-                
-                if (jLabelName.getText().equals("") && username.isEmpty()){
+
+                if (jLabelName.getText().equals("") && username.isEmpty()) {
                     jLabelName.setText("User Name");
                     //if deselected and field is empty, changing color back to grey
-                    jLabelName.setForeground(new Color(120,120,120));
+                    jLabelName.setForeground(new Color(120, 120, 120));
                 }
             }
         });
         jPasswordField.addFocusListener(new FocusListener() {
 
             String pass = "";
-            
+
             @Override
             public void focusGained(FocusEvent e) {
-                
+
                 //If clicked, changing color of the text to complete white
-                jLabelPass.setForeground(new Color(255,255,255));  /** color is not changing to white**/
+                jLabelPass.setForeground(new Color(255, 255, 255));
+                /**
+                 * color is not changing to white*
+                 */
                 pass = jPasswordField.getText();
-                
-                if (jLabelPass.getText().equals("Password") || !pass.isEmpty())
+
+                if (jLabelPass.getText().equals("Password") || !pass.isEmpty()) {
                     jLabelPass.setText("");
+                }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                
+
                 pass = jPasswordField.getText();
-                
-                if (jLabelPass.getText().equals("") && pass.isEmpty()){
+
+                if (jLabelPass.getText().equals("") && pass.isEmpty()) {
                     jLabelPass.setText("Password");
-                    
+
                     //if deselected and field is empty, changing color back to grey
-                    jLabelPass.setForeground(new Color(120,120,120));
+                    jLabelPass.setForeground(new Color(120, 120, 120));
                 }
             }
         });
-        
         //------------------------------------------------------------------
     }
 
@@ -288,16 +294,16 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelLoginMinimizeMouseClicked
 
     private void jPanelExitBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelExitBarMouseDragged
-       
+
         //setting screen location according to mouse pointer
         int coordinateX = evt.getXOnScreen();
         int coordinateY = evt.getYOnScreen();
-        
-        this.setLocation(coordinateX-mousePX,coordinateY-mousePY);
+
+        this.setLocation(coordinateX - mousePX, coordinateY - mousePY);
     }//GEN-LAST:event_jPanelExitBarMouseDragged
 
     private void jPanelExitBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelExitBarMousePressed
-        
+
         //getting coordinates of mouse pointer
         mousePX = evt.getX();
         mousePY = evt.getY();
@@ -308,84 +314,69 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jNamelFieldActionPerformed
 
     private void jButtonSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignupActionPerformed
-                
+
         //current sign up button is made off limits if a sign up window already exitsts
-        if(!rg.isActive())
-        {
+        if (!rg.isActive()) {
             //register screen is activated
             rg.setVisible(true);
-            
+
             //voice assistant
             TextToSpeech tts = new TextToSpeech();
-        
+
             //tts.setVoice("dfki-poppy-hsmm");
             //tts.speak("The star fields must have to be filled up",2.0f,false,false);
         }
     }//GEN-LAST:event_jButtonSignupActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        
-        
-        String username = "" , pass = "";
+
+        String username = "", pass = "";
         username = jNamelField.getText();
         pass = jPasswordField.getText();
         boolean loginAction = true;
-        
+
         //if the user does not fill up either email or password
-        if(username.isEmpty()|| pass.isEmpty())
-        {
+        if (username.isEmpty() || pass.isEmpty()) {
             loginAction = false;
-            if(username.isEmpty())
-            {
+            if (username.isEmpty()) {
                 jLabelNameWarning.setText("Field can not be empty");
-            }
-            else
-            {
+            } else {
                 jLabelNameWarning.setText("");
             }
-            if(pass.isEmpty())
-            {
+            if (pass.isEmpty()) {
                 jLabelPassWarning.setText("Field can not be empty");
-            }
-            else
-            {
+            } else {
                 jLabelPassWarning.setText("");
             }
-        }
-        else
-        {
+        } else {
             jLabelNameWarning.setText("");
             jLabelPassWarning.setText("");
         }
-        
+
         //action after all information filled up 
-        if(loginAction)
-        {
-            PreparedStatement ps ;
-            ResultSet rs ;
-            
-            String searchUser = "SELECT * FROM `userinfo` WHERE `u_username` =? AND `u_pass` =?" ;
-            
+        if (loginAction) {
+            PreparedStatement ps;
+            ResultSet rs;
+
+            String searchUser = "SELECT * FROM `userinfo` WHERE `u_username` =? AND `u_pass` =?";
+
             try {
-                
+
                 //establishing connection to database
                 ps = MyConnection.getConnection().prepareStatement(searchUser);
-                
+
                 ps.setString(1, username);
                 ps.setString(2, pass);
-                
+
                 //searching for registered user
                 rs = ps.executeQuery();
                 //if user found then showing yes, else showing no
-                if(rs.next())
-                {
+                if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Login Successful");
-                }
-                else
-                {
+                } else {
                     JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
                 }
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -396,10 +387,10 @@ public class LoginScreen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                System.out.println(args);
                 new LoginScreen().setVisible(true);
             }
         });
