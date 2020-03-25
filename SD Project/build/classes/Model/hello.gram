@@ -5,8 +5,8 @@
  */
 
 grammar hello;
-public <greet> = (Good morning | Hello) ( Bhiksha | Evandro | Paul | Philip | Rita | Will );
+/*public <greet> = (Good morning | Hello) ( Bhiksha | Evandro | Paul | Philip | Rita | Will );
 public <greet2> = (Good morning|Hello);
-public <expression> = (I am) (happy|bored|cool|sad);
+public <expression> = (I am) (happy|bored|cool|sad);*/
 public <expression2> = (link start);
 

@@ -254,7 +254,7 @@
     <Component class="javax.swing.JLabel" name="jLabelBackground">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\we\Downloads\flLF24Y.jpg"/>
+          <Image iconType="3" name="/Resources/Images/TicTacToeBG.jpg"/>
         </Property>
       </Properties>
       <Constraints>

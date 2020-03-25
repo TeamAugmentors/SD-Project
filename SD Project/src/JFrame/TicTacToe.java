@@ -201,7 +201,7 @@ public class TicTacToe extends javax.swing.JFrame {
         getContentPane().add(jPanel9);
         jPanel9.setBounds(1050, 660, 110, 90);
 
-        jLabelBackground.setIcon(new javax.swing.ImageIcon("C:\\Users\\we\\Downloads\\flLF24Y.jpg")); // NOI18N
+        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/TicTacToeBG.jpg"))); // NOI18N
         getContentPane().add(jLabelBackground);
         jLabelBackground.setBounds(0, 64, 1920, 1100);
 
