@@ -5,8 +5,10 @@
  */
 package JFrame;
 
+import Model.TextToSpeech;
 import java.awt.Color;
 import sd.project.SDProject;
+import marytts.modules.synthesis.Voice;
 
 /**
  *
@@ -17,6 +19,8 @@ public class SmartAssistant extends javax.swing.JFrame {
     /**
      * Creates new form SmartAssistant
      */
+    TextToSpeech tts = new TextToSpeech();
+    
     public SmartAssistant() {
         initComponents();
         
@@ -29,6 +33,12 @@ public class SmartAssistant extends javax.swing.JFrame {
         jButtonLogin.setBorderPainted(false);
         jButtonLogin.setBorder(null);
 
+        
+        
+        //printing available voices
+        //Voice.getAvailableVoices().stream().forEach(System.out::println);
+        tts.setVoice("dfki-poppy-hsmm");
+        tts.speak("Welcome! I am Alice. Click next to proceed.", 2.0f, false, false);
     }
 
     /**
@@ -80,6 +90,8 @@ public class SmartAssistant extends javax.swing.JFrame {
         //moving to next JFrame
         LoginScreen Lg = new LoginScreen();
         Lg.setVisible(true);
+        
+        tts.stopSpeaking();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**

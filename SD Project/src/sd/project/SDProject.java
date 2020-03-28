@@ -6,9 +6,6 @@
 package sd.project;
 
 import JFrame.SmartAssistant;
-import Model.TextToSpeech;
-import marytts.modules.synthesis.Voice;
-
 /**
  *
  * @author AST
@@ -23,14 +20,6 @@ public class SDProject {
         SmartAssistant sm = new SmartAssistant();
         sm.setVisible(true);
         
-        
-        TextToSpeech tts = new TextToSpeech();
-        
-        //printing available voices
-        //Voice.getAvailableVoices().stream().forEach(System.out::println);
-        
-        //tts.setVoice("dfki-poppy-hsmm");
-        //tts.speak("Welcome! I am Alice. Click next to proceed.", 2.0f, false, false);
     }
     
 }
