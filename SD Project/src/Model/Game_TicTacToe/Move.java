@@ -5,10 +5,7 @@
  */
 package Model.Game_TicTacToe;
 
-/**
- *
- * @author AST
- */
+//class to get the best move for AI
 public class Move {
     private int row, col;
 

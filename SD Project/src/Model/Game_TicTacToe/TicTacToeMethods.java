@@ -10,15 +10,17 @@ import static java.lang.Integer.min;
 
 public class TicTacToeMethods {
 
-    private char[][] board = new char[3][3];
-    private char player, AI;
+    //player and Ai's symbols
+    private char player = 'X', AI = 'O';
 
-    public char[][] getBoard() {
+    //setting up a fresh board
+    public char[][] setUpBoard(char[][] board) {
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                board[i][j] = '_';
+            }
+        }
         return board;
-    }
-
-    public void setBoard(char[][] board) {
-        this.board = board;
     }
 
     public char getPlayer() {
@@ -38,7 +40,7 @@ public class TicTacToeMethods {
     }
     
     //printing the board
-    public void printBoard(){
+    public void printBoard(char[][] board){
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
                 System.out.print(board[i][j]+" ");
@@ -48,7 +50,7 @@ public class TicTacToeMethods {
     }
     
     //checking if any move is left or not
-    public boolean isMoveLeft(){
+    public boolean isMoveLeft(char[][] board){
         for(int i=0; i<3 ;i++){
             for(int j=0; j<3 ;j++){
                 if(board[i][j] == '_')
@@ -58,7 +60,7 @@ public class TicTacToeMethods {
         return false;
     }
     
-    public int evaluate(){
+    public int evaluate(char[][] board){
         
         //checking rows for victory
         for(int i=0; i<3 ;i++){
@@ -103,8 +105,8 @@ public class TicTacToeMethods {
     }
     
     //minimax algorithm, finding all possible moves and returns values
-    public int minimax(int depth , boolean isMax){
-        int score = evaluate();
+    public int minimax(char[][] board, int depth , boolean isMax){
+        int score = evaluate(board);
         
         //if maximizer wins
         if(score == 10)
@@ -115,7 +117,7 @@ public class TicTacToeMethods {
             return score;
         
         //if its a tie
-        if(isMoveLeft() == false)
+        if(isMoveLeft(board) == false)
             return 0;
         
         //maximizer's move
@@ -133,7 +135,7 @@ public class TicTacToeMethods {
                         board[i][j] = player;
                         
                         //finding maximum value
-                        best = max( best, minimax(depth+1 , !isMax) );
+                        best = max( best, minimax(board, depth+1 , !isMax) );
                         
                         //undoing the move
                         board[i][j] = '_';
@@ -158,7 +160,7 @@ public class TicTacToeMethods {
                         board[i][j] = AI;
                         
                         //finding minimum value
-                        best = min( best, minimax(depth+1 , !isMax) );
+                        best = min( best, minimax(board, depth+1 , !isMax) );
                         
                         //undoing the move
                         board[i][j] = '_';
@@ -170,7 +172,7 @@ public class TicTacToeMethods {
     }
     
     //finding the best move
-    public Move findBestMove(){
+    public Move findBestMove(char[][] board){
         
         //just a large value to keep the track of best value gained
         int best = 1000;
@@ -187,7 +189,7 @@ public class TicTacToeMethods {
                     board[i][j] = AI;
                     
                     //evaluating score for this move
-                    int moveValue = minimax(0 , true);
+                    int moveValue = minimax(board, 0 , true);
                     
                     //undoing the move
                     board[i][j] = '_' ;
