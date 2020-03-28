@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class TicTacToe extends javax.swing.JFrame {
 
     private boolean playerTurn = true;
+    private int playerScore = 0 , AIScore = 0;
     private char[][] board = new char[3][3];
     private int result;
     
@@ -34,6 +35,10 @@ public class TicTacToe extends javax.swing.JFrame {
         
         //setting according to the username
         jLabelUsername.setText(userName);
+        
+        //setting player and AI score of a session
+        jLabelUserScore.setText(String.valueOf(playerScore));
+        jLabelAIScore.setText(String.valueOf(AIScore));
         
         //setting up a new board
         board = tic.setUpBoard(board);
@@ -152,13 +157,25 @@ public class TicTacToe extends javax.swing.JFrame {
         //if the player wins
         if(result == 10){
             JOptionPane.showMessageDialog(null, jLabelUsername.getText()+" wins");
-            System.exit(0);
+            
+            //updating player score
+            playerScore++;
+            jLabelUserScore.setText(String.valueOf(playerScore));
+            
+            //reseting game
+            resetGame();
         }        
         
         //if AI wins
         else if(result == -10){
             JOptionPane.showMessageDialog(null,"AI wins");
-            System.exit(0);
+            
+            //updating AI score
+            AIScore++;
+            jLabelAIScore.setText(String.valueOf(AIScore));
+            
+            //reseting game
+            resetGame();
         }
         
         //if there is no move left to make in the board
@@ -191,6 +208,16 @@ public class TicTacToe extends javax.swing.JFrame {
         jLabel9X.setVisible(false);
         jLabel9O.setVisible(false);
     }
+    
+    //restarting game
+    private void resetGame(){
+        //setting up a new board
+        board = tic.setUpBoard(board);
+        
+        //hiding all the jLabels or symbols
+         clearBoard();
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
