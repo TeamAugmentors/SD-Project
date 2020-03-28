@@ -375,7 +375,7 @@ public class LoginScreen extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Login Successful");
                     dispose();
                     //moving on to next JFRAME
-                    new TicTacToe(username).setVisible(true);
+                    new Symbol(username).setVisible(true);
                     
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect Username or Password");

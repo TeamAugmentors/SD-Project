@@ -11,7 +11,7 @@ import static java.lang.Integer.min;
 public class TicTacToeMethods {
 
     //player and Ai's symbols
-    private char player = 'X', AI = 'O';
+    private char player , AI;
 
     //setting up a fresh board
     public char[][] setUpBoard(char[][] board) {

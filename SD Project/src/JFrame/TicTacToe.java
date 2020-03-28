@@ -21,7 +21,8 @@ public class TicTacToe extends javax.swing.JFrame {
     private int playerScore = 0 , AIScore = 0;
     private char[][] board = new char[3][3];
     private int result;
-    
+    private char player,AI;
+    int symbolFlag;
     TicTacToeMethods tic = new TicTacToeMethods();
     
     public TicTacToe() {
@@ -47,14 +48,41 @@ public class TicTacToe extends javax.swing.JFrame {
          clearBoard();
         
     }
-
+    public TicTacToe(String userName,char player,char AI) {
+        initComponents();
+        //making the screen full screen
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.player=player;
+        this.AI=AI;
+        tic.setPlayer(player);
+        tic.setAI(AI);
+        //check the symbol of Ai and player
+        if(player=='X')
+            symbolFlag=1;
+        else if(player=='O')
+            symbolFlag=2;
+        //setting according to the username
+        jLabelUsername.setText(userName);
+        
+        //setting player and AI score of a session
+        jLabelUserScore.setText(String.valueOf(playerScore));
+        jLabelAIScore.setText(String.valueOf(AIScore));
+        
+        //setting up a new board
+        board = tic.setUpBoard(board);
+        
+        //hiding all the jLabels or symbols
+         clearBoard();
+        
+    }
     private void playerMove(int posX, int posY){
         //putting player's choice in the board
         board[posX][posY] = tic.getPlayer();
         
         //showing player's move on jframe
         int x = posX, y = posY;
-        
+            //Set player symbol
+            if(symbolFlag==1){
             if(x==0 && y==0)
                 jLabel1X.setVisible(true);
             if(x==0 && y==1)
@@ -73,6 +101,27 @@ public class TicTacToe extends javax.swing.JFrame {
                 jLabel8X.setVisible(true);
             if(x==2 && y==2)
                 jLabel9X.setVisible(true);
+            }
+            else if(symbolFlag==2){
+                if(x==0 && y==0)
+                jLabel1O.setVisible(true);
+            if(x==0 && y==1)
+                jLabel2O.setVisible(true);
+            if(x==0 && y==2)
+                jLabel3O.setVisible(true);
+            if(x==1 && y==0)
+                jLabel4O.setVisible(true);
+            if(x==1 && y==1)
+                jLabel5O.setVisible(true);
+            if(x==1 && y==2)
+                jLabel6O.setVisible(true);
+            if(x==2 && y==0)
+                jLabel7O.setVisible(true);
+            if(x==2 && y==1)
+                jLabel8O.setVisible(true);
+            if(x==2 && y==2)
+                jLabel9O.setVisible(true);
+            }
             
          //------------------------------------------------
             
@@ -89,7 +138,7 @@ public class TicTacToe extends javax.swing.JFrame {
         
         //showing AI's move on jFrame
         int x = bestMove.getRow(), y = bestMove.getCol();
-        
+            if(symbolFlag==1){
             if(x==0 && y==0)
                 jLabel1O.setVisible(true);
             if(x==0 && y==1)
@@ -108,6 +157,27 @@ public class TicTacToe extends javax.swing.JFrame {
                 jLabel8O.setVisible(true);
             if(x==2 && y==2)
                 jLabel9O.setVisible(true);
+            }
+            else if(symbolFlag==2){
+            if(x==0 && y==0)
+                jLabel1X.setVisible(true);
+            if(x==0 && y==1)
+                jLabel2X.setVisible(true);
+            if(x==0 && y==2)
+                jLabel3X.setVisible(true);
+            if(x==1 && y==0)
+                jLabel4X.setVisible(true);
+            if(x==1 && y==1)
+                jLabel5X.setVisible(true);
+            if(x==1 && y==2)
+                jLabel6X.setVisible(true);
+            if(x==2 && y==0)
+                jLabel7X.setVisible(true);
+            if(x==2 && y==1)
+                jLabel8X.setVisible(true);
+            if(x==2 && y==2)
+                jLabel9X.setVisible(true);
+            }
             
          //------------------------------------------------
             
