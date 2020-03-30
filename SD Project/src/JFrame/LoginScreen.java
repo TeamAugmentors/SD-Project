@@ -10,6 +10,7 @@ import Model.TextToSpeech;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -375,7 +376,12 @@ public class LoginScreen extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Login Successful");
                     dispose();
                     //moving on to next JFRAME
-                    new Symbol(username).setVisible(true);
+                    //new Symbol(username).setVisible(true);
+                    try {
+                        new HangManGame().setVisible(true);
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
