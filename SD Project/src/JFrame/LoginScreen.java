@@ -377,11 +377,7 @@ public class LoginScreen extends javax.swing.JFrame {
                     dispose();
                     //moving on to next JFRAME
                     //new Symbol(username).setVisible(true);
-                    try {
-                        new HangManGame().setVisible(true);
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    new UserScreen(username).setVisible(true);
                     
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
