@@ -6,6 +6,7 @@
 package JFrame;
 
 import Model.TextToSpeech;
+import SnakeGame.Board;
 import java.awt.Color;
 import sd.project.SDProject;
 import marytts.modules.synthesis.Voice;
@@ -88,9 +89,10 @@ public class SmartAssistant extends javax.swing.JFrame {
         dispose();
         
         //moving to next JFrame
-        LoginScreen Lg = new LoginScreen();
-        Lg.setVisible(true);
-        
+        SnakeGameMainMenu gameMainMenu = new SnakeGameMainMenu();
+        gameMainMenu.setVisible(true);
+                
+                
         tts.stopSpeaking();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
