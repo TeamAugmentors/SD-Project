@@ -5,9 +5,10 @@
  */
 package SnakeGame.graphics;
 
-import static SnakeGame.graphics.Screen.HEIGHT;
-import static SnakeGame.graphics.Screen.TILE_SIZE;
-import static SnakeGame.graphics.Screen.WIDTH;
+import static SnakeGame.MapEditor.MAP;
+import static SnakeGame.screens.Screen.HEIGHT;
+import static SnakeGame.screens.Screen.TILE_SIZE;
+import static SnakeGame.screens.Screen.WIDTH;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -19,7 +20,7 @@ import javax.imageio.ImageIO;
  *
  * @author Lassassin
  */
-class Food {
+public class Food {
 
     private int x, y;
     private Random random;
@@ -35,15 +36,24 @@ class Food {
         onCreateFood();
     }
 
-    void onCreateFood() {
+    public void onCreateFood() {
 
         x = random.nextInt(WIDTH) / TILE_SIZE * TILE_SIZE;
         y = random.nextInt(HEIGHT) / TILE_SIZE * TILE_SIZE;
 
+        if (MAP != null) {
+            for (int i = 0; i < MAP.size(); i++) {
+                if (x == MAP.get(i).getX() && y == MAP.get(i).getY()) {
+                    onCreateFood();
+                }
+            }
+
+        }
+
     }
 
-    void drawFood(Graphics g) {
-        g.drawImage(img, x+1, y+1, null);
+    public void drawFood(Graphics g) {
+        g.drawImage(img, x + 1, y + 1, null);
     }
 
     public int getX() {
@@ -61,7 +71,5 @@ class Food {
     public void setY(int y) {
         this.y = y;
     }
-    
-    
 
 }

@@ -6,8 +6,8 @@
 package SnakeGame;
 
 import Libs.ColorEx;
-import SnakeGame.graphics.Screen;
-import static SnakeGame.graphics.Screen.TILE_SIZE;
+import SnakeGame.screens.Screen;
+import static SnakeGame.screens.Screen.TILE_SIZE;
 import java.awt.Graphics;
 
 

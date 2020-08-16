@@ -5,8 +5,9 @@
  */
 package SnakeGame.graphics;
 
-import static JFrame.SnakeGameMainMenu.BOARD;
-import SnakeGame.Board;
+import JFrame.SmartAssistant;
+import SnakeGame.boards.SnakeBoard;
+import static JFrame.SnakeGameMainMenu.SNAKE_BOARD;
 
 /**
  *
@@ -31,45 +32,69 @@ public class GameOverScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         startAgain = new javax.swing.JButton();
+        mainMenu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(1600, 800));
         setResizable(false);
+        setSize(new java.awt.Dimension(1600, 800));
+        getContentPane().setLayout(null);
 
-        startAgain.setText("Start Again ?");
+        startAgain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_main_menu.png"))); // NOI18N
+        startAgain.setBorder(null);
+        startAgain.setBorderPainted(false);
+        startAgain.setContentAreaFilled(false);
+        startAgain.setFocusPainted(false);
+        startAgain.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_main_menu_rollover.png"))); // NOI18N
         startAgain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startAgainActionPerformed(evt);
             }
         });
+        getContentPane().add(startAgain);
+        startAgain.setBounds(660, 510, 267, 72);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(startAgain)
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(startAgain)
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
+        mainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_try_again.png"))); // NOI18N
+        mainMenu.setBorder(null);
+        mainMenu.setBorderPainted(false);
+        mainMenu.setContentAreaFilled(false);
+        mainMenu.setFocusPainted(false);
+        mainMenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_try_again_rollover.png"))); // NOI18N
+        mainMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(mainMenu);
+        mainMenu.setBounds(660, 370, 264, 72);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_game_over_background.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1600, 800);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void startAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startAgainActionPerformed
         // TODO add your handling code here:
-        BOARD = new Board();
-        BOARD.setVisible(true);
+        SmartAssistant.SNAKE_GAME_MAIN_MENU.setVisible(true);
         dispose();
     }//GEN-LAST:event_startAgainActionPerformed
+
+    private void mainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        SNAKE_BOARD = new SnakeBoard();
+        SNAKE_BOARD.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_mainMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,6 +138,8 @@ public class GameOverScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton mainMenu;
     private javax.swing.JButton startAgain;
     // End of variables declaration//GEN-END:variables
 }

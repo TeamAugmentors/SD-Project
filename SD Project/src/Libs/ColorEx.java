@@ -17,6 +17,8 @@ public class ColorEx extends Color {
     public static Color DARK_PURPLE = Color.decode("#19001C");
     public static Color GRID_BLUE = Color.decode("#00303B");
     public static Color WALL_BLUE = Color.decode("#00DEE8");
+    public static Color SELECTOR_GREEN = Color.decode("#00C900");
+    
     
     
     public ColorEx(int r, int g, int b) {

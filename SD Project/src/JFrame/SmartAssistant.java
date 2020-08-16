@@ -6,10 +6,11 @@
 package JFrame;
 
 import Model.TextToSpeech;
-import SnakeGame.Board;
+import SnakeGame.boards.SnakeBoard;
 import java.awt.Color;
 import sd.project.SDProject;
 import marytts.modules.synthesis.Voice;
+
 
 /**
  *
@@ -17,6 +18,8 @@ import marytts.modules.synthesis.Voice;
  */
 public class SmartAssistant extends javax.swing.JFrame {
     
+    
+    public static SnakeGameMainMenu SNAKE_GAME_MAIN_MENU;
     /**
      * Creates new form SmartAssistant
      */
@@ -88,9 +91,9 @@ public class SmartAssistant extends javax.swing.JFrame {
         //closing current JFrame
         dispose();
         
+        SNAKE_GAME_MAIN_MENU = new SnakeGameMainMenu();
         //moving to next JFrame
-        SnakeGameMainMenu gameMainMenu = new SnakeGameMainMenu();
-        gameMainMenu.setVisible(true);
+        SNAKE_GAME_MAIN_MENU.setVisible(true);
                 
                 
         tts.stopSpeaking();
@@ -135,4 +138,8 @@ public class SmartAssistant extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabelWelcomeBg;
     // End of variables declaration//GEN-END:variables
+
+    SnakeGameMainMenu getInstance(){
+        return SNAKE_GAME_MAIN_MENU;
+    }
 }
