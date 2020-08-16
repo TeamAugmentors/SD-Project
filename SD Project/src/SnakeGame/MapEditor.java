@@ -138,16 +138,33 @@ public class MapEditor extends JPanel implements Runnable {
         public void keyPressed(KeyEvent e) {
 
             if (e.getKeyCode() == KeyEvent.VK_UP) {
-                yCoordinate--;
+                if (yCoordinate < 1) {
+
+                } else {
+                    yCoordinate--;
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                yCoordinate++;
+                if (yCoordinate > HEIGHT / 20 - 2) {
+
+                } else {
+                    yCoordinate++;
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                xCoordinate--;
+                if (xCoordinate < 1) {
+
+                } else {
+                    xCoordinate--;
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                xCoordinate++;
+                if (xCoordinate > WIDTH / 20 - 2) {
+
+                } else {
+                    xCoordinate++;
+
+                }
             }
             if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
                 removeWall((Wall) checkWall("remove"));
