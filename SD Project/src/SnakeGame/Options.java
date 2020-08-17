@@ -33,6 +33,7 @@ public class Options extends javax.swing.JFrame {
     public Options() {
 
         initComponents();
+        setLocationRelativeTo(null);
         initializeStates();
 
     }

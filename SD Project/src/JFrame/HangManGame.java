@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -29,7 +30,8 @@ public class HangManGame extends javax.swing.JFrame {
     int tries,gameendFlag=0;
     public HangManGame() throws FileNotFoundException {
         initComponents();
-        this.setSize(800, 650);
+        //this.setSize(1920, 1080);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
         initializeGame();
     }
@@ -73,6 +75,7 @@ public class HangManGame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabelNotification = new javax.swing.JLabel();
         jLabelHint = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -363,6 +366,11 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jLabelHint);
         jLabelHint.setBounds(290, 204, 240, 30);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/hangmanArt1.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1920, 1080);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -618,6 +626,7 @@ public class HangManGame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonY;
     private javax.swing.JButton jButtonZ;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelHint;
     private javax.swing.JLabel jLabelNotification;
     private javax.swing.JTextField jTextFieldOutput;

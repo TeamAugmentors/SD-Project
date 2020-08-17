@@ -136,7 +136,6 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
 
     private void optionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButtonActionPerformed
         // TODO add your handling code here:
-
         new Options().setVisible(true);
 
     }//GEN-LAST:event_optionsButtonActionPerformed
