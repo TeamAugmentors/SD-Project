@@ -22,6 +22,8 @@ public class TicTacToe extends javax.swing.JFrame {
     private char[][] board = new char[3][3];
     private int result;
     private char player,AI;
+    private String playerName;
+    
     int symbolFlag;
     TicTacToeMethods tic = new TicTacToeMethods();
     
@@ -51,6 +53,7 @@ public class TicTacToe extends javax.swing.JFrame {
     public TicTacToe(String userName,char player,char AI) {
         initComponents();
         //making the screen full screen
+        playerName = userName;
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.player=player;
         this.AI=AI;
@@ -214,7 +217,8 @@ public class TicTacToe extends javax.swing.JFrame {
         else{
             //game ends
             JOptionPane.showMessageDialog(null,"Do you want another match?");
-            System.exit(0);
+            dispose();
+            new UserScreen(playerName).setVisible(true);
         }
     }
     

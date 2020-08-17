@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import SnakeGame.boards.SnakeBoard;
-
+import JFrame.Symbol;
 
 /**
  *
@@ -24,6 +24,7 @@ public class UserScreen extends javax.swing.JFrame {
     
     public UserScreen() {
         initComponents();
+        
     }
     
     public UserScreen(String userName){
@@ -34,8 +35,7 @@ public class UserScreen extends javax.swing.JFrame {
         this.userName = userName;
         //setting welcome text for user
         jLabelWelcome.setText(jLabelWelcome.getText()+' '+userName);
-        
-        
+       
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,7 +118,7 @@ public class UserScreen extends javax.swing.JFrame {
         
         //disposing current jframe and opening tictactoe
         dispose();
-        new TicTacToe(userName).setVisible(true);
+        new Symbol(userName).setVisible(true);
     }//GEN-LAST:event_jButtonTicTacToeActionPerformed
 
     private void jButtonHangmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHangmanActionPerformed
@@ -142,10 +142,6 @@ public class UserScreen extends javax.swing.JFrame {
         SNAKE_GAME_MAIN_MENU.setVisible(true);
     }//GEN-LAST:event_jButtonSnakeGameActionPerformed
 
-    //getting snake game main menu's instance
-    SnakeGameMainMenu getInstance(){
-        return SNAKE_GAME_MAIN_MENU;
-    }
     /**
      * @param args the command line arguments
      */
