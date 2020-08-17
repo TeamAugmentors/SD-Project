@@ -26,6 +26,8 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
     
     public static MusicPlayer player = MusicPlayer.getInstance();
     
+    private String userName;
+    
     String filePath = "resources/track_1.wav";
     
     static boolean isPlaying = true;
@@ -164,13 +166,16 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
 
     private void mapsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapsButton1ActionPerformed
         //returning to user screen
-        new UserScreen().setVisible(true);
+        new UserScreen(userName).setVisible(true);
         UserScreen.SNAKE_GAME_MAIN_MENU.dispose();
         player.clip.stop();
         player.clip.close();
         dispose();
     }//GEN-LAST:event_mapsButton1ActionPerformed
 
+    public void setName(String userName){
+        this.userName = userName;
+    }
     /**
      * @param args the command line arguments
      */

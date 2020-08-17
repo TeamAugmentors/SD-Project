@@ -138,6 +138,7 @@ public class UserScreen extends javax.swing.JFrame {
         dispose();
         
         SNAKE_GAME_MAIN_MENU = new SnakeGameMainMenu();
+        SNAKE_GAME_MAIN_MENU.setName(userName);
         //moving to next JFrame
         SNAKE_GAME_MAIN_MENU.setVisible(true);
     }//GEN-LAST:event_jButtonSnakeGameActionPerformed
