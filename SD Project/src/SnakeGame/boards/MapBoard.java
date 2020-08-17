@@ -5,7 +5,7 @@
  */
 package SnakeGame.boards;
 
-import SnakeGame.MapEditor;
+import SnakeGame.screens.MapEditor;
 import SnakeGame.screens.Screen;
 import java.awt.GridLayout;
 import javax.swing.JFrame;

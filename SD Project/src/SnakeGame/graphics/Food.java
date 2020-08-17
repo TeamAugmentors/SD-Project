@@ -5,7 +5,7 @@
  */
 package SnakeGame.graphics;
 
-import static SnakeGame.MapEditor.MAP;
+import static SnakeGame.screens.MapEditor.MAP;
 import static SnakeGame.screens.Screen.HEIGHT;
 import static SnakeGame.screens.Screen.TILE_SIZE;
 import static SnakeGame.screens.Screen.WIDTH;

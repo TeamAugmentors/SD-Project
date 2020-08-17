@@ -13,7 +13,7 @@ import java.awt.Graphics;
  *
  * @author Lassassin
  */
-class selectionBlock {
+public class selectionBlock {
 
     private int x,y;
     
@@ -21,12 +21,12 @@ class selectionBlock {
         move(x, y);
     }
     
-    void move(int x, int y){
+    public void move(int x, int y){
         this.x = x;
         this.y = y;
     }
     
-    void draw(Graphics g){
+    public void draw(Graphics g){
         g.setColor(ColorEx.SELECTOR_GREEN);
         g.drawRect(x*Screen.TILE_SIZE, y*Screen.TILE_SIZE, Screen.TILE_SIZE, Screen.TILE_SIZE);
         g.setColor(ColorEx.DARK_PURPLE);

@@ -5,6 +5,7 @@
  */
 package SnakeGame.screens;
 
+import SnakeGame.Wall;
 import Libs.ColorEx;
 import SnakeGame.SnakeParts;
 import SnakeGame.graphics.GameOverScreen;
@@ -17,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import static JFrame.SnakeGameMainMenu.SNAKE_BOARD;
-import static SnakeGame.MapEditor.MAP;
+import static SnakeGame.screens.MapEditor.MAP;
 import static JFrame.UserScreen.SNAKE_GAME_MAIN_MENU;
 import SnakeGame.graphics.Food;
 
@@ -234,7 +235,7 @@ public class Screen extends JPanel implements Runnable {
             xCoordiante = WIDTH / TILE_SIZE;
         }
 
-        if (xCoordiante > WIDTH / TILE_SIZE) {
+        if (xCoordiante > WIDTH / TILE_SIZE - 1) {
             xCoordiante = 0;
         }
 

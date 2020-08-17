@@ -7,7 +7,7 @@ package JFrame;
 
 import SnakeGame.music.MusicPlayer;
 import SnakeGame.boards.SnakeBoard;
-import SnakeGame.MapEditor;
+import SnakeGame.screens.MapEditor;
 import SnakeGame.Options;
 import SnakeGame.States;
 import SnakeGame.boards.MapBoard;

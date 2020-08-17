@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SnakeGame;
+package SnakeGame.screens;
 
 import JFrame.SnakeGameMainMenu;
 import static JFrame.SnakeGameMainMenu.MAP_BOARD;
 import Libs.ColorEx;
+import SnakeGame.Wall;
 import SnakeGame.boards.MapBoard;
 import SnakeGame.screens.Screen;
+import SnakeGame.selectionBlock;
 import static SnakeGame.screens.Screen.TILE_SIZE;
-import SnakeGame.screens.Wall;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
