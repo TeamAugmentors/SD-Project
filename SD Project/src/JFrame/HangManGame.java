@@ -23,16 +23,16 @@ public class HangManGame extends javax.swing.JFrame {
      */
     HangManMethods hg = new HangManMethods();
     Scanner sc = new Scanner(System.in);
-    int i;
+    int i, score;
     char[] guess;
     int amountOfGuesses;//How many times player can guess the word
     char[] playerGuess;
-    int tries,gameendFlag=0;
+    int tries, gameendFlag = 0;
+
     public HangManGame() throws FileNotFoundException {
         initComponents();
         //this.setSize(1920, 1080);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setLocationRelativeTo(null);
         initializeGame();
     }
 
@@ -75,12 +75,19 @@ public class HangManGame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabelNotification = new javax.swing.JLabel();
         jLabelHint = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_scoreShow = new javax.swing.JLabel();
+        jLabel_score = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelExit = new javax.swing.JLabel();
+        jLabel_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jButtonB.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonB.setForeground(new java.awt.Color(128, 34, 102));
         jButtonB.setText("B");
         jButtonB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +98,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonB.setBounds(140, 250, 70, 60);
 
         jButtonA.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonA.setForeground(new java.awt.Color(128, 34, 102));
         jButtonA.setText("A");
         jButtonA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +109,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonA.setBounds(50, 250, 70, 60);
 
         jButtonD.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonD.setForeground(new java.awt.Color(128, 34, 102));
         jButtonD.setText("D");
         jButtonD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +120,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonD.setBounds(320, 250, 70, 60);
 
         jButtonC.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonC.setForeground(new java.awt.Color(128, 34, 102));
         jButtonC.setText("C");
         jButtonC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +131,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonC.setBounds(230, 250, 70, 60);
 
         jButtonF.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonF.setForeground(new java.awt.Color(128, 34, 102));
         jButtonF.setText("F");
         jButtonF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +142,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonF.setBounds(500, 250, 70, 60);
 
         jButtonE.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonE.setForeground(new java.awt.Color(128, 34, 102));
         jButtonE.setText("E");
         jButtonE.setToolTipText("");
         jButtonE.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +154,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonE.setBounds(410, 250, 70, 60);
 
         jButtonH.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonH.setForeground(new java.awt.Color(128, 34, 102));
         jButtonH.setText("H");
         jButtonH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +165,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonH.setBounds(680, 250, 70, 60);
 
         jButtonG.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonG.setForeground(new java.awt.Color(128, 34, 102));
         jButtonG.setText("G");
         jButtonG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +176,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonG.setBounds(590, 250, 70, 60);
 
         jButtonJ.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonJ.setForeground(new java.awt.Color(128, 34, 102));
         jButtonJ.setText("J");
         jButtonJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +187,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonJ.setBounds(140, 330, 70, 60);
 
         jButtonI.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonI.setForeground(new java.awt.Color(128, 34, 102));
         jButtonI.setText("I");
         jButtonI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +198,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonI.setBounds(50, 330, 70, 60);
 
         jButtonL.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonL.setForeground(new java.awt.Color(128, 34, 102));
         jButtonL.setText("L");
         jButtonL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,6 +209,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonL.setBounds(320, 330, 70, 60);
 
         jButtonK.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonK.setForeground(new java.awt.Color(128, 34, 102));
         jButtonK.setText("K");
         jButtonK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +220,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonK.setBounds(230, 330, 70, 60);
 
         jButtonN.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonN.setForeground(new java.awt.Color(128, 34, 102));
         jButtonN.setText("N");
         jButtonN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +231,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonN.setBounds(500, 330, 70, 60);
 
         jButtonM.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonM.setForeground(new java.awt.Color(128, 34, 102));
         jButtonM.setText("M");
         jButtonM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +242,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonM.setBounds(410, 330, 70, 60);
 
         jButtonP.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonP.setForeground(new java.awt.Color(128, 34, 102));
         jButtonP.setText("P");
         jButtonP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +253,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonP.setBounds(680, 330, 70, 60);
 
         jButtonO.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonO.setForeground(new java.awt.Color(128, 34, 102));
         jButtonO.setText("O");
         jButtonO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +264,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonO.setBounds(590, 330, 70, 60);
 
         jButtonR.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonR.setForeground(new java.awt.Color(128, 34, 102));
         jButtonR.setText("R");
         jButtonR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,6 +275,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonR.setBounds(140, 410, 70, 60);
 
         jButtonQ.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonQ.setForeground(new java.awt.Color(128, 34, 102));
         jButtonQ.setText("Q");
         jButtonQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +286,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonQ.setBounds(50, 410, 70, 60);
 
         jButtonT.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonT.setForeground(new java.awt.Color(128, 34, 102));
         jButtonT.setText("T");
         jButtonT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,6 +297,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonT.setBounds(320, 410, 70, 60);
 
         jButtonS.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonS.setForeground(new java.awt.Color(128, 34, 102));
         jButtonS.setText("S");
         jButtonS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,6 +308,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonS.setBounds(230, 410, 70, 60);
 
         jButtonV.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonV.setForeground(new java.awt.Color(128, 34, 102));
         jButtonV.setText("V");
         jButtonV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +319,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonV.setBounds(500, 410, 70, 60);
 
         jButtonU.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonU.setForeground(new java.awt.Color(128, 34, 102));
         jButtonU.setText("U");
         jButtonU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,6 +330,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonU.setBounds(410, 410, 70, 60);
 
         jButtonX.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonX.setForeground(new java.awt.Color(128, 34, 102));
         jButtonX.setText("X");
         jButtonX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,6 +341,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonX.setBounds(680, 410, 70, 60);
 
         jButtonW.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonW.setForeground(new java.awt.Color(128, 34, 102));
         jButtonW.setText("W");
         jButtonW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -322,6 +352,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonW.setBounds(590, 410, 70, 60);
 
         jButtonY.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonY.setForeground(new java.awt.Color(128, 34, 102));
         jButtonY.setText("Y");
         jButtonY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,6 +363,7 @@ public class HangManGame extends javax.swing.JFrame {
         jButtonY.setBounds(320, 490, 70, 60);
 
         jButtonZ.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonZ.setForeground(new java.awt.Color(128, 34, 102));
         jButtonZ.setText("Z");
         jButtonZ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,161 +380,245 @@ public class HangManGame extends javax.swing.JFrame {
         jTextFieldOutput.setBounds(160, 90, 500, 60);
 
         jLabel1.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
+        jLabel1.setForeground(new java.awt.Color(128, 34, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Guess The Word");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(270, 40, 280, 40);
 
         jLabelNotification.setFont(new java.awt.Font("Unispace", 3, 18)); // NOI18N
-        jLabelNotification.setForeground(new java.awt.Color(102, 0, 102));
+        jLabelNotification.setForeground(new java.awt.Color(128, 34, 102));
         jLabelNotification.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelNotification);
         jLabelNotification.setBounds(310, 170, 220, 30);
 
-        jLabelHint.setFont(new java.awt.Font("Unispace", 3, 18)); // NOI18N
-        jLabelHint.setForeground(new java.awt.Color(102, 0, 102));
-        jLabelHint.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelHint.setFont(new java.awt.Font("Unispace", 3, 26)); // NOI18N
+        jLabelHint.setForeground(new java.awt.Color(128, 34, 102));
         getContentPane().add(jLabelHint);
-        jLabelHint.setBounds(290, 204, 240, 30);
+        jLabelHint.setBounds(50, 730, 450, 40);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/hangmanArt1.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1920, 1080);
+        jLabel_scoreShow.setFont(new java.awt.Font("Unispace", 3, 26)); // NOI18N
+        jLabel_scoreShow.setForeground(new java.awt.Color(128, 34, 102));
+        jLabel_scoreShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel_scoreShow);
+        jLabel_scoreShow.setBounds(180, 780, 180, 50);
+
+        jLabel_score.setFont(new java.awt.Font("Unispace", 2, 26)); // NOI18N
+        jLabel_score.setForeground(new java.awt.Color(128, 34, 102));
+        jLabel_score.setToolTipText("");
+        getContentPane().add(jLabel_score);
+        jLabel_score.setBounds(50, 780, 120, 50);
+
+        jButton1.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(128, 34, 102));
+        jButton1.setText("EXIT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(960, 920, 120, 50);
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setLayout(null);
+
+        jLabelExit.setFont(new java.awt.Font("Trebuchet MS", 0, 40)); // NOI18N
+        jLabelExit.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelExit.setText("X");
+        jLabelExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelExitMouseClicked(evt);
+            }
+        });
+        jLabelExit.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabelExitPropertyChange(evt);
+            }
+        });
+        jPanel2.add(jLabelExit);
+        jLabelExit.setBounds(1890, 0, 27, 40);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 1920, 40);
+
+        jLabel_background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_background.setIcon(new javax.swing.ImageIcon("E:\\Github\\SD-Project\\SD Project\\src\\Resources\\Images\\hangmanArt.png")); // NOI18N
+        getContentPane().add(jLabel_background);
+        jLabel_background.setBounds(0, 0, 1920, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('b');
+        }
     }//GEN-LAST:event_jButtonBActionPerformed
 
     private void jButtonMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('m');
+        }
     }//GEN-LAST:event_jButtonMActionPerformed
 
     private void jButtonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('a');
+        }
     }//GEN-LAST:event_jButtonAActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('c');
+        }
     }//GEN-LAST:event_jButtonCActionPerformed
 
     private void jButtonDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('d');
+        }
     }//GEN-LAST:event_jButtonDActionPerformed
 
     private void jButtonEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('e');
+        }
     }//GEN-LAST:event_jButtonEActionPerformed
 
     private void jButtonFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('f');
+        }
     }//GEN-LAST:event_jButtonFActionPerformed
 
     private void jButtonGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('g');
+        }
     }//GEN-LAST:event_jButtonGActionPerformed
 
     private void jButtonHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('h');
+        }
     }//GEN-LAST:event_jButtonHActionPerformed
 
     private void jButtonIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('i');
+        }
     }//GEN-LAST:event_jButtonIActionPerformed
 
     private void jButtonJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('j');
+        }
     }//GEN-LAST:event_jButtonJActionPerformed
 
     private void jButtonKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('k');
+        }
     }//GEN-LAST:event_jButtonKActionPerformed
 
     private void jButtonLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('l');
+        }
     }//GEN-LAST:event_jButtonLActionPerformed
 
     private void jButtonNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('n');
+        }
     }//GEN-LAST:event_jButtonNActionPerformed
 
     private void jButtonOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('o');
+        }
     }//GEN-LAST:event_jButtonOActionPerformed
 
     private void jButtonPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('p');
+        }
     }//GEN-LAST:event_jButtonPActionPerformed
 
     private void jButtonQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('q');
+        }
     }//GEN-LAST:event_jButtonQActionPerformed
 
     private void jButtonRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('r');
+        }
     }//GEN-LAST:event_jButtonRActionPerformed
 
     private void jButtonSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('s');
+        }
     }//GEN-LAST:event_jButtonSActionPerformed
 
     private void jButtonTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('t');
+        }
     }//GEN-LAST:event_jButtonTActionPerformed
 
     private void jButtonUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('u');
+        }
     }//GEN-LAST:event_jButtonUActionPerformed
 
     private void jButtonVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('v');
+        }
     }//GEN-LAST:event_jButtonVActionPerformed
 
     private void jButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('w');
+        }
     }//GEN-LAST:event_jButtonWActionPerformed
 
     private void jButtonXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonXActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('x');
+        }
     }//GEN-LAST:event_jButtonXActionPerformed
 
     private void jButtonYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonYActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('y');
+        }
     }//GEN-LAST:event_jButtonYActionPerformed
 
     private void jButtonZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZActionPerformed
-        if(gameendFlag==0)
+        if (gameendFlag == 0) {
             game('z');
+        }
     }//GEN-LAST:event_jButtonZActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        new UserScreen().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabelExitPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelExitPropertyChange
+        //System.exit(0);
+    }//GEN-LAST:event_jLabelExitPropertyChange
+
+    private void jLabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabelExitMouseClicked
     public void initializeGame() throws FileNotFoundException {
         hg.readWords();
         guess = hg.randomWord();
@@ -513,50 +629,57 @@ public class HangManGame extends javax.swing.JFrame {
         String s = "";
         for (i = 0; i < playerGuess.length; i++) {
             playerGuess[i] = '_';
-            s+='_';
-            s+=' ';
+            s += '_';
+            s += ' ';
         }
         jTextFieldOutput.setText(s);
         tries = 0;
+        score = guess.length * 2;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
-        jLabelNotification.setText(String.valueOf(amountOfGuesses - tries)+" tries left");
+        jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
     }
 
     public void game(char ch) {
-        
-            boolean flag = false; //For checking if the guess is correct or wrong
-            //System.out.println("Enter a letter");
-            char input = ch;
-            if (hg.guessWriteOrWrong(playerGuess, guess, input)) //Check if the guess is correct or wrong;
-                flag = true;
-            playerGuess = hg.matchLetter(playerGuess, guess, input); //Put the gussed letter in the player array
-            System.out.println("Current guesses:");
-            hg.printArray(playerGuess); //Print the player array
-            String s = "";
-            for (i = 0; i < playerGuess.length; i++) {
-                s += playerGuess[i];
-                s += ' ';
-            }
-            jTextFieldOutput.setText(s);
-            if (flag) {
-                System.out.println("Correct guess");
-            } else {
-                System.out.println("Wrong guess");
-                tries++;
-            }
-            jLabelNotification.setText(String.valueOf(amountOfGuesses - tries)+" tries left");
-            if (hg.isWordGuess(playerGuess, guess)) {
-                System.out.println("You won the game");
-                jLabelNotification.setText("You won the game");
-                gameendFlag=1;
-            } else if (!hg.isWordGuess(playerGuess, guess) && tries == amountOfGuesses) {
-                System.out.println("You lost the game");
-                jLabelNotification.setText("You lost the game");
-                String answer=new String(guess);
-                jLabelHint.setText(answer);
-                gameendFlag=1;
-            }
+
+        boolean flag = false; //For checking if the guess is correct or wrong
+        //System.out.println("Enter a letter");
+        char input = ch;
+        if (hg.guessWriteOrWrong(playerGuess, guess, input)) //Check if the guess is correct or wrong;
+        {
+            flag = true;
+        }
+        playerGuess = hg.matchLetter(playerGuess, guess, input); //Put the gussed letter in the player array
+        System.out.println("Current guesses:");
+        hg.printArray(playerGuess); //Print the player array
+        String s = "";
+        for (i = 0; i < playerGuess.length; i++) {
+            s += playerGuess[i];
+            s += ' ';
+        }
+        jTextFieldOutput.setText(s);
+        if (flag) {
+            System.out.println("Correct guess");
+        } else {
+            System.out.println("Wrong guess");
+            tries++;
+        }
+        jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
+        if (hg.isWordGuess(playerGuess, guess)) {
+            System.out.println("You won the game");
+            jLabelNotification.setText("You won the game");
+            jLabel_scoreShow.setText(String.valueOf(score));
+            jLabel_score.setText("Score: ");
+            gameendFlag = 1;
+        } else if (!hg.isWordGuess(playerGuess, guess) && tries == amountOfGuesses) {
+            System.out.println("You lost the game");
+            jLabelNotification.setText("You lost the game");
+            String answer = new String(guess);
+            jLabelHint.setText("The word was: " + answer);
+            jLabel_scoreShow.setText("0");
+            jLabel_score.setText("Score: ");
+            gameendFlag = 1;
+        }
     }
 
     /**
@@ -599,6 +722,7 @@ public class HangManGame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonA;
     private javax.swing.JButton jButtonB;
     private javax.swing.JButton jButtonC;
@@ -626,9 +750,13 @@ public class HangManGame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonY;
     private javax.swing.JButton jButtonZ;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelExit;
     private javax.swing.JLabel jLabelHint;
     private javax.swing.JLabel jLabelNotification;
+    private javax.swing.JLabel jLabel_background;
+    private javax.swing.JLabel jLabel_score;
+    private javax.swing.JLabel jLabel_scoreShow;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextFieldOutput;
     // End of variables declaration//GEN-END:variables
 }
