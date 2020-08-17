@@ -163,9 +163,9 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_mapsButtonActionPerformed
 
     private void mapsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapsButton1ActionPerformed
-        // TODO add your handling code here:
-        new SmartAssistant().setVisible(true);
-        SmartAssistant.SNAKE_GAME_MAIN_MENU.dispose();
+        //returning to user screen
+        new UserScreen().setVisible(true);
+        UserScreen.SNAKE_GAME_MAIN_MENU.dispose();
         player.clip.stop();
         player.clip.close();
         dispose();

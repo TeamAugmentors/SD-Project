@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 import static JFrame.SnakeGameMainMenu.SNAKE_BOARD;
 import static SnakeGame.MapEditor.MAP;
-import static JFrame.SmartAssistant.SNAKE_GAME_MAIN_MENU;
+import static JFrame.UserScreen.SNAKE_GAME_MAIN_MENU;
 import SnakeGame.graphics.Food;
 
 /**

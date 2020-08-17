@@ -5,7 +5,7 @@
  */
 package SnakeGame.graphics;
 
-import JFrame.SmartAssistant;
+import JFrame.UserScreen;
 import SnakeGame.boards.SnakeBoard;
 import static JFrame.SnakeGameMainMenu.SNAKE_BOARD;
 
@@ -81,7 +81,7 @@ public class GameOverScreen extends javax.swing.JFrame {
 
     private void startAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startAgainActionPerformed
         // TODO add your handling code here:
-        SmartAssistant.SNAKE_GAME_MAIN_MENU.setVisible(true);
+        UserScreen.SNAKE_GAME_MAIN_MENU.setVisible(true);
         dispose();
     }//GEN-LAST:event_startAgainActionPerformed
 

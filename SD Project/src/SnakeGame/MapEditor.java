@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static JFrame.SmartAssistant.SNAKE_GAME_MAIN_MENU;
+import static JFrame.UserScreen.SNAKE_GAME_MAIN_MENU;
 import javax.swing.JOptionPane;
 
 /**

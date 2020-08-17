@@ -3,9 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1600, 900]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -30,9 +27,10 @@
               <EmptySpace pref="529" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonTicTacToe" min="-2" pref="265" max="-2" attributes="0"/>
-                          <Component id="jButtonHangman" min="-2" pref="265" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jButtonTicTacToe" pref="265" max="32767" attributes="0"/>
+                          <Component id="jButtonHangman" pref="265" max="32767" attributes="0"/>
+                          <Component id="jButtonSnakeGame" alignment="0" pref="265" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="661" max="-2" attributes="0"/>
                   </Group>
@@ -53,7 +51,9 @@
               <Component id="jButtonTicTacToe" min="-2" pref="70" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               <Component id="jButtonHangman" min="-2" pref="70" max="-2" attributes="0"/>
-              <EmptySpace pref="326" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <Component id="jButtonSnakeGame" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace pref="179" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,6 +88,17 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Welcome"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonSnakeGame">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Yu Gothic Light" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Snake"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSnakeGameActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
