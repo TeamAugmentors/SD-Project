@@ -444,7 +444,7 @@ public class HangManGame extends javax.swing.JFrame {
         jPanel2.setBounds(0, 0, 1920, 40);
 
         jLabel_background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_background.setIcon(new javax.swing.ImageIcon("E:\\Github\\SD-Project\\SD Project\\src\\Resources\\Images\\hangmanArt.png")); // NOI18N
+        jLabel_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/hangmanArt.png"))); // NOI18N
         getContentPane().add(jLabel_background);
         jLabel_background.setBounds(0, 0, 1920, 1080);
 

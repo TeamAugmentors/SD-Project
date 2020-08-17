@@ -25,10 +25,10 @@ public class Options extends javax.swing.JFrame {
     /**
      * Creates new form Options
      */
-    String GUITAR_MASS = "resources/track_1.wav";
-    String ADVENTURE_TIME = "resources/track_2.wav";
-    String JOJO = "resources/track_3.wav";
-    String ISON = "resources/track_4.wav";
+    String GUITAR_MASS = "resources/Snake.Resources/track_1.wav";
+    String ADVENTURE_TIME = "resources/Snake.Resources/track_2.wav";
+    String JOJO = "resources/Snake.Resources/track_3.wav";
+    String ISON = "resources/Snake.Resources/track_4.wav";
 
     public Options() {
 

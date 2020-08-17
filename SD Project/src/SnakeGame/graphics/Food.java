@@ -29,7 +29,7 @@ public class Food {
     public Food() {
         random = new Random();
         try {
-            img = ImageIO.read(new File("resources/food.png"));
+            img = ImageIO.read(new File("resources/Snake.Resources/food.png"));
         } catch (IOException e) {
             System.out.println("couldnt find image");
         }

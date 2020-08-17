@@ -28,7 +28,7 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
     
     private String userName;
     
-    String filePath = "resources/track_1.wav";
+    String filePath = "resources/Snake.Resources/track_1.wav";
     
     static boolean isPlaying = true;
    

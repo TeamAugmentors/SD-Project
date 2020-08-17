@@ -20,7 +20,7 @@ public class HangManMethods {
     Random random=new Random();
     ArrayList<String> words = new ArrayList<String>();
     public void readWords() throws FileNotFoundException {
-        File file = new File("E:\\Github\\SD-Project\\SD Project\\src\\Resources\\File\\Words.txt");
+        File file = new File("resources/Hangman/Words.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String st;
         try {
