@@ -12,33 +12,39 @@ import SnakeGame.boards.SnakeBoard;
 import JFrame.Symbol;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author AST
  */
-public class UserScreen extends javax.swing.JFrame {
+public class UserScreen extends javax.swing.JFrame implements Runnable {
 
     String userName;
-    
+
     //static variable declared to get instance
     public static SnakeGameMainMenu SNAKE_GAME_MAIN_MENU;
-    
+    private CurrencyConverterFrame cf;
+    Thread t;
+    JDialog jop = new JDialog();
+
     public UserScreen() {
         initComponents();
-        
+
     }
-    
-    public UserScreen(String userName){
+
+    public UserScreen(String userName) {
         initComponents();
-        
+
         this.setSize(1600, 900);
         this.setLocationRelativeTo(null);
         this.userName = userName;
         //setting welcome text for user
-        jLabelWelcome.setText(jLabelWelcome.getText()+' '+userName);
-       
+        jLabelWelcome.setText(jLabelWelcome.getText() + ' ' + userName);
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,11 +54,31 @@ public class UserScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        cancelButton = new javax.swing.JButton();
         jButtonTicTacToe = new javax.swing.JButton();
         jButtonHangman = new javax.swing.JButton();
         jLabelWelcome = new javax.swing.JLabel();
         jButtonSnakeGame = new javax.swing.JButton();
         jButtonSignOut = new javax.swing.JButton();
+        jButtonSnakeGame1 = new javax.swing.JButton();
+
+        jDialog1.setPreferredSize(new java.awt.Dimension(300, 200));
+        jDialog1.setResizable(false);
+        jDialog1.setSize(new java.awt.Dimension(300, 200));
+        jDialog1.getContentPane().setLayout(null);
+        jDialog1.getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 30, 330, 54);
+
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+        jDialog1.getContentPane().add(cancelButton);
+        cancelButton.setBounds(100, 110, 80, 23);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +117,14 @@ public class UserScreen extends javax.swing.JFrame {
             }
         });
 
+        jButtonSnakeGame1.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
+        jButtonSnakeGame1.setText("Currency Converter");
+        jButtonSnakeGame1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSnakeGame1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,16 +133,18 @@ public class UserScreen extends javax.swing.JFrame {
                 .addContainerGap(529, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonTicTacToe, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(jButtonHangman, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(jButtonSnakeGame, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
-                        .addGap(661, 661, 661))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(509, 509, 509))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonSnakeGame1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(323, 323, 323)
+                                .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonTicTacToe, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                                .addComponent(jButtonHangman, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                                .addComponent(jButtonSnakeGame, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)))
                         .addGap(162, 162, 162))))
         );
         layout.setVerticalGroup(
@@ -122,37 +158,42 @@ public class UserScreen extends javax.swing.JFrame {
                 .addComponent(jButtonHangman, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77)
                 .addComponent(jButtonSnakeGame, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSnakeGame1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonTicTacToeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTicTacToeActionPerformed
-        
+
         //disposing current jframe and opening tictactoe
         dispose();
         new Symbol(userName).setVisible(true);
     }//GEN-LAST:event_jButtonTicTacToeActionPerformed
 
     private void jButtonHangmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHangmanActionPerformed
-        
+
         //disposing current jframe and opening hangman
         dispose();
         try {
-              new HangManGame().setVisible(true);
-              
-            } catch (FileNotFoundException ex) {
-                    Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            new HangManGame().setVisible(true);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonHangmanActionPerformed
 
     private void jButtonSnakeGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSnakeGameActionPerformed
         //closing current JFrame
         dispose();
-        
+
         SNAKE_GAME_MAIN_MENU = new SnakeGameMainMenu();
         SNAKE_GAME_MAIN_MENU.setName(userName);
         //moving to next JFrame
@@ -163,10 +204,10 @@ public class UserScreen extends javax.swing.JFrame {
         dispose();
         try {
             FileWriter writer = new FileWriter("resources/Status/cache.txt");
-            
+
             //clearing user status from cache
             writer.write("");
-            
+
             //closing writer
             writer.close();
         } catch (IOException ex) {
@@ -174,6 +215,25 @@ public class UserScreen extends javax.swing.JFrame {
         }
         new LoginScreen().setVisible(true);
     }//GEN-LAST:event_jButtonSignOutActionPerformed
+
+    private void jButtonSnakeGame1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSnakeGame1ActionPerformed
+        // TODO add your handling code here:
+        t = new Thread(this, "opening converter");
+        t.start();
+        jDialog1.setVisible(true);
+        jLabel1.setText("<html>Fetching converter data from the internet!<br/>Please wait...</html>");
+
+        jDialog1.setLocationRelativeTo(null);
+
+    }//GEN-LAST:event_jButtonSnakeGame1ActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        
+            // TODO add your handling code here:
+            t.stop();
+            jDialog1.dispose();
+        
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,16 +265,31 @@ public class UserScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserScreen().setVisible(true);
+                UserScreen us = new UserScreen();
+                us.setVisible(true);
+                us.requestFocusInWindow();
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelButton;
     private javax.swing.JButton jButtonHangman;
     private javax.swing.JButton jButtonSignOut;
     private javax.swing.JButton jButtonSnakeGame;
+    private javax.swing.JButton jButtonSnakeGame1;
     private javax.swing.JButton jButtonTicTacToe;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelWelcome;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        cf = new CurrencyConverterFrame();
+        cf.setVisible(true);
+        
+        jDialog1.setVisible(false);
+    }
 }
