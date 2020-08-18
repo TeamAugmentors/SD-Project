@@ -10,7 +10,13 @@ import Model.TextToSpeech;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -138,6 +144,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jButtonLogin = new javax.swing.JButton();
         jLabelNameWarning = new javax.swing.JLabel();
         jLabelPassWarning = new javax.swing.JLabel();
+        jCheckBoxRememberMe = new javax.swing.JCheckBox();
         jLabelLoginPanelBackground = new javax.swing.JLabel();
         jLabelLoginBg = new javax.swing.JLabel();
 
@@ -246,7 +253,7 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSignup);
-        jButtonSignup.setBounds(650, 660, 290, 120);
+        jButtonSignup.setBounds(650, 680, 290, 120);
 
         jButtonLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/loginButton.png"))); // NOI18N
         jButtonLogin.setBorder(null);
@@ -261,7 +268,7 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonLogin);
-        jButtonLogin.setBounds(650, 530, 290, 120);
+        jButtonLogin.setBounds(650, 570, 290, 120);
 
         jLabelNameWarning.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabelNameWarning.setForeground(new java.awt.Color(204, 0, 51));
@@ -272,6 +279,22 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabelPassWarning.setForeground(new java.awt.Color(204, 0, 51));
         getContentPane().add(jLabelPassWarning);
         jLabelPassWarning.setBounds(590, 510, 220, 20);
+
+        jCheckBoxRememberMe.setBackground(new java.awt.Color(153, 0, 153));
+        jCheckBoxRememberMe.setFont(new java.awt.Font("Verdana", 2, 18)); // NOI18N
+        jCheckBoxRememberMe.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxRememberMe.setText(" Remember me");
+        jCheckBoxRememberMe.setBorder(null);
+        jCheckBoxRememberMe.setContentAreaFilled(false);
+        jCheckBoxRememberMe.setFocusPainted(false);
+        jCheckBoxRememberMe.setOpaque(false);
+        jCheckBoxRememberMe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxRememberMeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBoxRememberMe);
+        jCheckBoxRememberMe.setBounds(590, 540, 200, 16);
 
         jLabelLoginPanelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/LoginPanelBg.png"))); // NOI18N
         getContentPane().add(jLabelLoginPanelBackground);
@@ -333,7 +356,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
         String username = "", pass = "";
         username = jNamelField.getText();
-        pass = jPasswordField.getText();
+        pass = new String(jPasswordField.getPassword());
         boolean loginAction = true;
 
         //if the user does not fill up either email or password
@@ -374,11 +397,27 @@ public class LoginScreen extends javax.swing.JFrame {
                 //if user found then showing yes, else showing no
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Login Successful");
+
+                    //storing user status inside cache
+                    if (jCheckBoxRememberMe.isSelected()) {
+                        try {
+                            
+                            //writing user status in cache
+                            FileWriter writer = new FileWriter("resources/Status/cache.txt");
+                            
+                            writer.write(username);
+                            
+                            //closing writer
+                            writer.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     dispose();
                     //moving on to next JFRAME
                     //new Symbol(username).setVisible(true);
                     new UserScreen(username).setVisible(true);
-                    
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
                 }
@@ -388,6 +427,10 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jCheckBoxRememberMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxRememberMeActionPerformed
+
+    }//GEN-LAST:event_jCheckBoxRememberMeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,6 +448,7 @@ public class LoginScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonSignup;
+    private javax.swing.JCheckBox jCheckBoxRememberMe;
     private javax.swing.JLabel jLabelLoginBg;
     private javax.swing.JLabel jLabelLoginExit;
     private javax.swing.JLabel jLabelLoginMinimize;

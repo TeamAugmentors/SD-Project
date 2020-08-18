@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import SnakeGame.boards.SnakeBoard;
 import JFrame.Symbol;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -50,6 +52,7 @@ public class UserScreen extends javax.swing.JFrame {
         jButtonHangman = new javax.swing.JButton();
         jLabelWelcome = new javax.swing.JLabel();
         jButtonSnakeGame = new javax.swing.JButton();
+        jButtonSignOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +83,14 @@ public class UserScreen extends javax.swing.JFrame {
             }
         });
 
+        jButtonSignOut.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jButtonSignOut.setText("Sign out");
+        jButtonSignOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSignOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,7 +106,10 @@ public class UserScreen extends javax.swing.JFrame {
                         .addGap(661, 661, 661))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(509, 509, 509))))
+                        .addGap(509, 509, 509))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +122,9 @@ public class UserScreen extends javax.swing.JFrame {
                 .addComponent(jButtonHangman, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77)
                 .addComponent(jButtonSnakeGame, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -142,6 +158,22 @@ public class UserScreen extends javax.swing.JFrame {
         //moving to next JFrame
         SNAKE_GAME_MAIN_MENU.setVisible(true);
     }//GEN-LAST:event_jButtonSnakeGameActionPerformed
+
+    private void jButtonSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignOutActionPerformed
+        dispose();
+        try {
+            FileWriter writer = new FileWriter("resources/Status/cache.txt");
+            
+            //clearing user status from cache
+            writer.write("");
+            
+            //closing writer
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(UserScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        new LoginScreen().setVisible(true);
+    }//GEN-LAST:event_jButtonSignOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +212,7 @@ public class UserScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonHangman;
+    private javax.swing.JButton jButtonSignOut;
     private javax.swing.JButton jButtonSnakeGame;
     private javax.swing.JButton jButtonTicTacToe;
     private javax.swing.JLabel jLabelWelcome;

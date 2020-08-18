@@ -7,35 +7,39 @@ package JFrame;
 
 import Model.TextToSpeech;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sd.project.SDProject;
 import marytts.modules.synthesis.Voice;
-
 
 /**
  *
  * @author AST
  */
 public class SmartAssistant extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form SmartAssistant
      */
     TextToSpeech tts = new TextToSpeech();
-    
+
     public SmartAssistant() {
         initComponents();
-        
-        this.setSize(1600,900);
+
+        this.setSize(1600, 900);
         this.setLocationRelativeTo(null);
-        jButtonLogin.setBackground(new Color(0,0,0,0));
+        jButtonLogin.setBackground(new Color(0, 0, 0, 0));
         jButtonLogin.setBorderPainted(false);
         jButtonLogin.setOpaque(false);
         jButtonLogin.setContentAreaFilled(false);
         jButtonLogin.setBorderPainted(false);
         jButtonLogin.setBorder(null);
 
-        
-        
         //printing available voices
         //Voice.getAvailableVoices().stream().forEach(System.out::println);
         tts.setVoice("dfki-poppy-hsmm");
@@ -84,14 +88,29 @@ public class SmartAssistant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        
+
         //closing current JFrame
         dispose();
-        
-        //moving to next JFrame
-        new LoginScreen().setVisible(true);
-        
-        
+
+        //checking if the user had signed out before
+        File cacheFile = new File("resources/Status/cache.txt");
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(cacheFile));
+            String line;
+            try {
+                if ((line = reader.readLine()) != null) {
+                    new UserScreen(line).setVisible(true);
+                } else {
+                    //moving to next JFrame
+                    new LoginScreen().setVisible(true);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(SmartAssistant.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SmartAssistant.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         tts.stopSpeaking();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
