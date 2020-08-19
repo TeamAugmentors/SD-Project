@@ -6,6 +6,7 @@
 package JFrame;
 
 import Model.Game_HangMan.HangManMethods;
+import Model.TextToSpeech;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -24,6 +25,7 @@ public class HangManGame extends javax.swing.JFrame {
      */
     HangManMethods hg = new HangManMethods();
     Scanner sc = new Scanner(System.in);
+    TextToSpeech tts = new TextToSpeech();
     String name = "";
     int i, score;
     char[] guess;
@@ -698,6 +700,8 @@ public class HangManGame extends javax.swing.JFrame {
         if (hg.isWordGuess(playerGuess, guess)) {
             System.out.println("You won the game");
             jLabelNotification.setText("You won the game");
+            tts.setVoice("dfki-poppy-hsmm");
+            tts.speak("You won the game", 2.0f, false, false);
             jLabel_scoreShow.setText(String.valueOf(score));
             jLabel_score.setText("Score: ");
             gameendFlag = 1;
@@ -706,6 +710,8 @@ public class HangManGame extends javax.swing.JFrame {
         } else if (!hg.isWordGuess(playerGuess, guess) && tries == amountOfGuesses) {
             System.out.println("You lost the game");
             jLabelNotification.setText("You lost the game");
+            tts.setVoice("dfki-poppy-hsmm");
+            tts.speak("You lost the game", 2.0f, false, false);
             String answer = new String(guess);
             jLabelHint.setText("The word was: " + answer);
             jLabel_scoreShow.setText("0");
