@@ -8,6 +8,7 @@ package JFrame;
 
 import Model.Game_TicTacToe.Move;
 import Model.Game_TicTacToe.TicTacToeMethods;
+import Model.TextToSpeech;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -216,8 +217,17 @@ public class TicTacToe extends javax.swing.JFrame {
         }
         else{
             //game ends
-            JOptionPane.showMessageDialog(null,"Do you want another match?");
+            //congratulation message
+            TextToSpeech tts = new TextToSpeech();
+            
+            tts.setVoice("dfki-poppy-hsmm");
+            tts.speak("Congratulations!!!", 2.0f, false, false);
+            
+            JOptionPane.showMessageDialog(null,"You have mastered Tic Tac Toe"); 
+            
             dispose();
+            
+            //moving back to main menu
             new UserScreen(playerName).setVisible(true);
         }
     }
