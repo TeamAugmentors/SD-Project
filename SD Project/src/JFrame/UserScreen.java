@@ -182,12 +182,8 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
 
         //disposing current jframe and opening hangman
         dispose();
-        try {
-            new HangManGame().setVisible(true);
 
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new HangManGame(userName).setVisible(true);
     }//GEN-LAST:event_jButtonHangmanActionPerformed
 
     private void jButtonSnakeGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSnakeGameActionPerformed
@@ -228,11 +224,11 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jButtonSnakeGame1ActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        
-            // TODO add your handling code here:
-            t.stop();
-            jDialog1.dispose();
-        
+
+        // TODO add your handling code here:
+        t.stop();
+        jDialog1.dispose();
+
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
@@ -289,7 +285,7 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
     public void run() {
         cf = new CurrencyConverterFrame();
         cf.setVisible(true);
-        
+
         jDialog1.setVisible(false);
     }
 }

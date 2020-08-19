@@ -241,11 +241,11 @@ public class CurrencyConverterFrame extends javax.swing.JFrame implements Runnab
 
         jLabel1.setText("nullPosition");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(380, 90, 57, 14);
+        jLabel1.setBounds(380, 90, 53, 14);
 
         jLabel2.setText("nullPosition");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(380, 160, 57, 14);
+        jLabel2.setBounds(380, 160, 53, 14);
 
         fromCurrenciesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,11 +285,11 @@ public class CurrencyConverterFrame extends javax.swing.JFrame implements Runnab
 
         fromCurrencyLabel.setText("jLabel3");
         getContentPane().add(fromCurrencyLabel);
-        fromCurrencyLabel.setBounds(760, 70, 35, 14);
+        fromCurrencyLabel.setBounds(760, 70, 34, 14);
 
         toCurrencyLabel.setText("jLabel4");
         getContentPane().add(toCurrencyLabel);
-        toCurrencyLabel.setBounds(760, 140, 35, 14);
+        toCurrencyLabel.setBounds(760, 140, 34, 14);
 
         pack();
         setLocationRelativeTo(null);

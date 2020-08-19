@@ -11,6 +11,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,15 +24,22 @@ public class HangManGame extends javax.swing.JFrame {
      */
     HangManMethods hg = new HangManMethods();
     Scanner sc = new Scanner(System.in);
+    String name = "";
     int i, score;
     char[] guess;
     int amountOfGuesses;//How many times player can guess the word
     char[] playerGuess;
     int tries, gameendFlag = 0;
 
-    public HangManGame() throws FileNotFoundException {
+    public HangManGame() {
         initComponents();
-        //this.setSize(1920, 1080);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        initializeGame();
+    }
+
+    public HangManGame(String userName) {
+        initComponents();
+        name = userName;
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initializeGame();
     }
@@ -609,7 +617,7 @@ public class HangManGame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
-        new UserScreen().setVisible(true);
+        new UserScreen(name).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabelExitPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelExitPropertyChange
@@ -619,7 +627,8 @@ public class HangManGame extends javax.swing.JFrame {
     private void jLabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabelExitMouseClicked
-    public void initializeGame() throws FileNotFoundException {
+
+    public void initializeGame() {
         hg.readWords();
         guess = hg.randomWord();
         //System.out.println(guess);
@@ -635,6 +644,27 @@ public class HangManGame extends javax.swing.JFrame {
         jTextFieldOutput.setText(s);
         tries = 0;
         score = guess.length * 2;
+        System.out.println("Current guesses:");
+        hg.printArray(playerGuess);
+        jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
+    }
+
+    void resetGame() {
+        hg.readWords();
+        guess = hg.randomWord();
+        //System.out.println(guess);
+        amountOfGuesses = 6;//How many times player can guess the word
+        playerGuess = new char[guess.length];
+        System.out.println("Welcome to game hang man");
+        String s = "";
+        for (i = 0; i < playerGuess.length; i++) {
+            playerGuess[i] = '_';
+            s += '_';
+            s += ' ';
+        }
+        jTextFieldOutput.setText(s);
+        tries = 0;
+        score += guess.length * 2;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
@@ -671,6 +701,8 @@ public class HangManGame extends javax.swing.JFrame {
             jLabel_scoreShow.setText(String.valueOf(score));
             jLabel_score.setText("Score: ");
             gameendFlag = 1;
+            resetGame();
+
         } else if (!hg.isWordGuess(playerGuess, guess) && tries == amountOfGuesses) {
             System.out.println("You lost the game");
             jLabelNotification.setText("You lost the game");
@@ -712,11 +744,9 @@ public class HangManGame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new HangManGame().setVisible(true);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
+                new HangManGame().setVisible(true);
+
             }
         });
     }
