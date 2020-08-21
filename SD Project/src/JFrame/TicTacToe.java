@@ -252,12 +252,11 @@ public class TicTacToe extends javax.swing.JFrame {
         
         //if AI wins
         else if(result == -10){
-            JOptionPane.showMessageDialog(null,"AI wins");
-            
             //updating AI score
             AIScore++;
             jLabelAIScore.setText(String.valueOf(AIScore));
-            
+            JOptionPane.showMessageDialog(null,"AI wins");
+            //problem!! windows going background
             //reseting game
             resetGame();
         }
@@ -858,6 +857,7 @@ public class TicTacToe extends javax.swing.JFrame {
 
     private void jLabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMouseClicked
         dispose();
+        new UserScreen(playerName).setVisible(true);
     }//GEN-LAST:event_jLabelExitMouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked

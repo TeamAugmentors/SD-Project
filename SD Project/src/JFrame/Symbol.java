@@ -96,9 +96,10 @@ public class Symbol extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-        dispose();
-        new TicTacToe(name,player,AI).setVisible(true);
+        if(player!='\0'){
+            dispose();
+            new TicTacToe(name,player,AI).setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
