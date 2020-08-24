@@ -86,6 +86,7 @@ public class HangManGame extends javax.swing.JFrame {
         jLabelNotification = new javax.swing.JLabel();
         jLabelHint = new javax.swing.JLabel();
         jLabel_scoreShow = new javax.swing.JLabel();
+        jButtonResetGame = new javax.swing.JButton();
         jLabel_score = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -413,6 +414,17 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jLabel_scoreShow);
         jLabel_scoreShow.setBounds(180, 780, 180, 50);
 
+        jButtonResetGame.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jButtonResetGame.setForeground(new java.awt.Color(128, 34, 102));
+        jButtonResetGame.setText("Reset");
+        jButtonResetGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetGameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonResetGame);
+        jButtonResetGame.setBounds(850, 920, 120, 50);
+
         jLabel_score.setFont(new java.awt.Font("Unispace", 2, 26)); // NOI18N
         jLabel_score.setForeground(new java.awt.Color(128, 34, 102));
         jLabel_score.setToolTipText("");
@@ -428,7 +440,7 @@ public class HangManGame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(960, 920, 120, 50);
+        jButton1.setBounds(1060, 920, 120, 50);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(null);
@@ -630,6 +642,11 @@ public class HangManGame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabelExitMouseClicked
 
+    private void jButtonResetGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetGameActionPerformed
+        score=0;
+        resetGame();
+    }//GEN-LAST:event_jButtonResetGameActionPerformed
+
     public void initializeGame() {
         hg.readWords();
         guess = hg.randomWord();
@@ -667,9 +684,14 @@ public class HangManGame extends javax.swing.JFrame {
         jTextFieldOutput.setText(s);
         tries = 0;
         score += guess.length * 2;
+        gameendFlag=0;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
+        jLabelHint.setVisible(false);
+        jLabel_scoreShow.setVisible(false);
+        jLabel_score.setVisible(false);
+
     }
 
     public void game(char ch) {
@@ -702,6 +724,9 @@ public class HangManGame extends javax.swing.JFrame {
             jLabelNotification.setText("You won the game");
             tts.setVoice("dfki-poppy-hsmm");
             tts.speak("You won the game", 2.0f, false, false);
+            jLabelHint.setVisible(true);
+            jLabel_scoreShow.setVisible(true);
+            jLabel_score.setVisible(true);
             jLabel_scoreShow.setText(String.valueOf(score));
             jLabel_score.setText("Score: ");
             gameendFlag = 1;
@@ -713,6 +738,9 @@ public class HangManGame extends javax.swing.JFrame {
             tts.setVoice("dfki-poppy-hsmm");
             tts.speak("You lost the game", 2.0f, false, false);
             String answer = new String(guess);
+            jLabelHint.setVisible(true);
+            jLabel_scoreShow.setVisible(true);
+            jLabel_score.setVisible(true);
             jLabelHint.setText("The word was: " + answer);
             jLabel_scoreShow.setText("0");
             jLabel_score.setText("Score: ");
@@ -777,6 +805,7 @@ public class HangManGame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonP;
     private javax.swing.JButton jButtonQ;
     private javax.swing.JButton jButtonR;
+    private javax.swing.JButton jButtonResetGame;
     private javax.swing.JButton jButtonS;
     private javax.swing.JButton jButtonT;
     private javax.swing.JButton jButtonU;

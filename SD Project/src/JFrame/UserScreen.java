@@ -62,9 +62,8 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
         jLabelWelcome = new javax.swing.JLabel();
         jButtonSnakeGame = new javax.swing.JButton();
         jButtonSignOut = new javax.swing.JButton();
-        jButtonSnakeGame1 = new javax.swing.JButton();
+        jButtonCurrencyConverter = new javax.swing.JButton();
 
-        jDialog1.setPreferredSize(new java.awt.Dimension(300, 200));
         jDialog1.setResizable(false);
         jDialog1.setSize(new java.awt.Dimension(300, 200));
         jDialog1.getContentPane().setLayout(null);
@@ -117,11 +116,11 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jButtonSnakeGame1.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
-        jButtonSnakeGame1.setText("Currency Converter");
-        jButtonSnakeGame1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCurrencyConverter.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
+        jButtonCurrencyConverter.setText("Currency Converter");
+        jButtonCurrencyConverter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSnakeGame1ActionPerformed(evt);
+                jButtonCurrencyConverterActionPerformed(evt);
             }
         });
 
@@ -138,7 +137,7 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonSnakeGame1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonCurrencyConverter, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(323, 323, 323)
                                 .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -164,7 +163,7 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
                         .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSnakeGame1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonCurrencyConverter, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37))))
         );
 
@@ -212,7 +211,7 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
         new LoginScreen().setVisible(true);
     }//GEN-LAST:event_jButtonSignOutActionPerformed
 
-    private void jButtonSnakeGame1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSnakeGame1ActionPerformed
+    private void jButtonCurrencyConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCurrencyConverterActionPerformed
         // TODO add your handling code here:
         t = new Thread(this, "opening converter");
         t.start();
@@ -221,7 +220,7 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
 
         jDialog1.setLocationRelativeTo(null);
 
-    }//GEN-LAST:event_jButtonSnakeGame1ActionPerformed
+    }//GEN-LAST:event_jButtonCurrencyConverterActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
 
@@ -271,10 +270,10 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
+    private javax.swing.JButton jButtonCurrencyConverter;
     private javax.swing.JButton jButtonHangman;
     private javax.swing.JButton jButtonSignOut;
     private javax.swing.JButton jButtonSnakeGame;
-    private javax.swing.JButton jButtonSnakeGame1;
     private javax.swing.JButton jButtonTicTacToe;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
