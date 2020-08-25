@@ -231,12 +231,12 @@ public class Screen extends JPanel implements Runnable {
 
         }
 
-        if (xCoordiante < 0) {
-            xCoordiante = WIDTH / TILE_SIZE;
-        }
-
         if (xCoordiante > WIDTH / TILE_SIZE - 1) {
             xCoordiante = 0;
+        }
+
+        if (xCoordiante < 0) {
+            xCoordiante = WIDTH / TILE_SIZE;
         }
 
     }
