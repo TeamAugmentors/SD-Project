@@ -7,12 +7,19 @@ package JFrame;
 
 import Model.Game_HangMan.HangManMethods;
 import Model.TextToSpeech;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import sd.project.MyConnection;
 
 /**
  *
@@ -27,6 +34,7 @@ public class HangManGame extends javax.swing.JFrame {
     Scanner sc = new Scanner(System.in);
     TextToSpeech tts = new TextToSpeech();
     String name = "";
+    String email = "";
     int i, score;
     char[] guess;
     int amountOfGuesses;//How many times player can guess the word
@@ -41,6 +49,21 @@ public class HangManGame extends javax.swing.JFrame {
 
     public HangManGame(String userName) {
         initComponents();
+        //Read user email ID from file
+        File file = new File("resources/Status/id.txt");
+        try {
+            BufferedReader bfr = new BufferedReader(new FileReader(file));
+            String line;
+            try {
+                if ((line = bfr.readLine()) != null) {
+                       email=line;
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         name = userName;
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initializeGame();
@@ -630,6 +653,14 @@ public class HangManGame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonZActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PreparedStatement ps;
+        String sql = "UPDATE userinfo SET hangman=? WHERE email = ?";
+        try {
+            ps = MyConnection.getConnection().prepareStatement(sql);
+            ps.setString(8,String.valueOf(score));
+        } catch (SQLException ex) {
+            Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dispose();
         new UserScreen(name).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -643,7 +674,7 @@ public class HangManGame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMouseClicked
 
     private void jButtonResetGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetGameActionPerformed
-        score=0;
+        score = 0;
         resetGame();
     }//GEN-LAST:event_jButtonResetGameActionPerformed
 
@@ -684,13 +715,13 @@ public class HangManGame extends javax.swing.JFrame {
         jTextFieldOutput.setText(s);
         tries = 0;
         score += guess.length * 2;
-        gameendFlag=0;
+        gameendFlag = 0;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
-        jLabelHint.setVisible(false);
-        jLabel_scoreShow.setVisible(false);
-        jLabel_score.setVisible(false);
+        jLabelHint.setText(null);
+        jLabel_scoreShow.setText(null);
+        jLabel_score.setText(null);
 
     }
 
@@ -724,9 +755,6 @@ public class HangManGame extends javax.swing.JFrame {
             jLabelNotification.setText("You won the game");
             tts.setVoice("dfki-poppy-hsmm");
             tts.speak("You won the game", 2.0f, false, false);
-            jLabelHint.setVisible(true);
-            jLabel_scoreShow.setVisible(true);
-            jLabel_score.setVisible(true);
             jLabel_scoreShow.setText(String.valueOf(score));
             jLabel_score.setText("Score: ");
             gameendFlag = 1;
@@ -738,9 +766,6 @@ public class HangManGame extends javax.swing.JFrame {
             tts.setVoice("dfki-poppy-hsmm");
             tts.speak("You lost the game", 2.0f, false, false);
             String answer = new String(guess);
-            jLabelHint.setVisible(true);
-            jLabel_scoreShow.setVisible(true);
-            jLabel_score.setVisible(true);
             jLabelHint.setText("The word was: " + answer);
             jLabel_scoreShow.setText("0");
             jLabel_score.setText("Score: ");

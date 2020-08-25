@@ -32,7 +32,8 @@ public class LoginScreen extends javax.swing.JFrame {
 
     //declaring global variables to store co-ordinates of mouse pointer
     private int mousePX, mousePY;
-
+    
+    String email="";
     //creating object of register screen
     RegisterScreen rg = new RegisterScreen();
     SpeechToText st = new SpeechToText();
@@ -394,10 +395,24 @@ public class LoginScreen extends javax.swing.JFrame {
 
                 //searching for registered user
                 rs = ps.executeQuery();
+                
+           
                 //if user found then showing yes, else showing no
                 if (rs.next()) {
+                    
+                    email = rs.getString("u_email"); //Get the email ID from database
+                    //.out.println(email);
+                    
+                    //Save user email address for saving score
+                    try {
+                        FileWriter file = new FileWriter("resources/Status/id.txt");
+                        file.write(email);
+                        file.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     JOptionPane.showMessageDialog(null, "Login Successful");
-
+                        
                     //storing user status inside cache
                     if (jCheckBoxRememberMe.isSelected()) {
                         try {
