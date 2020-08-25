@@ -654,10 +654,11 @@ public class HangManGame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PreparedStatement ps;
-        String sql = "UPDATE userinfo SET hangman=? WHERE email = ?";
+        String sql = "UPDATE `userinfo` SET hangman=? WHERE `email` = ?";
         try {
             ps = MyConnection.getConnection().prepareStatement(sql);
             ps.setString(8,String.valueOf(score));
+            ps.setString(5, email);
         } catch (SQLException ex) {
             Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
         }
