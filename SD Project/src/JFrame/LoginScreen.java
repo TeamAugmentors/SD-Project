@@ -33,7 +33,6 @@ public class LoginScreen extends javax.swing.JFrame {
     //declaring global variables to store co-ordinates of mouse pointer
     private int mousePX, mousePY;
     
-    String email="";
     //creating object of register screen
     RegisterScreen rg = new RegisterScreen();
     SpeechToText st = new SpeechToText();
@@ -400,13 +399,29 @@ public class LoginScreen extends javax.swing.JFrame {
                 //if user found then showing yes, else showing no
                 if (rs.next()) {
                     
-                    email = rs.getString("u_email"); //Get the email ID from database
+                    String fname1 = rs.getString("u_fname");
+                    String lname1 = rs.getString("u_lname");
+                    String username1 = rs.getString("u_username");
+                    String pass1 = rs.getString("u_pass");
+                    String email = rs.getString("u_email");
+                    String question1 = rs.getString("u_squestion");
+                    String answer1 = rs.getString("u_sanswer");
+                    String hangman = rs.getString("hangman");
+                    String snake = rs.getString("snake");
                     //.out.println(email);
                     
                     //Save user email address for saving score
                     try {
                         FileWriter file = new FileWriter("resources/Status/id.txt");
-                        file.write(email);
+                        file.write(fname1+"\n");
+                        file.write(lname1+"\n");
+                        file.write(username1+"\n");
+                        file.write(pass1+"\n");
+                        file.write(email+"\n");
+                        file.write(question1+"\n");
+                        file.write(answer1+"\n");
+                        file.write(hangman+"\n");
+                        file.write(snake+"\n");
                         file.close();
                     } catch (IOException ex) {
                         Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);

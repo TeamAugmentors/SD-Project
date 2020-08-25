@@ -12,8 +12,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,12 +32,13 @@ public class HangManGame extends javax.swing.JFrame {
     /**
      * Creates new form HangManGame
      */
+    ArrayList<String> field = new ArrayList<String>();
     HangManMethods hg = new HangManMethods();
     Scanner sc = new Scanner(System.in);
     TextToSpeech tts = new TextToSpeech();
     String name = "";
     String email = "";
-    int i, score;
+    int i, score,maxScore=0;
     char[] guess;
     int amountOfGuesses;//How many times player can guess the word
     char[] playerGuess;
@@ -51,12 +54,13 @@ public class HangManGame extends javax.swing.JFrame {
         initComponents();
         //Read user email ID from file
         File file = new File("resources/Status/id.txt");
+
         try {
             BufferedReader bfr = new BufferedReader(new FileReader(file));
             String line;
             try {
-                if ((line = bfr.readLine()) != null) {
-                       email=line;
+                while ((line = bfr.readLine()) != null) {
+                       field.add(line);
                 }
             } catch (IOException ex) {
                 Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
@@ -653,15 +657,26 @@ public class HangManGame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonZActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         PreparedStatement ps;
-        String sql = "UPDATE `userinfo` SET hangman=? WHERE `email` = ?";
+        String sql = "UPDATE userinfo SET u_fname=?,u_lname=?,u_username=?,u_pass=?,u_squestion=?,u_sanswer=?,hangman=?,snake=? WHERE u_email=?";
         try {
             ps = MyConnection.getConnection().prepareStatement(sql);
-            ps.setString(8,String.valueOf(score));
-            ps.setString(5, email);
+            ps.setString(5,field.get(4));
+            ps.setString(1,field.get(0));
+            ps.setString(2,field.get(1));
+            ps.setString(3,field.get(2));
+            ps.setString(4,field.get(3));
+            ps.setString(6,field.get(5));
+            ps.setString(7,field.get(6));
+            ps.setString(8,String.valueOf(maxScore));
+            ps.setString(9,field.get(8));
+            ps.executeUpdate();
+            System.out.println("Yes");
         } catch (SQLException ex) {
             Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         dispose();
         new UserScreen(name).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -694,7 +709,7 @@ public class HangManGame extends javax.swing.JFrame {
         }
         jTextFieldOutput.setText(s);
         tries = 0;
-        score = guess.length * 2;
+        score = 0;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
@@ -715,14 +730,12 @@ public class HangManGame extends javax.swing.JFrame {
         }
         jTextFieldOutput.setText(s);
         tries = 0;
-        score += guess.length * 2;
         gameendFlag = 0;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
-        jLabelHint.setText(null);
-        jLabel_scoreShow.setText(null);
-        jLabel_score.setText(null);
+        jLabel_scoreShow.setText(String.valueOf(score));
+
 
     }
 
@@ -755,6 +768,8 @@ public class HangManGame extends javax.swing.JFrame {
             System.out.println("You won the game");
             jLabelNotification.setText("You won the game");
             tts.setVoice("dfki-poppy-hsmm");
+            score+=guess.length*2;
+            maxScore=Math.max(maxScore, score);
             tts.speak("You won the game", 2.0f, false, false);
             jLabel_scoreShow.setText(String.valueOf(score));
             jLabel_score.setText("Score: ");
@@ -768,7 +783,7 @@ public class HangManGame extends javax.swing.JFrame {
             tts.speak("You lost the game", 2.0f, false, false);
             String answer = new String(guess);
             jLabelHint.setText("The word was: " + answer);
-            jLabel_scoreShow.setText("0");
+            jLabel_scoreShow.setText(String.valueOf(score));
             jLabel_score.setText("Score: ");
             gameendFlag = 1;
         }
