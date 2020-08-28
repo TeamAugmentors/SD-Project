@@ -659,20 +659,20 @@ public class HangManGame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         PreparedStatement ps;
-        String sql = "UPDATE userinfo SET u_fname=?,u_lname=?,u_username=?,u_pass=?,u_squestion=?,u_sanswer=?,hangman=?,snake=? WHERE u_email=?";
+        String sql = "UPDATE userinfo SET u_fname=?,u_lname=?,u_username=?,u_pass=?,u_squestion=?,u_sanswer=?,hangman=?,snake=? WHERE u_email = ?";
         try {
             ps = MyConnection.getConnection().prepareStatement(sql);
-            ps.setString(5,field.get(4));
             ps.setString(1,field.get(0));
             ps.setString(2,field.get(1));
             ps.setString(3,field.get(2));
             ps.setString(4,field.get(3));
-            ps.setString(6,field.get(5));
-            ps.setString(7,field.get(6));
-            ps.setString(8,String.valueOf(maxScore));
-            ps.setString(9,field.get(8));
+            ps.setString(5,field.get(5));
+            ps.setString(6,field.get(6));
+            ps.setString(7,String.valueOf(maxScore));
+            ps.setString(8,field.get(8));
+            ps.setString(9, field.get(4));
+            System.out.println(maxScore);
             ps.executeUpdate();
-            System.out.println("Yes");
         } catch (SQLException ex) {
             Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -733,6 +733,7 @@ public class HangManGame extends javax.swing.JFrame {
         gameendFlag = 0;
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
+        jLabel_score.setText("Score: ");
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
         jLabel_scoreShow.setText(String.valueOf(score));
 

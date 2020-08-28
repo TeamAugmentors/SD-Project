@@ -471,7 +471,7 @@ public class RegisterScreen extends javax.swing.JFrame {
                 if(confirmPassword.equals(password))
                 {
                     PreparedStatement ps ;
-                    String insert = "INSERT INTO `userinfo`(`u_fname`, `u_lname`, `u_username`, `u_pass`, `u_email`, `u_squestion`, `u_sanswer`) VALUES (?,?,?,?,?,?,?)" ;
+                    String insert = "INSERT INTO `userinfo`(`u_fname`, `u_lname`, `u_username`, `u_pass`, `u_email`, `u_squestion`, `u_sanswer`, `hangman` , `snake`) VALUES (?,?,?,?,?,?,?,?,?)" ;
                 
                     //checked exception
                     try {
@@ -502,6 +502,8 @@ public class RegisterScreen extends javax.swing.JFrame {
                         {
                             ps.setNull(7, 0);
                         }
+                        ps.setString(8, "0");
+                        ps.setString(9, "0");
                         //---------------------------------------------------------
                     
                         if(ps.executeUpdate()>0)
