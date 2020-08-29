@@ -198,12 +198,13 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
     private void jButtonSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignOutActionPerformed
         dispose();
         try {
-            FileWriter writer = new FileWriter("resources/Status/cache.txt");
-
+            FileWriter writer = new FileWriter("resources/Status/id.txt");
+            FileWriter writer2 = new FileWriter("resources/Status/cache.txt");
             //clearing user status from cache
             writer.write("");
-
+            writer2.write("");
             //closing writer
+            writer.close();
             writer.close();
         } catch (IOException ex) {
             Logger.getLogger(UserScreen.class.getName()).log(Level.SEVERE, null, ex);
