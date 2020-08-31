@@ -88,7 +88,6 @@ public class Options extends javax.swing.JFrame {
         save_button.setContentAreaFilled(false);
         save_button.setFocusPainted(false);
         save_button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_inside_options/save_button_rollover.png"))); // NOI18N
-        save_button.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_inside_options/2box.png"))); // NOI18N
         save_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 save_buttonActionPerformed(evt);

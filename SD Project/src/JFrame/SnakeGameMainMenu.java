@@ -168,7 +168,9 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
         new UserScreen(userName).setVisible(true);
         UserScreen.SNAKE_GAME_MAIN_MENU.dispose();
         System.out.println("Backbutton Pressed");
-        SNAKE_BOARD.dispose();
+        if (SNAKE_BOARD != null){
+            SNAKE_BOARD.dispose();
+        }
         PLAYER.clip.stop();
         PLAYER.clip.close();
         dispose();
