@@ -5,12 +5,17 @@
  */
 package SnakeGame.boards;
 
+import SnakeGame.screens.Menu;
 import SnakeGame.screens.Screen;
 import static SnakeGame.screens.Screen.GAME_OVER;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,7 +24,8 @@ import javax.swing.JFrame;
 public class SnakeBoard extends JFrame {
 
     Screen screen;
-    
+    Menu menu;
+
     public SnakeBoard() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -33,20 +39,37 @@ public class SnakeBoard extends JFrame {
 
     private void init() {
 
-        setLayout(new GridLayout(1, 1, 0, 0));
+        setLayout(new GridBagLayout());
+
+        GridBagConstraints gb = new GridBagConstraints();
 
         screen = new Screen();
 
-        add(screen);
+        menu = new Menu();
 
+        gb.gridx = 0;
+        gb.gridy = 0;
+
+        gb.weightx = 10;
+        gb.weighty = 0;
+        add(screen, gb);
+        
+        gb.gridx = 1;
+        gb.gridy = 0;
+        
+        gb.weightx = 1;
+        gb.weighty = 0;
+        add(menu, gb);
+        
+        
         pack();
 
         setLocationRelativeTo(null);
         setVisible(true);
 
     }
-    
-    public Screen getScreen(){
+
+    public Screen getScreen() {
         return screen;
     }
 
