@@ -7,7 +7,6 @@ package SnakeGame.screens;
 
 import static JFrame.SnakeGameMainMenu.PLAYER;
 import Libs.ColorEx;
-import static SnakeGame.screens.Screen.SCORE;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -37,6 +36,7 @@ public class Menu extends JPanel {
     //Static vars-------------------
     static int MENU_WIDTH = 200;
     static int MENU_HEIGHT = 800;
+    static JLabel SCORE_LABEL;
     //------------------------------
 
     //Images----------------------------------------------
@@ -53,7 +53,6 @@ public class Menu extends JPanel {
     //-----------------------------------------------------
 
     //UI Components-----
-    JLabel score;
     JLabel dummy;
     JButton muteButton;
     //------------------
@@ -88,16 +87,7 @@ public class Menu extends JPanel {
             }
         });
 
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    score.setText(SCORE + "");
-                }
-            }
-        });
         
-        t.start();
 
     }
 
@@ -144,13 +134,13 @@ public class Menu extends JPanel {
     }
 
     private void initJLabels() {
-        score = new JLabel();
-        score.setText("16");
-        score.setBounds(0, 0, 200, 100);
-        score.setForeground(ColorEx.BRIGHT_PURPLE);
-        score.setFont(new Font("Aerolite", Font.BOLD, 40));
+        SCORE_LABEL = new JLabel();
+        SCORE_LABEL.setText("16");
+        SCORE_LABEL.setBounds(0, 0, 200, 100);
+        SCORE_LABEL.setForeground(ColorEx.BRIGHT_PURPLE);
+        SCORE_LABEL.setFont(new Font("Aerolite", Font.BOLD, 40));
 
-        score.setHorizontalTextPosition(SwingConstants.CENTER);
+        SCORE_LABEL.setHorizontalTextPosition(SwingConstants.CENTER);
 
         dummy = new JLabel();
         dummy.setText("");
@@ -193,7 +183,7 @@ public class Menu extends JPanel {
         gb.weightx = 0;
         gb.weighty = 1;
         gb.anchor = GridBagConstraints.NORTH;
-        add(score, gb);
+        add(SCORE_LABEL, gb);
 
         gb.gridx = 0;
         gb.gridy = 2;

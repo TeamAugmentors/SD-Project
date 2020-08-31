@@ -23,6 +23,11 @@ import static JFrame.UserScreen.SNAKE_GAME_MAIN_MENU;
 import SnakeGame.graphics.Food;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -35,7 +40,6 @@ public class Screen extends JPanel implements Runnable {
     public static final int HEIGHT = 800;
     public static final int TILE_SIZE = 20;
     public static int FRAMES_PER_SECOND = 30;
-    public static int SCORE = 0;
     public static final boolean GAME_OVER = false;
     //---------------------------------------------
 
@@ -71,10 +75,16 @@ public class Screen extends JPanel implements Runnable {
     private long lastTime = System.nanoTime();
     private long timer = 0;
     private int ticks = 0;
+    private int score = 0;
     //---------------------------------------------
 
     //---------------------Map---------------------
     private ArrayList<Wall> map = MAP;
+    //---------------------------------------------
+    
+    //---------------------Files-------------------
+    File scoreFile;
+    //---------------------------------------------
 
     public Screen() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -122,7 +132,9 @@ public class Screen extends JPanel implements Runnable {
         movement();
 
         foodCollisionDetection();
-
+        
+        setScore();
+        
     }
 
     public void paint(Graphics g) {
@@ -158,6 +170,8 @@ public class Screen extends JPanel implements Runnable {
         }
 
     }
+    
+    
 
     public void run() {
 
@@ -225,20 +239,20 @@ public class Screen extends JPanel implements Runnable {
     private void movement() {
 
         if (up) {
-            SCORE++;
+            score++;
             yCoordinate--;
         }
         if (down) {
-            SCORE++;
+            score++;
             yCoordinate++;
         }
         if (left) {
-            SCORE++;
+            score++;
             xCoordiante--;
 
         }
         if (right) {
-            SCORE++;
+            score++;
             xCoordiante++;
 
         }
@@ -266,7 +280,7 @@ public class Screen extends JPanel implements Runnable {
     private void foodCollisionDetection() {
 
         if (snake.get(size - 1).getXCoordinate() * TILE_SIZE == food.getX() && snake.get(size - 1).getYCoordinate() * TILE_SIZE == food.getY()) {
-            SCORE += 50;
+            score += 50;
             size++;
             food.onCreateFood();
         }
@@ -303,11 +317,15 @@ public class Screen extends JPanel implements Runnable {
 
     private void gameOver() {
         new GameOverScreen().setVisible(true);
-
+        try {
+            writeToScoreFile();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage()+ "");
+        }
         SNAKE_BOARD.dispose();
 
     }
-//
+
 
     private void drawMap(Graphics g) {
         if (map != null) {
@@ -317,6 +335,19 @@ public class Screen extends JPanel implements Runnable {
 
         }
 
+    }
+
+    private void writeToScoreFile() throws IOException {
+        scoreFile = new File("resources/Snake.Resources/scores.txt");
+        FileWriter fw = new FileWriter(scoreFile, true);
+        PrintWriter pw = new PrintWriter(fw, true);
+        pw.append(score+"\n");
+        score = 0;
+        pw.close();
+    }
+
+    private void setScore() {
+        Menu.SCORE_LABEL.setText(score + "");
     }
     
     public class Key implements KeyListener {
@@ -385,6 +416,7 @@ public class Screen extends JPanel implements Runnable {
             }
 
             if (key == KeyEvent.VK_ESCAPE) {
+                stop("EXIT");
                 SNAKE_BOARD.dispose();
                 SNAKE_GAME_MAIN_MENU.setVisible(true);
             }
