@@ -32,6 +32,8 @@ public class SnakeBoard extends JFrame {
         setTitle("Snake");
 
         setResizable(false);
+        
+        setUndecorated(true);
 
         init();
 

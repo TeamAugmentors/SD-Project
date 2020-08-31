@@ -24,7 +24,7 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
     
     public static MapBoard MAP_BOARD;
     
-    public static MusicPlayer player = MusicPlayer.getInstance();
+    public static MusicPlayer PLAYER = MusicPlayer.getInstance();
     
     private String userName;
     
@@ -40,11 +40,11 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
         initComponents();
         
        
-        player.loadMusic(filePath);
+        PLAYER.loadMusic(filePath);
         
-        player.clip.start();
+        PLAYER.clip.start();
         
-        player.clip.loop(Clip.LOOP_CONTINUOUSLY);
+        PLAYER.clip.loop(Clip.LOOP_CONTINUOUSLY);
         
         
         
@@ -170,8 +170,8 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
         System.out.println("Backbutton Pressed");
         SNAKE_BOARD.getScreen().stop("STOP THREAD");
         SNAKE_BOARD.dispose();
-        player.clip.stop();
-        player.clip.close();
+        PLAYER.clip.stop();
+        PLAYER.clip.close();
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 

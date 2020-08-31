@@ -328,7 +328,7 @@ public class Options extends javax.swing.JFrame {
             player.clip.stop();
             player.loadMusic(GUITAR_MASS);
             player.clip.start();
-
+            
             player.clip.loop(Clip.LOOP_CONTINUOUSLY);
 
             MUSIC_STATES[0] = true;

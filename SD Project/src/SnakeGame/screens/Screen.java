@@ -21,6 +21,8 @@ import static JFrame.SnakeGameMainMenu.SNAKE_BOARD;
 import static SnakeGame.screens.MapEditor.MAP;
 import static JFrame.UserScreen.SNAKE_GAME_MAIN_MENU;
 import SnakeGame.graphics.Food;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 /**
  *
@@ -75,9 +77,17 @@ public class Screen extends JPanel implements Runnable {
 
     public Screen() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setFocusable(true);
+
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                System.out.println("SELECTED`````1");
+                Screen.this.requestFocusInWindow();
+            }
+        });
 
         key = new Key();
-        setFocusable(true);
         addKeyListener(key);
 
         xCoordiante = WIDTH / 40;
@@ -136,10 +146,9 @@ public class Screen extends JPanel implements Runnable {
         }
 
     }
-    
-    
+
     public void stop(String exit) {
-         
+
         running = false;
         try {
             thread.join();

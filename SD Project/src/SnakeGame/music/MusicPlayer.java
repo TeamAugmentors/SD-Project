@@ -42,7 +42,7 @@ public class MusicPlayer {
             clip = AudioSystem.getClip();
             clip.open(audioInput);
 
-            System.out.println("initialized");
+            System.out.println("Music player initialized");
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
