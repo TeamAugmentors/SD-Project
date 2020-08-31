@@ -35,6 +35,7 @@ public class Screen extends JPanel implements Runnable {
     public static final int HEIGHT = 800;
     public static final int TILE_SIZE = 20;
     public static int FRAMES_PER_SECOND = 30;
+    public static int SCORE = 0;
     public static final boolean GAME_OVER = false;
     //---------------------------------------------
 
@@ -224,20 +225,20 @@ public class Screen extends JPanel implements Runnable {
     private void movement() {
 
         if (up) {
-
+            SCORE++;
             yCoordinate--;
         }
         if (down) {
-
+            SCORE++;
             yCoordinate++;
         }
         if (left) {
-
+            SCORE++;
             xCoordiante--;
 
         }
         if (right) {
-
+            SCORE++;
             xCoordiante++;
 
         }
@@ -265,6 +266,7 @@ public class Screen extends JPanel implements Runnable {
     private void foodCollisionDetection() {
 
         if (snake.get(size - 1).getXCoordinate() * TILE_SIZE == food.getX() && snake.get(size - 1).getYCoordinate() * TILE_SIZE == food.getY()) {
+            SCORE += 50;
             size++;
             food.onCreateFood();
         }
@@ -316,7 +318,7 @@ public class Screen extends JPanel implements Runnable {
         }
 
     }
-
+    
     public class Key implements KeyListener {
 
         @Override
