@@ -136,6 +136,18 @@ public class Screen extends JPanel implements Runnable {
         }
 
     }
+    
+    
+    public void stop(String exit) {
+         
+        running = false;
+        try {
+            thread.join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Screen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public void run() {
 

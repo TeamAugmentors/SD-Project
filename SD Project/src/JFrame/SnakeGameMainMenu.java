@@ -59,7 +59,7 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mapsButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         mapsButton = new javax.swing.JButton();
         optionsButton = new javax.swing.JButton();
         startButton = new javax.swing.JButton();
@@ -71,20 +71,20 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1600, 800));
         getContentPane().setLayout(null);
 
-        mapsButton1.setBackground(new java.awt.Color(0, 0, 0));
-        mapsButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snakebackbutton.png"))); // NOI18N
-        mapsButton1.setBorder(null);
-        mapsButton1.setBorderPainted(false);
-        mapsButton1.setContentAreaFilled(false);
-        mapsButton1.setFocusPainted(false);
-        mapsButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snakebackbutton_rollover.png"))); // NOI18N
-        mapsButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(0, 0, 0));
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snakebackbutton.png"))); // NOI18N
+        backButton.setBorder(null);
+        backButton.setBorderPainted(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setFocusPainted(false);
+        backButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snakebackbutton_rollover.png"))); // NOI18N
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mapsButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(mapsButton1);
-        mapsButton1.setBounds(30, 30, 70, 70);
+        getContentPane().add(backButton);
+        backButton.setBounds(30, 30, 70, 70);
 
         mapsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake_maps.png"))); // NOI18N
         mapsButton.setBorder(null);
@@ -163,14 +163,17 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_mapsButtonActionPerformed
 
-    private void mapsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapsButton1ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         //returning to user screen
         new UserScreen(userName).setVisible(true);
         UserScreen.SNAKE_GAME_MAIN_MENU.dispose();
+        System.out.println("Backbutton Pressed");
+        SNAKE_BOARD.getScreen().stop("STOP THREAD");
+        SNAKE_BOARD.dispose();
         player.clip.stop();
         player.clip.close();
         dispose();
-    }//GEN-LAST:event_mapsButton1ActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
 
     public void setName(String userName){
         this.userName = userName;
@@ -213,9 +216,9 @@ public class SnakeGameMainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel background;
     private javax.swing.JButton mapsButton;
-    private javax.swing.JButton mapsButton1;
     private javax.swing.JButton optionsButton;
     private javax.swing.JButton startButton;
     // End of variables declaration//GEN-END:variables

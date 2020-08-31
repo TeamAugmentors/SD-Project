@@ -18,6 +18,8 @@ import javax.swing.JFrame;
  */
 public class SnakeBoard extends JFrame {
 
+    Screen screen;
+    
     public SnakeBoard() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -33,15 +35,19 @@ public class SnakeBoard extends JFrame {
 
         setLayout(new GridLayout(1, 1, 0, 0));
 
-        Screen s = new Screen();
+        screen = new Screen();
 
-        add(s);
+        add(screen);
 
         pack();
 
         setLocationRelativeTo(null);
         setVisible(true);
 
+    }
+    
+    public Screen getScreen(){
+        return screen;
     }
 
 }
