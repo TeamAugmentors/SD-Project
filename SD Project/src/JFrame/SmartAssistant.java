@@ -93,7 +93,7 @@ public class SmartAssistant extends javax.swing.JFrame {
         dispose();
 
         //checking if the user had signed out before
-        File cacheFile = new File("resources/Status/id.txt");
+        File cacheFile = new File("resources/Status/cache.txt");
         try {
             BufferedReader reader = new BufferedReader(new FileReader(cacheFile));
             String line;
@@ -101,9 +101,6 @@ public class SmartAssistant extends javax.swing.JFrame {
                 if ((line = reader.readLine()) != null) {
                     {
                         //reading user name from file and passing to user screen jframe
-                        for(int i=0;i<2;i++){
-                            line = reader.readLine();
-                        }
                         new UserScreen(line).setVisible(true);
                     }
                 } else {
