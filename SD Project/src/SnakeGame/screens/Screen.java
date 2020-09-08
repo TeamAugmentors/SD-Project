@@ -239,20 +239,20 @@ public class Screen extends JPanel implements Runnable {
     private void movement() {
 
         if (up) {
-            score++;
+            
             yCoordinate--;
         }
         if (down) {
-            score++;
+
             yCoordinate++;
         }
         if (left) {
-            score++;
+      
             xCoordiante--;
 
         }
         if (right) {
-            score++;
+       
             xCoordiante++;
 
         }
