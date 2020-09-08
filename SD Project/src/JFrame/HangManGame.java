@@ -44,6 +44,7 @@ public class HangManGame extends javax.swing.JFrame {
     int amountOfGuesses;//How many times player can guess the word
     char[] playerGuess;
     int tries, gameendFlag = 0;
+    boolean[] manArray = new boolean[6]; //For showing and hiding man image
 
     public HangManGame() {
         initComponents();
@@ -123,6 +124,12 @@ public class HangManGame extends javax.swing.JFrame {
         jLabel_score = new javax.swing.JLabel();
         jLabelBestScore = new javax.swing.JLabel();
         jButtonExitGame = new javax.swing.JButton();
+        jLabelLegLeft = new javax.swing.JLabel();
+        jLabelLegRight = new javax.swing.JLabel();
+        jLabelArmRight = new javax.swing.JLabel();
+        jLabelHead = new javax.swing.JLabel();
+        jLabelBody = new javax.swing.JLabel();
+        jLabelArmLeft = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelExit = new javax.swing.JLabel();
         jLabel_background = new javax.swing.JLabel();
@@ -481,6 +488,33 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonExitGame);
         jButtonExitGame.setBounds(1060, 920, 120, 50);
 
+        jLabelLegLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/legLeft.png"))); // NOI18N
+        jLabelLegLeft.setToolTipText("");
+        getContentPane().add(jLabelLegLeft);
+        jLabelLegLeft.setBounds(900, 410, 350, 500);
+
+        jLabelLegRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/legRight.png"))); // NOI18N
+        jLabelLegRight.setToolTipText("");
+        getContentPane().add(jLabelLegRight);
+        jLabelLegRight.setBounds(900, 410, 350, 500);
+
+        jLabelArmRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/armRight.png"))); // NOI18N
+        jLabelArmRight.setToolTipText("");
+        getContentPane().add(jLabelArmRight);
+        jLabelArmRight.setBounds(900, 410, 350, 500);
+
+        jLabelHead.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/head.png"))); // NOI18N
+        getContentPane().add(jLabelHead);
+        jLabelHead.setBounds(900, 410, 350, 500);
+
+        jLabelBody.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/body.png"))); // NOI18N
+        getContentPane().add(jLabelBody);
+        jLabelBody.setBounds(900, 410, 350, 500);
+
+        jLabelArmLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/armleft.png"))); // NOI18N
+        getContentPane().add(jLabelArmLeft);
+        jLabelArmLeft.setBounds(900, 410, 350, 500);
+
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(null);
 
@@ -515,156 +549,182 @@ public class HangManGame extends javax.swing.JFrame {
     private void jButtonBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBActionPerformed
         if (gameendFlag == 0) {
             game('b');
+            jButtonB.setVisible(false);
         }
     }//GEN-LAST:event_jButtonBActionPerformed
 
     private void jButtonMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMActionPerformed
         if (gameendFlag == 0) {
             game('m');
+            jButtonM.setVisible(false);
         }
     }//GEN-LAST:event_jButtonMActionPerformed
 
     private void jButtonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAActionPerformed
         if (gameendFlag == 0) {
             game('a');
+            jButtonA.setVisible(false);
         }
     }//GEN-LAST:event_jButtonAActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
         if (gameendFlag == 0) {
             game('c');
+            jButtonC.setVisible(false);
         }
     }//GEN-LAST:event_jButtonCActionPerformed
 
     private void jButtonDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDActionPerformed
         if (gameendFlag == 0) {
             game('d');
+            jButtonD.setVisible(false);
         }
     }//GEN-LAST:event_jButtonDActionPerformed
 
     private void jButtonEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEActionPerformed
         if (gameendFlag == 0) {
             game('e');
+            jButtonE.setVisible(false);
         }
     }//GEN-LAST:event_jButtonEActionPerformed
 
     private void jButtonFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFActionPerformed
         if (gameendFlag == 0) {
             game('f');
+            jButtonF.setVisible(false);
         }
     }//GEN-LAST:event_jButtonFActionPerformed
 
     private void jButtonGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGActionPerformed
         if (gameendFlag == 0) {
             game('g');
+            jButtonG.setVisible(false);
         }
     }//GEN-LAST:event_jButtonGActionPerformed
 
     private void jButtonHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHActionPerformed
         if (gameendFlag == 0) {
             game('h');
+            jButtonH.setVisible(false);
         }
     }//GEN-LAST:event_jButtonHActionPerformed
 
     private void jButtonIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIActionPerformed
         if (gameendFlag == 0) {
             game('i');
+            jButtonI.setVisible(false);
         }
     }//GEN-LAST:event_jButtonIActionPerformed
 
     private void jButtonJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJActionPerformed
         if (gameendFlag == 0) {
             game('j');
+            jButtonJ.setVisible(false);
         }
     }//GEN-LAST:event_jButtonJActionPerformed
 
     private void jButtonKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKActionPerformed
         if (gameendFlag == 0) {
             game('k');
+            jButtonK.setVisible(false);
         }
     }//GEN-LAST:event_jButtonKActionPerformed
 
     private void jButtonLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLActionPerformed
         if (gameendFlag == 0) {
             game('l');
+            jButtonM.setVisible(false);
         }
     }//GEN-LAST:event_jButtonLActionPerformed
 
     private void jButtonNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNActionPerformed
         if (gameendFlag == 0) {
             game('n');
+            jButtonN.setVisible(false);
         }
     }//GEN-LAST:event_jButtonNActionPerformed
 
     private void jButtonOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOActionPerformed
         if (gameendFlag == 0) {
             game('o');
+            jButtonO.setVisible(false);
         }
     }//GEN-LAST:event_jButtonOActionPerformed
 
     private void jButtonPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPActionPerformed
         if (gameendFlag == 0) {
             game('p');
+            jButtonP.setVisible(false);
         }
     }//GEN-LAST:event_jButtonPActionPerformed
 
     private void jButtonQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQActionPerformed
         if (gameendFlag == 0) {
             game('q');
+            jButtonQ.setVisible(false);
         }
     }//GEN-LAST:event_jButtonQActionPerformed
 
     private void jButtonRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRActionPerformed
         if (gameendFlag == 0) {
             game('r');
+            jButtonR.setVisible(false);
         }
     }//GEN-LAST:event_jButtonRActionPerformed
 
     private void jButtonSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSActionPerformed
         if (gameendFlag == 0) {
             game('s');
+            jButtonS.setVisible(false);
         }
     }//GEN-LAST:event_jButtonSActionPerformed
 
     private void jButtonTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTActionPerformed
         if (gameendFlag == 0) {
             game('t');
+            jButtonT.setVisible(false);
         }
     }//GEN-LAST:event_jButtonTActionPerformed
 
     private void jButtonUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUActionPerformed
         if (gameendFlag == 0) {
             game('u');
+            jButtonU.setVisible(false);
         }
     }//GEN-LAST:event_jButtonUActionPerformed
 
     private void jButtonVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVActionPerformed
         if (gameendFlag == 0) {
             game('v');
+            jButtonV.setVisible(false);
         }
     }//GEN-LAST:event_jButtonVActionPerformed
 
     private void jButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWActionPerformed
         if (gameendFlag == 0) {
             game('w');
+            jButtonW.setVisible(false);
         }
     }//GEN-LAST:event_jButtonWActionPerformed
 
     private void jButtonXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonXActionPerformed
         if (gameendFlag == 0) {
             game('x');
+            jButtonX.setVisible(false);
         }
     }//GEN-LAST:event_jButtonXActionPerformed
 
     private void jButtonYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonYActionPerformed
         if (gameendFlag == 0) {
             game('y');
+            jButtonY.setVisible(false);
         }
     }//GEN-LAST:event_jButtonYActionPerformed
 
     private void jButtonZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZActionPerformed
         if (gameendFlag == 0) {
             game('z');
+            jButtonZ.setVisible(false);
         }
     }//GEN-LAST:event_jButtonZActionPerformed
 
@@ -766,6 +826,44 @@ public class HangManGame extends javax.swing.JFrame {
         System.out.println("Current guesses:");
         hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
+        //Set the man invisible        
+        jLabelHead.setVisible(false);
+        jLabelBody.setVisible(false);
+        jLabelArmRight.setVisible(false);
+        jLabelArmLeft.setVisible(false);
+        jLabelLegLeft.setVisible(false);
+        jLabelLegRight.setVisible(false);
+        //Set the buttons visible
+        setVisible();
+    }
+
+    void setVisible() {
+        jButtonA.setVisible(true);
+        jButtonB.setVisible(true);
+        jButtonC.setVisible(true);
+        jButtonD.setVisible(true);
+        jButtonE.setVisible(true);
+        jButtonF.setVisible(true);
+        jButtonG.setVisible(true);
+        jButtonH.setVisible(true);
+        jButtonI.setVisible(true);
+        jButtonJ.setVisible(true);
+        jButtonK.setVisible(true);
+        jButtonL.setVisible(true);
+        jButtonM.setVisible(true);
+        jButtonN.setVisible(true);
+        jButtonO.setVisible(true);
+        jButtonP.setVisible(true);
+        jButtonQ.setVisible(true);
+        jButtonR.setVisible(true);
+        jButtonS.setVisible(true);
+        jButtonT.setVisible(true);
+        jButtonU.setVisible(true);
+        jButtonV.setVisible(true);
+        jButtonW.setVisible(true);
+        jButtonX.setVisible(true);
+        jButtonY.setVisible(true);
+        jButtonZ.setVisible(true);
     }
 
     void resetGame() {
@@ -789,7 +887,16 @@ public class HangManGame extends javax.swing.JFrame {
         jLabel_score.setText("Score: ");
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
         jLabel_scoreShow.setText(String.valueOf(score));
+        //Set the man invisible
+        jLabelHead.setVisible(false);
+        jLabelBody.setVisible(false);
+        jLabelArmRight.setVisible(false);
+        jLabelArmLeft.setVisible(false);
+        jLabelLegLeft.setVisible(false);
+        jLabelLegRight.setVisible(false);
 
+        //Set the buttons visible
+        setVisible();
     }
 
     public void game(char ch) {
@@ -815,6 +922,20 @@ public class HangManGame extends javax.swing.JFrame {
         } else {
             System.out.println("Wrong guess");
             tries++;
+            //Setting true/false in array for showing or hiding images
+            for (i = 0; i < 6; i++) {
+                if (i + 1 == tries) {
+                    manArray[i] = true;
+                } else {
+                    manArray[i] = false;
+                }
+            }
+            jLabelHead.setVisible(manArray[0]);
+            jLabelBody.setVisible(manArray[1]);
+            jLabelArmLeft.setVisible(manArray[2]);
+            jLabelArmRight.setVisible(manArray[3]);
+            jLabelLegLeft.setVisible(manArray[4]);
+            jLabelLegRight.setVisible(manArray[5]);
         }
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
         if (hg.isWordGuess(playerGuess, guess)) {
@@ -910,9 +1031,15 @@ public class HangManGame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonY;
     private javax.swing.JButton jButtonZ;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelArmLeft;
+    private javax.swing.JLabel jLabelArmRight;
     private javax.swing.JLabel jLabelBestScore;
+    private javax.swing.JLabel jLabelBody;
     private javax.swing.JLabel jLabelExit;
+    private javax.swing.JLabel jLabelHead;
     private javax.swing.JLabel jLabelHint;
+    private javax.swing.JLabel jLabelLegLeft;
+    private javax.swing.JLabel jLabelLegRight;
     private javax.swing.JLabel jLabelNotification;
     private javax.swing.JLabel jLabel_background;
     private javax.swing.JLabel jLabel_score;
