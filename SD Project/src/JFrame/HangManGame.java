@@ -548,183 +548,183 @@ public class HangManGame extends javax.swing.JFrame {
 
     private void jButtonBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBActionPerformed
         if (gameendFlag == 0) {
-            game('b');
             jButtonB.setVisible(false);
+            game('b');
         }
     }//GEN-LAST:event_jButtonBActionPerformed
 
     private void jButtonMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMActionPerformed
         if (gameendFlag == 0) {
-            game('m');
             jButtonM.setVisible(false);
+            game('m');
         }
     }//GEN-LAST:event_jButtonMActionPerformed
 
     private void jButtonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAActionPerformed
         if (gameendFlag == 0) {
-            game('a');
             jButtonA.setVisible(false);
+            game('a');
         }
     }//GEN-LAST:event_jButtonAActionPerformed
 
     private void jButtonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCActionPerformed
         if (gameendFlag == 0) {
-            game('c');
             jButtonC.setVisible(false);
+            game('c');
         }
     }//GEN-LAST:event_jButtonCActionPerformed
 
     private void jButtonDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDActionPerformed
         if (gameendFlag == 0) {
-            game('d');
             jButtonD.setVisible(false);
+            game('d');
         }
     }//GEN-LAST:event_jButtonDActionPerformed
 
     private void jButtonEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEActionPerformed
         if (gameendFlag == 0) {
-            game('e');
             jButtonE.setVisible(false);
+            game('e');
         }
     }//GEN-LAST:event_jButtonEActionPerformed
 
     private void jButtonFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFActionPerformed
         if (gameendFlag == 0) {
-            game('f');
             jButtonF.setVisible(false);
+            game('f');
         }
     }//GEN-LAST:event_jButtonFActionPerformed
 
     private void jButtonGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGActionPerformed
         if (gameendFlag == 0) {
-            game('g');
             jButtonG.setVisible(false);
+            game('g');
         }
     }//GEN-LAST:event_jButtonGActionPerformed
 
     private void jButtonHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHActionPerformed
         if (gameendFlag == 0) {
-            game('h');
             jButtonH.setVisible(false);
+            game('h');
         }
     }//GEN-LAST:event_jButtonHActionPerformed
 
     private void jButtonIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIActionPerformed
         if (gameendFlag == 0) {
-            game('i');
             jButtonI.setVisible(false);
+            game('i');
         }
     }//GEN-LAST:event_jButtonIActionPerformed
 
     private void jButtonJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJActionPerformed
         if (gameendFlag == 0) {
-            game('j');
             jButtonJ.setVisible(false);
+            game('j');
         }
     }//GEN-LAST:event_jButtonJActionPerformed
 
     private void jButtonKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKActionPerformed
         if (gameendFlag == 0) {
-            game('k');
             jButtonK.setVisible(false);
+            game('k');
         }
     }//GEN-LAST:event_jButtonKActionPerformed
 
     private void jButtonLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLActionPerformed
         if (gameendFlag == 0) {
-            game('l');
             jButtonM.setVisible(false);
+            game('l');
         }
     }//GEN-LAST:event_jButtonLActionPerformed
 
     private void jButtonNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNActionPerformed
         if (gameendFlag == 0) {
-            game('n');
             jButtonN.setVisible(false);
+            game('n');
         }
     }//GEN-LAST:event_jButtonNActionPerformed
 
     private void jButtonOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOActionPerformed
         if (gameendFlag == 0) {
-            game('o');
             jButtonO.setVisible(false);
+            game('o');    
         }
     }//GEN-LAST:event_jButtonOActionPerformed
 
     private void jButtonPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPActionPerformed
         if (gameendFlag == 0) {
-            game('p');
             jButtonP.setVisible(false);
+            game('p');
         }
     }//GEN-LAST:event_jButtonPActionPerformed
 
     private void jButtonQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQActionPerformed
         if (gameendFlag == 0) {
-            game('q');
             jButtonQ.setVisible(false);
+            game('q');
         }
     }//GEN-LAST:event_jButtonQActionPerformed
 
     private void jButtonRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRActionPerformed
         if (gameendFlag == 0) {
-            game('r');
             jButtonR.setVisible(false);
+            game('r');
         }
     }//GEN-LAST:event_jButtonRActionPerformed
 
     private void jButtonSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSActionPerformed
         if (gameendFlag == 0) {
-            game('s');
             jButtonS.setVisible(false);
+            game('s');
         }
     }//GEN-LAST:event_jButtonSActionPerformed
 
     private void jButtonTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTActionPerformed
         if (gameendFlag == 0) {
-            game('t');
             jButtonT.setVisible(false);
+            game('t');
         }
     }//GEN-LAST:event_jButtonTActionPerformed
 
     private void jButtonUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUActionPerformed
         if (gameendFlag == 0) {
-            game('u');
             jButtonU.setVisible(false);
+            game('u');
         }
     }//GEN-LAST:event_jButtonUActionPerformed
 
     private void jButtonVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVActionPerformed
         if (gameendFlag == 0) {
+            jButtonV.setVisible(false); 
             game('v');
-            jButtonV.setVisible(false);
         }
     }//GEN-LAST:event_jButtonVActionPerformed
 
     private void jButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWActionPerformed
         if (gameendFlag == 0) {
-            game('w');
             jButtonW.setVisible(false);
+            game('w');
         }
     }//GEN-LAST:event_jButtonWActionPerformed
 
     private void jButtonXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonXActionPerformed
         if (gameendFlag == 0) {
-            game('x');
             jButtonX.setVisible(false);
+            game('x');
         }
     }//GEN-LAST:event_jButtonXActionPerformed
 
     private void jButtonYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonYActionPerformed
         if (gameendFlag == 0) {
-            game('y');
             jButtonY.setVisible(false);
+            game('y');
         }
     }//GEN-LAST:event_jButtonYActionPerformed
 
     private void jButtonZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZActionPerformed
         if (gameendFlag == 0) {
-            game('z');
             jButtonZ.setVisible(false);
+            game('z');
         }
     }//GEN-LAST:event_jButtonZActionPerformed
 
