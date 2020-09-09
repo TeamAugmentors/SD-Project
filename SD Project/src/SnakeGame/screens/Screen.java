@@ -5,6 +5,7 @@
  */
 package SnakeGame.screens;
 
+import JFrame.HangManGame;
 import SnakeGame.Wall;
 import Libs.ColorEx;
 import SnakeGame.SnakeParts;
@@ -23,19 +24,28 @@ import static JFrame.UserScreen.SNAKE_GAME_MAIN_MENU;
 import SnakeGame.graphics.Food;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Scanner;
+import sd.project.MyConnection;
 
 /**
  *
  * @author Lassassin
  */
 public class Screen extends JPanel implements Runnable {
+
+    //--------------------Storing userInfo to DB---
+    ArrayList<String> field = new ArrayList<String>();
+    //---------------------------------------------
 
     //-----------------------STATIC VARIABLES------
     public static final int WIDTH = 1600;
@@ -88,21 +98,44 @@ public class Screen extends JPanel implements Runnable {
     File scoreFile;
     //---------------------------------------------
 
-    public Screen() {
+    public Screen() throws IOException {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setFocusable(true);
 
+        //-------importing userInfo from file------
+        File file = new File("resources/Status/id.txt");
+        try {
+            BufferedReader bfr;
+            bfr = new BufferedReader(new FileReader(file));
+            String line;
+
+            try {
+                while ((line = bfr.readLine()) != null) {
+                    field.add(line);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Screen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Screen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //-----------------------------------------
+
         initScoreFile();
 
-        addComponentListener(new ComponentAdapter() {
+        addComponentListener(
+                new ComponentAdapter() {
             @Override
-            public void componentShown(ComponentEvent e) {
+            public void componentShown(ComponentEvent e
+            ) {
                 System.out.println("SELECTED`````1");
                 Screen.this.requestFocusInWindow();
             }
-        });
+        }
+        );
 
         key = new Key();
+
         addKeyListener(key);
 
         xCoordiante = WIDTH / 40;
@@ -159,7 +192,8 @@ public class Screen extends JPanel implements Runnable {
         try {
             thread.join();
         } catch (InterruptedException ex) {
-            Logger.getLogger(Screen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Screen.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -170,7 +204,8 @@ public class Screen extends JPanel implements Runnable {
         try {
             thread.join();
         } catch (InterruptedException ex) {
-            Logger.getLogger(Screen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Screen.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -320,13 +355,33 @@ public class Screen extends JPanel implements Runnable {
     private void gameOver() {
         new GameOverScreen().setVisible(true);
         try {
-            if (score > getScoreFromFile()) {
-                writeToScoreFile();
-                
-                /**
-                 * Sync the scores.txt with local dB
-                 */
-                
+            if (score > Integer.parseInt(field.get(8))) {
+                //------updating to DB----------------------
+                PreparedStatement ps;
+                String sql = "UPDATE userinfo SET u_fname=?,u_lname=?,u_username=?,u_pass=?,u_squestion=?,u_sanswer=?,hangman=?,snake=? WHERE u_email = ?";
+                try {
+                    ps = MyConnection.getConnection().prepareStatement(sql);
+                    
+                    field.add(8,String.valueOf(score));
+                    
+                    ps.setString(1, field.get(0));
+                    ps.setString(2, field.get(1));
+                    ps.setString(3, field.get(2));
+                    ps.setString(4, field.get(3));
+                    ps.setString(5, field.get(5));
+                    ps.setString(6, field.get(6));
+                    ps.setString(7, field.get(7));
+                    ps.setString(8, field.get(8));
+                    ps.setString(9, field.get(4));
+
+                    ps.executeUpdate();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Screen.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
+                //----------------------------------------
+
+                updateUserFile();
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage() + "");
@@ -345,12 +400,12 @@ public class Screen extends JPanel implements Runnable {
 
     }
 
-    private void writeToScoreFile() throws IOException {
-        FileWriter fw = new FileWriter(scoreFile);
-        PrintWriter pw = new PrintWriter(fw);
-        pw.append(score + "");
-        score = 0;
-        pw.close();
+    private void updateUserFile() throws IOException {
+        FileWriter file = new FileWriter("resources/Status/id.txt");
+        for (int i = 0; i < 9; i++) {
+            file.write(field.get(i) + "\n");
+        }
+        file.close();
     }
 
     private void setScore() {
@@ -374,6 +429,7 @@ public class Screen extends JPanel implements Runnable {
 
     private void initScoreFile() {
         scoreFile = new File("resources/Snake.Resources/scores.txt");
+
     }
 
     public class Key implements KeyListener {

@@ -632,7 +632,7 @@ public class HangManGame extends javax.swing.JFrame {
 
     private void jButtonLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLActionPerformed
         if (gameendFlag == 0) {
-            jButtonM.setVisible(false);
+            jButtonL.setVisible(false);
             game('l');
         }
     }//GEN-LAST:event_jButtonLActionPerformed
@@ -769,7 +769,9 @@ public class HangManGame extends javax.swing.JFrame {
                 ps.setString(7, String.valueOf(maxScore));
                 ps.setString(8, field.get(8));
                 ps.setString(9, field.get(4));
-                //System.out.println(maxScore);
+                
+                System.out.println(field.get(8));
+                
                 ps.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
