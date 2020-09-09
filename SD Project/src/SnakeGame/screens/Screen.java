@@ -25,9 +25,11 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  *
@@ -81,7 +83,7 @@ public class Screen extends JPanel implements Runnable {
     //---------------------Map---------------------
     private ArrayList<Wall> map = MAP;
     //---------------------------------------------
-    
+
     //---------------------Files-------------------
     File scoreFile;
     //---------------------------------------------
@@ -89,6 +91,8 @@ public class Screen extends JPanel implements Runnable {
     public Screen() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setFocusable(true);
+
+        initScoreFile();
 
         addComponentListener(new ComponentAdapter() {
             @Override
@@ -106,7 +110,7 @@ public class Screen extends JPanel implements Runnable {
 
         size = 1;
 
-        snake = new ArrayList<SnakeParts>();
+        snake = new ArrayList<>();
 
         food = new Food();
 
@@ -132,9 +136,9 @@ public class Screen extends JPanel implements Runnable {
         movement();
 
         foodCollisionDetection();
-        
+
         setScore();
-        
+
     }
 
     public void paint(Graphics g) {
@@ -170,8 +174,6 @@ public class Screen extends JPanel implements Runnable {
         }
 
     }
-    
-    
 
     public void run() {
 
@@ -239,7 +241,7 @@ public class Screen extends JPanel implements Runnable {
     private void movement() {
 
         if (up) {
-            
+
             yCoordinate--;
         }
         if (down) {
@@ -247,12 +249,12 @@ public class Screen extends JPanel implements Runnable {
             yCoordinate++;
         }
         if (left) {
-      
+
             xCoordiante--;
 
         }
         if (right) {
-       
+
             xCoordiante++;
 
         }
@@ -318,14 +320,20 @@ public class Screen extends JPanel implements Runnable {
     private void gameOver() {
         new GameOverScreen().setVisible(true);
         try {
-            writeToScoreFile();
+            if (score > getScoreFromFile()) {
+                writeToScoreFile();
+                
+                /**
+                 * Sync the scores.txt with local dB
+                 */
+                
+            }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage()+ "");
+            System.out.println(ex.getMessage() + "");
         }
         SNAKE_BOARD.dispose();
 
     }
-
 
     private void drawMap(Graphics g) {
         if (map != null) {
@@ -338,10 +346,9 @@ public class Screen extends JPanel implements Runnable {
     }
 
     private void writeToScoreFile() throws IOException {
-        scoreFile = new File("resources/Snake.Resources/scores.txt");
-        FileWriter fw = new FileWriter(scoreFile, true);
-        PrintWriter pw = new PrintWriter(fw, true);
-        pw.append(score+"\n");
+        FileWriter fw = new FileWriter(scoreFile);
+        PrintWriter pw = new PrintWriter(fw);
+        pw.append(score + "");
         score = 0;
         pw.close();
     }
@@ -349,7 +356,26 @@ public class Screen extends JPanel implements Runnable {
     private void setScore() {
         Menu.SCORE_LABEL.setText(score + "");
     }
-    
+
+    private int getScoreFromFile() {
+        try {
+            String data = "";
+            Scanner myReader = new Scanner(scoreFile);
+            while (myReader.hasNextLine()) {
+                data = myReader.nextLine();
+            }
+            myReader.close();
+            return Integer.parseInt(data);
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred. " + e.getMessage());
+            return 0;
+        }
+    }
+
+    private void initScoreFile() {
+        scoreFile = new File("resources/Snake.Resources/scores.txt");
+    }
+
     public class Key implements KeyListener {
 
         @Override
