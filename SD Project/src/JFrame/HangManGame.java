@@ -138,7 +138,7 @@ public class HangManGame extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jButtonB.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonB.setFont(new java.awt.Font("Unispace", 0, 20)); // NOI18N
         jButtonB.setForeground(new java.awt.Color(128, 34, 102));
         jButtonB.setText("B");
         jButtonB.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +149,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonB);
         jButtonB.setBounds(140, 250, 70, 60);
 
-        jButtonA.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonA.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonA.setForeground(new java.awt.Color(128, 34, 102));
         jButtonA.setText("A");
         jButtonA.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +160,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonA);
         jButtonA.setBounds(50, 250, 70, 60);
 
-        jButtonD.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonD.setFont(new java.awt.Font("Unispace", 0, 20)); // NOI18N
         jButtonD.setForeground(new java.awt.Color(128, 34, 102));
         jButtonD.setText("D");
         jButtonD.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +171,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonD);
         jButtonD.setBounds(320, 250, 70, 60);
 
-        jButtonC.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonC.setFont(new java.awt.Font("Unispace", 0, 20)); // NOI18N
         jButtonC.setForeground(new java.awt.Color(128, 34, 102));
         jButtonC.setText("C");
         jButtonC.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +182,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonC);
         jButtonC.setBounds(230, 250, 70, 60);
 
-        jButtonF.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonF.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonF.setForeground(new java.awt.Color(128, 34, 102));
         jButtonF.setText("F");
         jButtonF.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +193,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonF);
         jButtonF.setBounds(500, 250, 70, 60);
 
-        jButtonE.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonE.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonE.setForeground(new java.awt.Color(128, 34, 102));
         jButtonE.setText("E");
         jButtonE.setToolTipText("");
@@ -205,7 +205,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonE);
         jButtonE.setBounds(410, 250, 70, 60);
 
-        jButtonH.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonH.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonH.setForeground(new java.awt.Color(128, 34, 102));
         jButtonH.setText("H");
         jButtonH.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +216,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonH);
         jButtonH.setBounds(680, 250, 70, 60);
 
-        jButtonG.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonG.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonG.setForeground(new java.awt.Color(128, 34, 102));
         jButtonG.setText("G");
         jButtonG.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +227,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonG);
         jButtonG.setBounds(590, 250, 70, 60);
 
-        jButtonJ.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonJ.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonJ.setForeground(new java.awt.Color(128, 34, 102));
         jButtonJ.setText("J");
         jButtonJ.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +238,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonJ);
         jButtonJ.setBounds(140, 330, 70, 60);
 
-        jButtonI.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonI.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonI.setForeground(new java.awt.Color(128, 34, 102));
         jButtonI.setText("I");
         jButtonI.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +249,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonI);
         jButtonI.setBounds(50, 330, 70, 60);
 
-        jButtonL.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonL.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonL.setForeground(new java.awt.Color(128, 34, 102));
         jButtonL.setText("L");
         jButtonL.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +260,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonL);
         jButtonL.setBounds(320, 330, 70, 60);
 
-        jButtonK.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonK.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonK.setForeground(new java.awt.Color(128, 34, 102));
         jButtonK.setText("K");
         jButtonK.addActionListener(new java.awt.event.ActionListener() {
@@ -271,7 +271,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonK);
         jButtonK.setBounds(230, 330, 70, 60);
 
-        jButtonN.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonN.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonN.setForeground(new java.awt.Color(128, 34, 102));
         jButtonN.setText("N");
         jButtonN.addActionListener(new java.awt.event.ActionListener() {
@@ -282,7 +282,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonN);
         jButtonN.setBounds(500, 330, 70, 60);
 
-        jButtonM.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonM.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonM.setForeground(new java.awt.Color(128, 34, 102));
         jButtonM.setText("M");
         jButtonM.addActionListener(new java.awt.event.ActionListener() {
@@ -293,7 +293,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonM);
         jButtonM.setBounds(410, 330, 70, 60);
 
-        jButtonP.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonP.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonP.setForeground(new java.awt.Color(128, 34, 102));
         jButtonP.setText("P");
         jButtonP.addActionListener(new java.awt.event.ActionListener() {
@@ -304,7 +304,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonP);
         jButtonP.setBounds(680, 330, 70, 60);
 
-        jButtonO.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonO.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonO.setForeground(new java.awt.Color(128, 34, 102));
         jButtonO.setText("O");
         jButtonO.addActionListener(new java.awt.event.ActionListener() {
@@ -315,7 +315,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonO);
         jButtonO.setBounds(590, 330, 70, 60);
 
-        jButtonR.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonR.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonR.setForeground(new java.awt.Color(128, 34, 102));
         jButtonR.setText("R");
         jButtonR.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +326,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonR);
         jButtonR.setBounds(140, 410, 70, 60);
 
-        jButtonQ.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonQ.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonQ.setForeground(new java.awt.Color(128, 34, 102));
         jButtonQ.setText("Q");
         jButtonQ.addActionListener(new java.awt.event.ActionListener() {
@@ -337,7 +337,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonQ);
         jButtonQ.setBounds(50, 410, 70, 60);
 
-        jButtonT.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonT.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonT.setForeground(new java.awt.Color(128, 34, 102));
         jButtonT.setText("T");
         jButtonT.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +348,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonT);
         jButtonT.setBounds(320, 410, 70, 60);
 
-        jButtonS.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonS.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonS.setForeground(new java.awt.Color(128, 34, 102));
         jButtonS.setText("S");
         jButtonS.addActionListener(new java.awt.event.ActionListener() {
@@ -359,7 +359,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonS);
         jButtonS.setBounds(230, 410, 70, 60);
 
-        jButtonV.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonV.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonV.setForeground(new java.awt.Color(128, 34, 102));
         jButtonV.setText("V");
         jButtonV.addActionListener(new java.awt.event.ActionListener() {
@@ -370,7 +370,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonV);
         jButtonV.setBounds(500, 410, 70, 60);
 
-        jButtonU.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonU.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonU.setForeground(new java.awt.Color(128, 34, 102));
         jButtonU.setText("U");
         jButtonU.addActionListener(new java.awt.event.ActionListener() {
@@ -381,7 +381,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonU);
         jButtonU.setBounds(410, 410, 70, 60);
 
-        jButtonX.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonX.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonX.setForeground(new java.awt.Color(128, 34, 102));
         jButtonX.setText("X");
         jButtonX.addActionListener(new java.awt.event.ActionListener() {
@@ -392,7 +392,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonX);
         jButtonX.setBounds(680, 410, 70, 60);
 
-        jButtonW.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonW.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonW.setForeground(new java.awt.Color(128, 34, 102));
         jButtonW.setText("W");
         jButtonW.addActionListener(new java.awt.event.ActionListener() {
@@ -403,7 +403,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonW);
         jButtonW.setBounds(590, 410, 70, 60);
 
-        jButtonY.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonY.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonY.setForeground(new java.awt.Color(128, 34, 102));
         jButtonY.setText("Y");
         jButtonY.addActionListener(new java.awt.event.ActionListener() {
@@ -414,7 +414,7 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jButtonY);
         jButtonY.setBounds(320, 490, 70, 60);
 
-        jButtonZ.setFont(new java.awt.Font("Unispace", 3, 20)); // NOI18N
+        jButtonZ.setFont(new java.awt.Font("Unispace", 1, 20)); // NOI18N
         jButtonZ.setForeground(new java.awt.Color(128, 34, 102));
         jButtonZ.setText("Z");
         jButtonZ.addActionListener(new java.awt.event.ActionListener() {
@@ -431,62 +431,74 @@ public class HangManGame extends javax.swing.JFrame {
         getContentPane().add(jTextFieldOutput);
         jTextFieldOutput.setBounds(160, 90, 500, 60);
 
-        jLabel1.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Unispace", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(128, 34, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Guess The Word");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(270, 40, 280, 40);
 
-        jLabelNotification.setFont(new java.awt.Font("Unispace", 3, 18)); // NOI18N
+        jLabelNotification.setFont(new java.awt.Font("Unispace", 1, 18)); // NOI18N
         jLabelNotification.setForeground(new java.awt.Color(128, 34, 102));
         jLabelNotification.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabelNotification);
         jLabelNotification.setBounds(310, 170, 220, 30);
 
-        jLabelHint.setFont(new java.awt.Font("Unispace", 3, 26)); // NOI18N
+        jLabelHint.setFont(new java.awt.Font("Unispace", 1, 26)); // NOI18N
         jLabelHint.setForeground(new java.awt.Color(128, 34, 102));
         getContentPane().add(jLabelHint);
         jLabelHint.setBounds(50, 730, 450, 40);
 
-        jLabel_scoreShow.setFont(new java.awt.Font("Unispace", 3, 26)); // NOI18N
+        jLabel_scoreShow.setFont(new java.awt.Font("Unispace", 1, 26)); // NOI18N
         jLabel_scoreShow.setForeground(new java.awt.Color(128, 34, 102));
         jLabel_scoreShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel_scoreShow);
         jLabel_scoreShow.setBounds(180, 780, 180, 50);
 
-        jButtonResetGame.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jButtonResetGame.setFont(new java.awt.Font("Unispace", 1, 24)); // NOI18N
         jButtonResetGame.setForeground(new java.awt.Color(128, 34, 102));
         jButtonResetGame.setText("Reset");
+        jButtonResetGame.setToolTipText("");
+        jButtonResetGame.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonResetGame.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonResetGame.setIconTextGap(2);
+        jButtonResetGame.setMargin(new java.awt.Insets(2, 10, 2, 10));
         jButtonResetGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetGameActionPerformed(evt);
             }
         });
         getContentPane().add(jButtonResetGame);
-        jButtonResetGame.setBounds(850, 920, 120, 50);
+        jButtonResetGame.setBounds(830, 920, 160, 50);
 
-        jLabel_score.setFont(new java.awt.Font("Unispace", 2, 26)); // NOI18N
+        jLabel_score.setFont(new java.awt.Font("Unispace", 1, 26)); // NOI18N
         jLabel_score.setForeground(new java.awt.Color(128, 34, 102));
         jLabel_score.setToolTipText("");
         getContentPane().add(jLabel_score);
         jLabel_score.setBounds(50, 780, 120, 50);
 
-        jLabelBestScore.setFont(new java.awt.Font("Unispace", 2, 26)); // NOI18N
+        jLabelBestScore.setFont(new java.awt.Font("Unispace", 1, 26)); // NOI18N
         jLabelBestScore.setForeground(new java.awt.Color(128, 34, 102));
         getContentPane().add(jLabelBestScore);
         jLabelBestScore.setBounds(50, 870, 490, 40);
 
-        jButtonExitGame.setFont(new java.awt.Font("Unispace", 3, 24)); // NOI18N
+        jButtonExitGame.setFont(new java.awt.Font("Unispace", 1, 24)); // NOI18N
         jButtonExitGame.setForeground(new java.awt.Color(128, 34, 102));
         jButtonExitGame.setText("EXIT");
+        jButtonExitGame.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonExitGame.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonExitGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitGameActionPerformed(evt);
             }
         });
+        jButtonExitGame.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jButtonExitGamePropertyChange(evt);
+            }
+        });
         getContentPane().add(jButtonExitGame);
-        jButtonExitGame.setBounds(1060, 920, 120, 50);
+        jButtonExitGame.setBounds(1060, 920, 160, 50);
 
         jLabelLegLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/legLeft.png"))); // NOI18N
         jLabelLegLeft.setToolTipText("");
@@ -808,6 +820,10 @@ public class HangManGame extends javax.swing.JFrame {
         jLabelHint.setText("");
         resetGame();
     }//GEN-LAST:event_jButtonResetGameActionPerformed
+
+    private void jButtonExitGamePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jButtonExitGamePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonExitGamePropertyChange
 
     public void initializeGame() {
         hg.readWords();
