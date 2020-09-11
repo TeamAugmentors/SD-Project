@@ -115,16 +115,16 @@ public class Symbol extends javax.swing.JFrame {
         // TODO add your handling code here:
         jButton2.setSelected(true);
         jButton3.setSelected(false);
-        player = 'O';
-        AI = 'X';
+        player = 'X';
+        AI = 'O';
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         jButton2.setSelected(false);
         jButton3.setSelected(true);
-        player = 'X';
-        AI = 'O';
+        player = 'O';
+        AI = 'X';
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

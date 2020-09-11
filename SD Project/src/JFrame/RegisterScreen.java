@@ -24,7 +24,7 @@ public class RegisterScreen extends javax.swing.JFrame {
      */
     private String firstName = "", lastName = "", password = "", confirmPassword = "", userName = "", securityQuestion = "", securityAnswer = "", email = "";
     
-    boolean flag, flagPass , signUp;
+    boolean  flagPass , signUp;
     boolean[] ara = new boolean[6];
 
     public RegisterScreen() {
@@ -42,43 +42,49 @@ public class RegisterScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        securityAnswerTextField = new javax.swing.JTextField();
         jLabelSecurityAnswer = new javax.swing.JLabel();
-        securityQuestionTextField = new javax.swing.JTextField();
+        securityAnswerTextField = new javax.swing.JTextField();
         jLabelSecurityQuestion = new javax.swing.JLabel();
+        securityQuestionTextField = new javax.swing.JTextField();
         registerButton = new javax.swing.JButton();
+        jLabelConfirmPassword = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         confirmPasswordWarning = new javax.swing.JLabel();
-        jLabelConfirmPassword = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         passwordWarning = new javax.swing.JLabel();
-        jLabelPassword = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
         emailField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         emailWarning = new javax.swing.JLabel();
-        jLabelEmail = new javax.swing.JLabel();
+        jLabelUserName = new javax.swing.JLabel();
         userNameField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         userNameWarning = new javax.swing.JLabel();
-        jLabelUserName = new javax.swing.JLabel();
+        jLabelLastName = new javax.swing.JLabel();
         lastNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lastNameWarning = new javax.swing.JLabel();
-        jLabelLastName = new javax.swing.JLabel();
+        jLabelFirstName = new javax.swing.JLabel();
         firstNameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         firstNameWarning = new javax.swing.JLabel();
-        jLabelFirstName = new javax.swing.JLabel();
         jLabelSignUpCancel = new javax.swing.JLabel();
         SignupPanelBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(378, 1000));
         getContentPane().setLayout(null);
 
+        jLabelSecurityAnswer.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelSecurityAnswer.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSecurityAnswer.setText("Security Answer");
+        getContentPane().add(jLabelSecurityAnswer);
+        jLabelSecurityAnswer.setBounds(70, 670, 330, 60);
+
+        securityAnswerTextField.setBackground(new java.awt.Color(38, 14, 48));
         securityAnswerTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         securityAnswerTextField.setForeground(new java.awt.Color(255, 255, 255));
         securityAnswerTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -100,12 +106,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(securityAnswerTextField);
         securityAnswerTextField.setBounds(70, 680, 330, 40);
 
-        jLabelSecurityAnswer.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelSecurityAnswer.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelSecurityAnswer.setText("Security Answer");
-        getContentPane().add(jLabelSecurityAnswer);
-        jLabelSecurityAnswer.setBounds(70, 670, 330, 60);
+        jLabelSecurityQuestion.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelSecurityQuestion.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelSecurityQuestion.setText("Security Question");
+        getContentPane().add(jLabelSecurityQuestion);
+        jLabelSecurityQuestion.setBounds(70, 590, 330, 60);
 
+        securityQuestionTextField.setBackground(new java.awt.Color(38, 14, 48));
         securityQuestionTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         securityQuestionTextField.setForeground(new java.awt.Color(255, 255, 255));
         securityQuestionTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -127,12 +134,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(securityQuestionTextField);
         securityQuestionTextField.setBounds(70, 600, 330, 40);
 
-        jLabelSecurityQuestion.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelSecurityQuestion.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelSecurityQuestion.setText("Security Question");
-        getContentPane().add(jLabelSecurityQuestion);
-        jLabelSecurityQuestion.setBounds(70, 590, 330, 60);
-
         registerButton.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/signupButton.png"))); // NOI18N
         registerButton.setBorder(null);
@@ -148,6 +149,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(registerButton);
         registerButton.setBounds(90, 760, 280, 130);
 
+        jLabelConfirmPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelConfirmPassword.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelConfirmPassword.setText("Confirm Password");
+        getContentPane().add(jLabelConfirmPassword);
+        jLabelConfirmPassword.setBounds(70, 510, 330, 60);
+
+        jPasswordField1.setBackground(new java.awt.Color(38, 14, 48));
         jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -180,12 +188,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(confirmPasswordWarning);
         confirmPasswordWarning.setBounds(70, 570, 230, 20);
 
-        jLabelConfirmPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelConfirmPassword.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelConfirmPassword.setText("Confirm Password");
-        getContentPane().add(jLabelConfirmPassword);
-        jLabelConfirmPassword.setBounds(70, 510, 330, 60);
+        jLabelPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelPassword.setText("Password");
+        getContentPane().add(jLabelPassword);
+        jLabelPassword.setBounds(70, 430, 330, 60);
 
+        jPasswordField.setBackground(new java.awt.Color(38, 14, 48));
         jPasswordField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -218,12 +227,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(passwordWarning);
         passwordWarning.setBounds(70, 490, 230, 20);
 
-        jLabelPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelPassword.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelPassword.setText("Password");
-        getContentPane().add(jLabelPassword);
-        jLabelPassword.setBounds(70, 430, 330, 60);
+        jLabelEmail.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelEmail.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelEmail.setText("E-Mail");
+        getContentPane().add(jLabelEmail);
+        jLabelEmail.setBounds(70, 350, 330, 60);
 
+        emailField.setBackground(new java.awt.Color(38, 14, 48));
         emailField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         emailField.setForeground(new java.awt.Color(255, 255, 255));
         emailField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -256,12 +266,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(emailWarning);
         emailWarning.setBounds(70, 410, 230, 20);
 
-        jLabelEmail.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelEmail.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelEmail.setText("E-Mail");
-        getContentPane().add(jLabelEmail);
-        jLabelEmail.setBounds(70, 350, 330, 60);
+        jLabelUserName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelUserName.setText("User Name");
+        getContentPane().add(jLabelUserName);
+        jLabelUserName.setBounds(70, 270, 330, 60);
 
+        userNameField.setBackground(new java.awt.Color(38, 14, 48));
         userNameField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         userNameField.setForeground(new java.awt.Color(255, 255, 255));
         userNameField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -294,12 +305,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(userNameWarning);
         userNameWarning.setBounds(70, 330, 230, 20);
 
-        jLabelUserName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelUserName.setText("User Name");
-        getContentPane().add(jLabelUserName);
-        jLabelUserName.setBounds(70, 270, 330, 60);
+        jLabelLastName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelLastName.setText("Last Name");
+        getContentPane().add(jLabelLastName);
+        jLabelLastName.setBounds(70, 190, 330, 60);
 
+        lastNameTextField.setBackground(new java.awt.Color(38, 14, 48));
         lastNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         lastNameTextField.setForeground(new java.awt.Color(255, 255, 255));
         lastNameTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -332,12 +344,13 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(lastNameWarning);
         lastNameWarning.setBounds(70, 250, 230, 20);
 
-        jLabelLastName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelLastName.setText("Last Name");
-        getContentPane().add(jLabelLastName);
-        jLabelLastName.setBounds(70, 190, 330, 60);
+        jLabelFirstName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
+        jLabelFirstName.setForeground(new java.awt.Color(120, 120, 120));
+        jLabelFirstName.setText("First Name");
+        getContentPane().add(jLabelFirstName);
+        jLabelFirstName.setBounds(70, 110, 330, 60);
 
+        firstNameTextField.setBackground(new java.awt.Color(38, 14, 48));
         firstNameTextField.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         firstNameTextField.setForeground(new java.awt.Color(255, 255, 255));
         firstNameTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -370,17 +383,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(firstNameWarning);
         firstNameWarning.setBounds(70, 170, 230, 20);
 
-        jLabelFirstName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        jLabelFirstName.setForeground(new java.awt.Color(120, 120, 120));
-        jLabelFirstName.setText("First Name");
-        jLabelFirstName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelFirstNameMouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabelFirstName);
-        jLabelFirstName.setBounds(70, 110, 330, 60);
-
         jLabelSignUpCancel.setFont(new java.awt.Font("Viner Hand ITC", 1, 36)); // NOI18N
         jLabelSignUpCancel.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSignUpCancel.setText("X");
@@ -404,7 +406,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_securityAnswerTextFieldActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        flag = false;
+        //flag = false;
         firstName = firstNameTextField.getText();
         lastName = lastNameTextField.getText();
         userName = userNameField.getText();
@@ -581,11 +583,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         //if the username does not exist
         return checkUser;
     }
-    
-    private void jLabelFirstNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelFirstNameMouseClicked
-        
-    }//GEN-LAST:event_jLabelFirstNameMouseClicked
-    //Check text field whether it is empty or not. If empty show hint.
+        //Check text field whether it is empty or not. If empty show hint.
     private void firstNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMouseClicked
         jLabelFirstName.setText("");
         lastName = lastNameTextField.getText();
@@ -834,12 +832,12 @@ public class RegisterScreen extends javax.swing.JFrame {
                             
         jLabelFirstName.setText("First Name");
         jLabelLastName.setText("Last Name");
-        jLabelPassword.setText("User Name");
-        jLabelConfirmPassword.setText("E-Mail");
-        jLabelUserName.setText("Password");
-        jLabelSecurityQuestion.setText("Confirm Password");
-        jLabelSecurityAnswer.setText("Security Question");
-        jLabelEmail.setText("Security Answer");
+        jLabelUserName.setText("User Name");
+        jLabelEmail.setText("E-Mail");
+        jLabelPassword.setText("Password");
+        jLabelConfirmPassword.setText("Confirm Password");
+        jLabelSecurityQuestion.setText("Security Question");
+        jLabelSecurityAnswer.setText("Security Answer");
                             
         firstNameWarning.setText("");
         lastNameWarning.setText("");
