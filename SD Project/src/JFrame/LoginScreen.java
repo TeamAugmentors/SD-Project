@@ -210,11 +210,13 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jPanelExitBar);
         jPanelExitBar.setBounds(0, 0, 1600, 70);
 
+        jLabelName.setBackground(new java.awt.Color(38, 14, 48));
         jLabelName.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(120, 120, 120));
         getContentPane().add(jLabelName);
-        jLabelName.setBounds(610, 280, 380, 90);
+        jLabelName.setBounds(610, 290, 380, 70);
 
+        jNamelField.setBackground(new java.awt.Color(38, 14, 48));
         jNamelField.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jNamelField.setForeground(new java.awt.Color(250, 250, 250));
         jNamelField.setToolTipText("");
@@ -226,7 +228,7 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jNamelField);
-        jNamelField.setBounds(610, 280, 380, 90);
+        jNamelField.setBounds(610, 290, 380, 70);
 
         jLabelPass.setFont(new java.awt.Font("Poppins Light", 0, 36)); // NOI18N
         jLabelPass.setForeground(new java.awt.Color(120, 120, 120));
@@ -287,7 +289,6 @@ public class LoginScreen extends javax.swing.JFrame {
         jCheckBoxRememberMe.setBorder(null);
         jCheckBoxRememberMe.setContentAreaFilled(false);
         jCheckBoxRememberMe.setFocusPainted(false);
-        jCheckBoxRememberMe.setOpaque(false);
         jCheckBoxRememberMe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxRememberMeActionPerformed(evt);
