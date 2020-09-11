@@ -10,10 +10,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import SnakeGame.boards.SnakeBoard;
 import JFrame.Symbol;
+import Libs.ColorEx;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
+import weka.datagenerators.Test;
 
 /**
  *
@@ -31,17 +41,79 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
 
     public UserScreen() {
         initComponents();
+        ImageIcon icon = new ImageIcon(UserScreen.this.getClass().getResource("/Userscreen/user_screen.gif"));
+        backgroundLabel.setIcon(icon);
+
+        gamesLabel.setVisible(false);
+        tictactoeButton.setVisible(false);
+        hangmanButton.setVisible(false);
+        snakeButton.setVisible(false);
+        currencyConverterButton.setVisible(false);
+        jLabelWelcome.setForeground(ColorEx.TRANSPARENT);
+        jLabelWelcome.setVisible(false);
+        jButtonSignOut.setVisible(false);
+
+        Timer timer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+
+                ImageIcon icon = new ImageIcon(UserScreen.this.getClass().getResource("/Userscreen/user_screen_2.gif"));
+                backgroundLabel.setIcon(icon);
+
+                gamesLabel.setVisible(true);
+                tictactoeButton.setVisible(true);
+                hangmanButton.setVisible(true);
+                snakeButton.setVisible(true);
+                currencyConverterButton.setVisible(true);
+                jLabelWelcome.setVisible(true);
+                jButtonSignOut.setVisible(true);
+
+            }
+        });
+
+        timer.setRepeats(false); // Only execute once
+        timer.start();
 
     }
 
     public UserScreen(String userName) {
         initComponents();
-
-        this.setSize(1600, 900);
-        this.setLocationRelativeTo(null);
         this.userName = userName;
+
         //setting welcome text for user
         jLabelWelcome.setText(jLabelWelcome.getText() + ' ' + userName);
+        ImageIcon icon = new ImageIcon(UserScreen.this.getClass().getResource("/Userscreen/user_screen.gif"));
+        backgroundLabel.setIcon(icon);
+
+        gamesLabel.setVisible(false);
+        tictactoeButton.setVisible(false);
+        hangmanButton.setVisible(false);
+        snakeButton.setVisible(false);
+        currencyConverterButton.setVisible(false);
+        jLabelWelcome.setForeground(ColorEx.TRANSPARENT);
+        jLabelWelcome.setVisible(false);
+        jButtonSignOut.setVisible(false);
+
+        Timer timer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+
+                ImageIcon icon = new ImageIcon(UserScreen.this.getClass().getResource("/Userscreen/user_screen_2.gif"));
+                backgroundLabel.setIcon(icon);
+
+                gamesLabel.setVisible(true);
+                tictactoeButton.setVisible(true);
+                hangmanButton.setVisible(true);
+                snakeButton.setVisible(true);
+                currencyConverterButton.setVisible(true);
+                jLabelWelcome.setVisible(true);
+                jButtonSignOut.setVisible(true);
+
+            }
+        });
+
+        timer.setRepeats(false); // Only execute once
+        timer.start();
 
     }
 
@@ -57,12 +129,14 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
         jDialog1 = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         cancelButton = new javax.swing.JButton();
-        jButtonTicTacToe = new javax.swing.JButton();
-        jButtonHangman = new javax.swing.JButton();
+        gamesLabel = new javax.swing.JLabel();
+        currencyConverterButton = new javax.swing.JButton();
+        snakeButton = new javax.swing.JButton();
+        hangmanButton = new javax.swing.JButton();
+        tictactoeButton = new javax.swing.JButton();
         jLabelWelcome = new javax.swing.JLabel();
-        jButtonSnakeGame = new javax.swing.JButton();
         jButtonSignOut = new javax.swing.JButton();
-        jButtonCurrencyConverter = new javax.swing.JButton();
+        backgroundLabel = new javax.swing.JLabel();
 
         jDialog1.setResizable(false);
         jDialog1.setSize(new java.awt.Dimension(300, 200));
@@ -80,120 +154,95 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
         cancelButton.setBounds(100, 110, 80, 23);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1320, 900));
+        setPreferredSize(new java.awt.Dimension(1320, 900));
+        setSize(new java.awt.Dimension(1320, 900));
+        getContentPane().setLayout(null);
 
-        jButtonTicTacToe.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
-        jButtonTicTacToe.setText("TicTacToe");
-        jButtonTicTacToe.addActionListener(new java.awt.event.ActionListener() {
+        gamesLabel.setFont(new java.awt.Font("Kiona", 0, 24)); // NOI18N
+        gamesLabel.setForeground(new java.awt.Color(255, 255, 255));
+        gamesLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/games.png"))); // NOI18N
+        getContentPane().add(gamesLabel);
+        gamesLabel.setBounds(580, 140, 153, 44);
+
+        currencyConverterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/currency.png"))); // NOI18N
+        currencyConverterButton.setBorder(null);
+        currencyConverterButton.setBorderPainted(false);
+        currencyConverterButton.setContentAreaFilled(false);
+        currencyConverterButton.setFocusPainted(false);
+        currencyConverterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTicTacToeActionPerformed(evt);
+                currencyConverterButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(currencyConverterButton);
+        currencyConverterButton.setBounds(1090, 790, 138, 36);
 
-        jButtonHangman.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
-        jButtonHangman.setText("Hangman");
-        jButtonHangman.addActionListener(new java.awt.event.ActionListener() {
+        snakeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/snake.png"))); // NOI18N
+        snakeButton.setBorder(null);
+        snakeButton.setBorderPainted(false);
+        snakeButton.setContentAreaFilled(false);
+        snakeButton.setFocusPainted(false);
+        snakeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHangmanActionPerformed(evt);
+                snakeButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(snakeButton);
+        snakeButton.setBounds(540, 370, 155, 33);
 
-        jLabelWelcome.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        hangmanButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/hangman.png"))); // NOI18N
+        hangmanButton.setBorder(null);
+        hangmanButton.setBorderPainted(false);
+        hangmanButton.setContentAreaFilled(false);
+        hangmanButton.setFocusPainted(false);
+        hangmanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hangmanButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(hangmanButton);
+        hangmanButton.setBounds(540, 300, 207, 33);
+
+        tictactoeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/tictactoe.png"))); // NOI18N
+        tictactoeButton.setBorder(null);
+        tictactoeButton.setBorderPainted(false);
+        tictactoeButton.setContentAreaFilled(false);
+        tictactoeButton.setFocusPainted(false);
+        tictactoeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tictactoeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tictactoeButton);
+        tictactoeButton.setBounds(540, 230, 253, 33);
+
+        jLabelWelcome.setFont(new java.awt.Font("Kiona", 0, 36)); // NOI18N
         jLabelWelcome.setText("Welcome");
-
-        jButtonSnakeGame.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
-        jButtonSnakeGame.setText("Snake");
-        jButtonSnakeGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSnakeGameActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jLabelWelcome);
+        jLabelWelcome.setBounds(80, 770, 562, 86);
 
         jButtonSignOut.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jButtonSignOut.setText("Sign out");
+        jButtonSignOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/signout.png"))); // NOI18N
+        jButtonSignOut.setBorder(null);
+        jButtonSignOut.setBorderPainted(false);
+        jButtonSignOut.setContentAreaFilled(false);
+        jButtonSignOut.setFocusPainted(false);
         jButtonSignOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSignOutActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonSignOut);
+        jButtonSignOut.setBounds(1060, 140, 158, 26);
 
-        jButtonCurrencyConverter.setFont(new java.awt.Font("Yu Gothic Light", 1, 24)); // NOI18N
-        jButtonCurrencyConverter.setText("Currency Converter");
-        jButtonCurrencyConverter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCurrencyConverterActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(529, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(509, 509, 509))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonCurrencyConverter, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(323, 323, 323)
-                                .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButtonTicTacToe, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                                .addComponent(jButtonHangman, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                                .addComponent(jButtonSnakeGame, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)))
-                        .addGap(162, 162, 162))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(jLabelWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158)
-                .addComponent(jButtonTicTacToe, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(jButtonHangman, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(jButtonSnakeGame, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonCurrencyConverter, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
-        );
+        backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/user_screen_once.gif"))); // NOI18N
+        getContentPane().add(backgroundLabel);
+        backgroundLabel.setBounds(0, 0, 1320, 900);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonTicTacToeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTicTacToeActionPerformed
-
-        //disposing current jframe and opening tictactoe
-        dispose();
-        new Symbol(userName).setVisible(true);
-    }//GEN-LAST:event_jButtonTicTacToeActionPerformed
-
-    private void jButtonHangmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHangmanActionPerformed
-
-        //disposing current jframe and opening hangman
-        dispose();
-
-        new HangManGame(userName).setVisible(true);
-    }//GEN-LAST:event_jButtonHangmanActionPerformed
-
-    private void jButtonSnakeGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSnakeGameActionPerformed
-        //closing current JFrame
-        dispose();
-
-        SNAKE_GAME_MAIN_MENU = new SnakeGameMainMenu();
-        SNAKE_GAME_MAIN_MENU.setName(userName);
-        //moving to next JFrame
-        SNAKE_GAME_MAIN_MENU.setVisible(true);
-    }//GEN-LAST:event_jButtonSnakeGameActionPerformed
 
     private void jButtonSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignOutActionPerformed
         dispose();
@@ -212,17 +261,6 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
         new LoginScreen().setVisible(true);
     }//GEN-LAST:event_jButtonSignOutActionPerformed
 
-    private void jButtonCurrencyConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCurrencyConverterActionPerformed
-        // TODO add your handling code here:
-        t = new Thread(this, "opening converter");
-        t.start();
-        jDialog1.setVisible(true);
-        jLabel1.setText("<html>Fetching converter data from the internet!<br/>Please wait...</html>");
-
-        jDialog1.setLocationRelativeTo(null);
-
-    }//GEN-LAST:event_jButtonCurrencyConverterActionPerformed
-
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
 
         // TODO add your handling code here:
@@ -230,6 +268,40 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
         jDialog1.dispose();
 
     }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void tictactoeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tictactoeButtonActionPerformed
+        // TODO add your handling code here: 
+        dispose();
+        new Symbol(userName).setVisible(true);
+
+    }//GEN-LAST:event_tictactoeButtonActionPerformed
+
+    private void hangmanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hangmanButtonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new HangManGame(userName).setVisible(true);
+    }//GEN-LAST:event_hangmanButtonActionPerformed
+
+    private void snakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snakeButtonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+
+        SNAKE_GAME_MAIN_MENU = new SnakeGameMainMenu();
+        SNAKE_GAME_MAIN_MENU.setName(userName);
+        //moving to next JFrame
+        SNAKE_GAME_MAIN_MENU.setVisible(true);
+    }//GEN-LAST:event_snakeButtonActionPerformed
+
+    private void currencyConverterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyConverterButtonActionPerformed
+        // TODO add your handling code here:
+
+        t = new Thread(this, "opening converter");
+        t.start();
+        jDialog1.setVisible(true);
+        jLabel1.setText("<html>Fetching converter data from the internet!<br/>Please wait...</html>");
+
+        jDialog1.setLocationRelativeTo(null);
+    }//GEN-LAST:event_currencyConverterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,15 +342,17 @@ public class UserScreen extends javax.swing.JFrame implements Runnable {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backgroundLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton jButtonCurrencyConverter;
-    private javax.swing.JButton jButtonHangman;
+    private javax.swing.JButton currencyConverterButton;
+    private javax.swing.JLabel gamesLabel;
+    private javax.swing.JButton hangmanButton;
     private javax.swing.JButton jButtonSignOut;
-    private javax.swing.JButton jButtonSnakeGame;
-    private javax.swing.JButton jButtonTicTacToe;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelWelcome;
+    private javax.swing.JButton snakeButton;
+    private javax.swing.JButton tictactoeButton;
     // End of variables declaration//GEN-END:variables
 
     @Override

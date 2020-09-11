@@ -98,7 +98,7 @@ public class Screen extends JPanel implements Runnable {
     File scoreFile;
     //---------------------------------------------
 
-    public Screen() throws IOException {
+    public Screen() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setFocusable(true);
 
@@ -123,17 +123,7 @@ public class Screen extends JPanel implements Runnable {
 
         initScoreFile();
 
-        addComponentListener(
-                new ComponentAdapter() {
-            @Override
-            public void componentShown(ComponentEvent e
-            ) {
-                System.out.println("SELECTED`````1");
-                Screen.this.requestFocusInWindow();
-            }
-        }
-        );
-
+ 
         key = new Key();
 
         addKeyListener(key);
@@ -374,7 +364,7 @@ public class Screen extends JPanel implements Runnable {
                     ps.setString(8, field.get(8));
                     ps.setString(9, field.get(4));
 
-                    ps.executeUpdate();
+                    ps.executeUpdate(); 
                 } catch (SQLException ex) {
                     Logger.getLogger(Screen.class
                             .getName()).log(Level.SEVERE, null, ex);

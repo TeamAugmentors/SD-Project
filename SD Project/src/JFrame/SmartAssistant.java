@@ -33,6 +33,7 @@ public class SmartAssistant extends javax.swing.JFrame {
 
         this.setSize(1600, 900);
         this.setLocationRelativeTo(null);
+        
         jButtonLogin.setBackground(new Color(0, 0, 0, 0));
         jButtonLogin.setBorderPainted(false);
         jButtonLogin.setOpaque(false);

@@ -20,7 +20,7 @@ public class ColorEx extends Color {
     public static Color SELECTOR_GREEN = Color.decode("#00C900");
     public static Color BRIGHT_PURPLE = Color.decode("#fc06ff");
     
-    
+     public static Color TRANSPARENT = Color.decode("#bab8ff");
     
     public ColorEx(int r, int g, int b) {
         super(r, g, b);

@@ -14,15 +14,16 @@ public class Symbol extends javax.swing.JFrame {
     /**
      * Creates new form Symbol
      */
-    private char player,AI;
+    private char player, AI;
     private String name;
+
     public Symbol() {
         initComponents();
     }
-    public Symbol(String name)
-    {
+
+    public Symbol(String name) {
         initComponents();
-        this.name=name;
+        this.name = name;
         setLocationRelativeTo(null);
     }
 
@@ -35,72 +36,96 @@ public class Symbol extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/O.png"))); // NOI18N
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/ORollover.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(150, 190, 230, 199);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/X.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/Xrollover.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(560, 210, 230, 199);
+
+        jLabel1.setFont(new java.awt.Font("Kiona", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 79, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Choose your symbol");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(160, 50, 680, 80);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/Alice_tictactoeX.gif"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(560, 270, 280, 250);
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/alice_tictactoeO.gif"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(120, 270, 260, 250);
+        jLabel1.setBounds(170, 20, 680, 80);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 102));
-        jButton1.setText("Confirm");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/confirm.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/confirm_rollover.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(370, 570, 240, 60);
+        jButton1.setBounds(380, 540, 247, 72);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Images/symbol_bg.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 1000, 667);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        player='O';
-        AI='X';
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        player='X';
-        AI='O';
-    }//GEN-LAST:event_jLabel2MouseClicked
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(player!='\0'){
+        if (player != '\0') {
             dispose();
-            new TicTacToe(name,player,AI).setVisible(true);
+            new TicTacToe(name, player, AI).setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jButton2.setSelected(true);
+        jButton3.setSelected(false);
+        player = 'O';
+        AI = 'X';
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jButton2.setSelected(false);
+        jButton3.setSelected(true);
+        player = 'X';
+        AI = 'O';
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,8 +164,9 @@ public class Symbol extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
