@@ -5,6 +5,7 @@
  */
 package JFrame;
 
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,6 +32,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         initComponents();
         this.setSize(450, 939);
         this.setLocationRelativeTo(null);
+        firstNameTextField.setEditable(false);
     }
 
     /**
@@ -613,6 +615,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         //if the username does not exist
         return checkUser;
     }
+
     //Check text field whether it is empty or not. If empty show hint.
     private void firstNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMouseClicked
         jLabelFirstName.setText("");
@@ -893,6 +896,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     private void jLabelSignUpCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpCancelMouseClicked
 
         //closing sign up screen
+        firstNameTextField.setEditable(false);
         dispose();
 
         //refreshing fields for reuse
@@ -929,6 +933,8 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     //Check text field whether it is empty or not. If empty show hint.
     private void firstNameTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMousePressed
+        firstNameTextField.setEditable(true);
+        firstNameTextField.getCaret().setVisible(true);
         jLabelFirstName.setText("");
         lastName = lastNameTextField.getText();
         userName = userNameField.getText();

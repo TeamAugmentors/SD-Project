@@ -32,7 +32,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
     //declaring global variables to store co-ordinates of mouse pointer
     private int mousePX, mousePY;
-    
+
     //creating object of register screen
     RegisterScreen rg = new RegisterScreen();
     SpeechToText st = new SpeechToText();
@@ -395,11 +395,10 @@ public class LoginScreen extends javax.swing.JFrame {
 
                 //searching for registered user
                 rs = ps.executeQuery();
-                
-           
+
                 //if user found then showing yes, else showing no
                 if (rs.next()) {
-                    
+
                     String fname1 = rs.getString("u_fname");
                     String lname1 = rs.getString("u_lname");
                     String username1 = rs.getString("u_username");
@@ -410,34 +409,34 @@ public class LoginScreen extends javax.swing.JFrame {
                     String hangman = rs.getString("hangman");
                     String snake = rs.getString("snake");
                     //.out.println(email);
-                    
+
                     //Save user email address for saving score
                     try {
                         FileWriter file = new FileWriter("resources/Status/id.txt");
-                        file.write(fname1+"\n");
-                        file.write(lname1+"\n");
-                        file.write(username1+"\n");
-                        file.write(pass1+"\n");
-                        file.write(email+"\n");
-                        file.write(question1+"\n");
-                        file.write(answer1+"\n");
-                        file.write(hangman+"\n");
-                        file.write(snake+"\n");
+                        file.write(fname1 + "\n");
+                        file.write(lname1 + "\n");
+                        file.write(username1 + "\n");
+                        file.write(pass1 + "\n");
+                        file.write(email + "\n");
+                        file.write(question1 + "\n");
+                        file.write(answer1 + "\n");
+                        file.write(hangman + "\n");
+                        file.write(snake + "\n");
                         file.close();
                     } catch (IOException ex) {
                         Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     JOptionPane.showMessageDialog(null, "Login Successful");
-                        
+
                     //storing user status inside cache
                     if (jCheckBoxRememberMe.isSelected()) {
                         try {
-                            
+
                             //writing user status in cache
                             FileWriter writer = new FileWriter("resources/Status/cache.txt");
-                            
+
                             writer.write(username);
-                            
+
                             //closing writer
                             writer.close();
                         } catch (IOException ex) {

@@ -3,8 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/we/Documents/GitHub/SD-Project/SD%20Project/src/JFrame/RegisterScreen.java</file>
-            <file>file:/C:/Users/we/Documents/GitHub/SD-Project/SD%20Project/src/JFrame/LoginScreen.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/Symbol.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/SnakeGameMainMenu.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/resources/Hangman/Words.txt</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/Model/Game_HangMan/HangManMethods.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/SmartAssistant.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/LoginScreen.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/TicTacToe.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/HangManGame.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/Model/Game_TicTacToe/TicTacToeMethods.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/UserScreen.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/SplashScreen.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/RegisterScreen.java</file>
+            <file>file:/E:/Github/SD-Project/SD%20Project/src/JFrame/CurrencyConverterFrame.java</file>
         </group>
     </open-files>
 </project-private>
