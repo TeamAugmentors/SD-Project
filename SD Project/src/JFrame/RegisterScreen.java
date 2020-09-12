@@ -23,8 +23,8 @@ public class RegisterScreen extends javax.swing.JFrame {
      * Creates new form RegisterScreen
      */
     private String firstName = "", lastName = "", password = "", confirmPassword = "", userName = "", securityQuestion = "", securityAnswer = "", email = "";
-    
-    boolean  flagPass , signUp;
+
+    boolean flag, flagPass, signUp;
     boolean[] ara = new boolean[6];
 
     public RegisterScreen() {
@@ -406,7 +406,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_securityAnswerTextFieldActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        //flag = false;
+        flag = false;
         firstName = firstNameTextField.getText();
         lastName = lastNameTextField.getText();
         userName = userNameField.getText();
@@ -415,72 +415,103 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+
+        if (checkSize(firstName, 50) && checkSize(lastName, 50) && checkSize(userName, 30) && checkSize(password, 30)) {
+            flag = true;
+        }
+        if (firstName.equals("")) {
             firstNameWarning.setText("Field cannot be empty");
-        if(lastName.equals(""))
+        } else if (!checkSize(firstName, 50)) {
+            firstNameWarning.setText("Name should be between 3-50 characters");
+        }
+        if (lastName.equals("")) {
             lastNameWarning.setText("Field cannot be empty");
-        if(userName.equals(""))
+        } else if (!checkSize(lastName, 50)) {
+            lastNameWarning.setText("Name should be between 3-50 characters");
+        }
+        if (userName.equals("")) {
             userNameWarning.setText("Field cannot be empty");
-        if(email.equals(""))
+        } else if (!checkSize(userName, 30)) {
+            userNameWarning.setText("User name should be between 3-30 characters");
+        }
+        if (email.equals("")) {
             emailWarning.setText("Field cannot be empty");
-        if(password.equals(""))
+        } else if (!email.contains("@gmail.com") && !email.contains("@yahoo.com") && !email.contains("@hotmail.com")) {
+            emailWarning.setText("Put a proper email address");
+            flag = false;
+        }
+        if (password.equals("")) {
             passwordWarning.setText("Field cannot be empty");
-        if(confirmPassword.equals(""))
+        } else if (!checkSize(password, 30)) {
+            passwordWarning.setText("Password should be between 3-30 characters");
+        }
+        if (confirmPassword.equals("")) {
             confirmPasswordWarning.setText("Field cannot be empty");
-            
-        if(!firstName.equals(""))
-            firstNameWarning.setText("");
-        if(!lastName.equals(""))
-            lastNameWarning.setText("");
-        if(!userName.equals(""))
-            userNameWarning.setText("");
-        if(!email.equals(""))
-            emailWarning.setText("");
-        if(!password.equals(""))
-            passwordWarning.setText("");
-        if(!confirmPassword.equals(""))
-            confirmPasswordWarning.setText("");
-        
-        if(firstName.equals(""))
-            jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
-            jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
-            jLabelUserName.setText("User Name");
-        if(email.equals(""))
-            jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
-            jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
-            jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
-            jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
-            jLabelSecurityAnswer.setText("Security Answer");
-        
-        //actions after clicking register button, if no field is empty
-        if(!firstName.equals("") && !lastName.equals("") && !userName.equals("") && !email.equals("") && !password.equals("") && !confirmPassword.equals(""))
-        {
-            //checking availabilty of username
-            if(checkUsername(userName))
-            {
-                userNameWarning.setText("This username has already been taken");
+        }
+
+        if (flag) {
+            if (!firstName.equals("")) {
+                firstNameWarning.setText("");
             }
-            else
-            {
-            
+            if (!lastName.equals("")) {
+                lastNameWarning.setText("");
+            }
+            if (!userName.equals("")) {
+                userNameWarning.setText("");
+            }
+            if (!email.equals("")) {
+                emailWarning.setText("");
+            }
+            if (!password.equals("")) {
+                passwordWarning.setText("");
+            }
+            if (!confirmPassword.equals("")) {
+                confirmPasswordWarning.setText("");
+            }
+        }
+        if (firstName.equals("")) {
+            jLabelFirstName.setText("First Name");
+        }
+        if (lastName.equals("")) {
+            jLabelLastName.setText("Last Name");
+        }
+        if (userName.equals("")) {
+            jLabelUserName.setText("User Name");
+        }
+        if (email.equals("")) {
+            jLabelEmail.setText("E-Mail");
+        }
+        if (password.equals("")) {
+            jLabelPassword.setText("Password");
+        }
+        if (confirmPassword.equals("")) {
+            jLabelConfirmPassword.setText("Confirm Password");
+        }
+        if (securityQuestion.equals("")) {
+            jLabelSecurityQuestion.setText("Security Question");
+        }
+        if (securityAnswer.equals("")) {
+            jLabelSecurityAnswer.setText("Security Answer");
+        }
+
+        //actions after clicking register button, if no field is empty
+        if (flag && !firstName.equals("") && !lastName.equals("") && !userName.equals("") && !email.equals("") && !password.equals("") && !confirmPassword.equals("")) {
+            //checking availabilty of username
+            if (checkUsername(userName)) {
+                userNameWarning.setText("This username has already been taken");
+            } else {
+
                 //checking if the password is entered correctly again in confirm password field
-                if(confirmPassword.equals(password))
-                {
-                    PreparedStatement ps ;
-                    String insert = "INSERT INTO `userinfo`(`u_fname`, `u_lname`, `u_username`, `u_pass`, `u_email`, `u_squestion`, `u_sanswer`, `hangman` , `snake`) VALUES (?,?,?,?,?,?,?,?,?)" ;
-                
+                if (confirmPassword.equals(password)) {
+                    PreparedStatement ps;
+                    String insert = "INSERT INTO `userinfo`(`u_fname`, `u_lname`, `u_username`, `u_pass`, `u_email`, `u_squestion`, `u_sanswer`, `hangman` , `snake`) VALUES (?,?,?,?,?,?,?,?,?)";
+
                     //checked exception
                     try {
-                    
+
                         //establishing connection with mysql database
                         ps = MyConnection.getConnection().prepareStatement(insert);
-                    
+
                         //setting values for each of the field in the table of database
                         //---------------------------------------------------------
                         ps.setString(1, firstName);
@@ -488,34 +519,27 @@ public class RegisterScreen extends javax.swing.JFrame {
                         ps.setString(3, userName);
                         ps.setString(5, email);
                         ps.setString(4, password);
-                        if(!securityQuestion.equals(""))
-                        {
+                        if (!securityQuestion.equals("")) {
                             ps.setString(6, securityQuestion);
-                        }
-                        else
-                        {
+                        } else {
                             ps.setNull(6, 0);
                         }
-                        if(!securityAnswer.equals(""))
-                        {
+                        if (!securityAnswer.equals("")) {
                             ps.setString(7, securityAnswer);
-                        }
-                        else
-                        {
+                        } else {
                             ps.setNull(7, 0);
                         }
                         ps.setString(8, "0");
                         ps.setString(9, "0");
                         //---------------------------------------------------------
-                    
-                        if(ps.executeUpdate()>0)
-                        {
+
+                        if (ps.executeUpdate() > 0) {
                             JOptionPane.showMessageDialog(null, "Successfully signed up");
-                            
+
                             //refreshing fields for reuse
                             //------------------------------------------------------------------
                             firstName = lastName = password = confirmPassword = userName = securityQuestion = securityAnswer = email = "";
-                            
+
                             firstNameTextField.setText("");
                             lastNameTextField.setText("");
                             userNameField.setText("");
@@ -524,7 +548,7 @@ public class RegisterScreen extends javax.swing.JFrame {
                             securityAnswerTextField.setText("");
                             jPasswordField.setText("");
                             jPasswordField1.setText("");
-                            
+
                             jLabelFirstName.setText("First Name");
                             jLabelLastName.setText("Last Name");
                             jLabelPassword.setText("User Name");
@@ -533,7 +557,7 @@ public class RegisterScreen extends javax.swing.JFrame {
                             jLabelSecurityQuestion.setText("Confirm Password");
                             jLabelSecurityAnswer.setText("Security Question");
                             jLabelEmail.setText("Security Answer");
-                            
+
                             firstNameWarning.setText("");
                             lastNameWarning.setText("");
                             userNameWarning.setText("");
@@ -541,49 +565,55 @@ public class RegisterScreen extends javax.swing.JFrame {
                             passwordWarning.setText("");
                             confirmPasswordWarning.setText("");
                             //-------------------------------------------------
-                            
+
                             dispose();
                         }
                     } catch (SQLException ex) {
                         Logger.getLogger(RegisterScreen.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-                }
-                else
-                {
+                    }
+                } else {
                     confirmPasswordWarning.setText("Password does not match");
                 }
             }
         }
     }//GEN-LAST:event_registerButtonActionPerformed
 
+    private boolean checkSize(String item, int value) {
+        if (item.length() > value || item.length() < 3) {
+            return false;
+        }
+        return true;
+    }
+
     //checking if the username is taken or not
-    public boolean checkUsername(String username){
-        PreparedStatement ps ;
-        ResultSet rs ;
+    public boolean checkUsername(String username) {
+        PreparedStatement ps;
+        ResultSet rs;
         Boolean checkUser = false;
-        String searchUser = "SELECT * FROM `userinfo` WHERE `u_username` =?" ;
-        
+        String searchUser = "SELECT * FROM `userinfo` WHERE `u_username` =?";
+
         try {
             //establishing connection to database
             ps = MyConnection.getConnection().prepareStatement(searchUser);
-            
+
             ps.setString(1, username);
-            
+
             //searching for username in database
             rs = ps.executeQuery();
-            
+
             //if the username already exists
-            if(rs.next())
+            if (rs.next()) {
                 checkUser = true;
-            
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(RegisterScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //if the username does not exist
         return checkUser;
     }
-        //Check text field whether it is empty or not. If empty show hint.
+    //Check text field whether it is empty or not. If empty show hint.
     private void firstNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMouseClicked
         jLabelFirstName.setText("");
         lastName = lastNameTextField.getText();
@@ -593,19 +623,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(lastName.equals(""))
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_firstNameTextFieldMouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -618,19 +654,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_lastNameTextFieldMouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -643,19 +685,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_userNameFieldMouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -668,19 +716,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_emailFieldMouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -693,19 +747,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         email = emailField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_jPasswordFieldMouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -718,19 +778,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         email = emailField.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_jPasswordField1MouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -743,19 +809,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         email = emailField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_securityQuestionTextFieldMouseClicked
     //Check text field whether it is empty or not. If empty show hint.
@@ -768,19 +840,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
         email = emailField.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals(""))
             jLabelSecurityQuestion.setText("Security Question");
     }//GEN-LAST:event_securityAnswerTextFieldMouseClicked
 
@@ -813,14 +891,14 @@ public class RegisterScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_firstNameTextFieldActionPerformed
 
     private void jLabelSignUpCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpCancelMouseClicked
-        
+
         //closing sign up screen
         dispose();
-        
+
         //refreshing fields for reuse
         //------------------------------------------------------------------
         firstName = lastName = password = confirmPassword = userName = securityQuestion = securityAnswer = email = "";
-                            
+
         firstNameTextField.setText("");
         lastNameTextField.setText("");
         userNameField.setText("");
@@ -829,7 +907,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswerTextField.setText("");
         jPasswordField.setText("");
         jPasswordField1.setText("");
-                            
+
         jLabelFirstName.setText("First Name");
         jLabelLastName.setText("Last Name");
         jLabelUserName.setText("User Name");
@@ -838,7 +916,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         jLabelConfirmPassword.setText("Confirm Password");
         jLabelSecurityQuestion.setText("Security Question");
         jLabelSecurityAnswer.setText("Security Answer");
-                            
+
         firstNameWarning.setText("");
         lastNameWarning.setText("");
         userNameWarning.setText("");
@@ -846,9 +924,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         passwordWarning.setText("");
         confirmPasswordWarning.setText("");
         //-------------------------------------------------
-        
+
     }//GEN-LAST:event_jLabelSignUpCancelMouseClicked
-    
+
     //Check text field whether it is empty or not. If empty show hint.
     private void firstNameTextFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_firstNameTextFieldMousePressed
         jLabelFirstName.setText("");
@@ -859,19 +937,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(lastName.equals(""))
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_firstNameTextFieldMousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -884,19 +968,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_lastNameTextFieldMousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -909,19 +999,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_userNameFieldMousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -934,19 +1030,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_emailFieldMousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -959,19 +1061,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         email = emailField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_jPasswordFieldMousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -984,19 +1092,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         securityAnswer = securityAnswerTextField.getText();
         password = jPasswordField.getText();
         email = emailField.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals("")) {
             jLabelSecurityQuestion.setText("Security Question");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_jPasswordField1MousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -1009,19 +1123,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         email = emailField.getText();
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(securityAnswer.equals(""))
+        }
+        if (securityAnswer.equals(""))
             jLabelSecurityAnswer.setText("Security Answer");
     }//GEN-LAST:event_securityQuestionTextFieldMousePressed
     //Check text field whether it is empty or not. If empty show hint.
@@ -1034,19 +1154,25 @@ public class RegisterScreen extends javax.swing.JFrame {
         password = jPasswordField.getText();
         confirmPassword = jPasswordField1.getText();
         email = emailField.getText();
-        if(firstName.equals(""))
+        if (firstName.equals("")) {
             jLabelFirstName.setText("First Name");
-        if(lastName.equals(""))
+        }
+        if (lastName.equals("")) {
             jLabelLastName.setText("Last Name");
-        if(userName.equals(""))
+        }
+        if (userName.equals("")) {
             jLabelUserName.setText("User Name");
-        if(email.equals(""))
+        }
+        if (email.equals("")) {
             jLabelEmail.setText("E-Mail");
-        if(confirmPassword.equals(""))
+        }
+        if (confirmPassword.equals("")) {
             jLabelConfirmPassword.setText("Confirm Password");
-        if(password.equals(""))
+        }
+        if (password.equals("")) {
             jLabelPassword.setText("Password");
-        if(securityQuestion.equals(""))
+        }
+        if (securityQuestion.equals(""))
             jLabelSecurityQuestion.setText("Security Question");
     }//GEN-LAST:event_securityAnswerTextFieldMousePressed
 
