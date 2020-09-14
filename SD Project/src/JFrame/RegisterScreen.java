@@ -185,10 +185,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(420, 530, 34, 30);
 
-        confirmPasswordWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        confirmPasswordWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         confirmPasswordWarning.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(confirmPasswordWarning);
-        confirmPasswordWarning.setBounds(70, 570, 230, 20);
+        confirmPasswordWarning.setBounds(70, 570, 300, 20);
 
         jLabelPassword.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(120, 120, 120));
@@ -224,10 +224,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(420, 450, 34, 30);
 
-        passwordWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        passwordWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         passwordWarning.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(passwordWarning);
-        passwordWarning.setBounds(70, 490, 230, 20);
+        passwordWarning.setBounds(70, 490, 290, 20);
 
         jLabelEmail.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(120, 120, 120));
@@ -263,10 +263,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(420, 370, 34, 30);
 
-        emailWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        emailWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         emailWarning.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(emailWarning);
-        emailWarning.setBounds(70, 410, 230, 20);
+        emailWarning.setBounds(70, 410, 280, 20);
 
         jLabelUserName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelUserName.setForeground(new java.awt.Color(120, 120, 120));
@@ -302,10 +302,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(420, 290, 34, 30);
 
-        userNameWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        userNameWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         userNameWarning.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(userNameWarning);
-        userNameWarning.setBounds(70, 330, 230, 20);
+        userNameWarning.setBounds(70, 330, 330, 20);
 
         jLabelLastName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelLastName.setForeground(new java.awt.Color(120, 120, 120));
@@ -341,10 +341,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(420, 210, 34, 30);
 
-        lastNameWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        lastNameWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lastNameWarning.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(lastNameWarning);
-        lastNameWarning.setBounds(70, 250, 230, 20);
+        lastNameWarning.setBounds(70, 250, 280, 20);
 
         jLabelFirstName.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
         jLabelFirstName.setForeground(new java.awt.Color(120, 120, 120));
@@ -380,10 +380,10 @@ public class RegisterScreen extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(420, 130, 34, 30);
 
-        firstNameWarning.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        firstNameWarning.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         firstNameWarning.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(firstNameWarning);
-        firstNameWarning.setBounds(70, 170, 230, 20);
+        firstNameWarning.setBounds(70, 170, 280, 20);
 
         jLabelSignUpCancel.setFont(new java.awt.Font("Viner Hand ITC", 1, 36)); // NOI18N
         jLabelSignUpCancel.setForeground(new java.awt.Color(255, 255, 255));

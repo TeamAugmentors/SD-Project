@@ -35,7 +35,7 @@ public class HangManGame extends javax.swing.JFrame {
      */
     ArrayList<String> field = new ArrayList<String>();
     HangManMethods hg = new HangManMethods();
-    Scanner sc = new Scanner(System.in);
+    //Scanner sc = new Scanner(System.in);
     TextToSpeech tts = new TextToSpeech();
     String name = "";
     String email = "";
@@ -659,7 +659,7 @@ public class HangManGame extends javax.swing.JFrame {
     private void jButtonOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOActionPerformed
         if (gameendFlag == 0) {
             jButtonO.setVisible(false);
-            game('o');    
+            game('o');
         }
     }//GEN-LAST:event_jButtonOActionPerformed
 
@@ -707,7 +707,7 @@ public class HangManGame extends javax.swing.JFrame {
 
     private void jButtonVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVActionPerformed
         if (gameendFlag == 0) {
-            jButtonV.setVisible(false); 
+            jButtonV.setVisible(false);
             game('v');
         }
     }//GEN-LAST:event_jButtonVActionPerformed
@@ -781,9 +781,9 @@ public class HangManGame extends javax.swing.JFrame {
                 ps.setString(7, String.valueOf(maxScore));
                 ps.setString(8, field.get(8));
                 ps.setString(9, field.get(4));
-                
+
                 System.out.println(field.get(8));
-                
+
                 ps.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(HangManGame.class.getName()).log(Level.SEVERE, null, ex);
@@ -831,7 +831,7 @@ public class HangManGame extends javax.swing.JFrame {
         //System.out.println(guess);
         amountOfGuesses = 6;//How many times player can guess the word
         playerGuess = new char[guess.length];
-        System.out.println("Welcome to game hang man");
+        //System.out.println("Welcome to game hang man");
         String s = "";
         for (i = 0; i < playerGuess.length; i++) {
             playerGuess[i] = '_';
@@ -841,8 +841,8 @@ public class HangManGame extends javax.swing.JFrame {
         jTextFieldOutput.setText(s);
         tries = 0;
         score = 0;
-        System.out.println("Current guesses:");
-        hg.printArray(playerGuess);
+        //System.out.println("Current guesses:");
+        //hg.printArray(playerGuess);
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
         //Set the man invisible        
         jLabelHead.setVisible(false);
@@ -890,7 +890,7 @@ public class HangManGame extends javax.swing.JFrame {
         //System.out.println(guess);
         amountOfGuesses = 6;//How many times player can guess the word
         playerGuess = new char[guess.length];
-        System.out.println("Welcome to game hang man");
+        //System.out.println("Welcome to game hang man");
         String s = "";
         for (i = 0; i < playerGuess.length; i++) {
             playerGuess[i] = '_';
@@ -900,8 +900,8 @@ public class HangManGame extends javax.swing.JFrame {
         jTextFieldOutput.setText(s);
         tries = 0;
         gameendFlag = 0;
-        System.out.println("Current guesses:");
-        hg.printArray(playerGuess);
+        //System.out.println("Current guesses:");
+        //hg.printArray(playerGuess);
         jLabel_score.setText("Score: ");
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
         jLabel_scoreShow.setText(String.valueOf(score));
@@ -927,18 +927,16 @@ public class HangManGame extends javax.swing.JFrame {
             flag = true;
         }
         playerGuess = hg.matchLetter(playerGuess, guess, input); //Put the gussed letter in the player array
-        System.out.println("Current guesses:");
-        hg.printArray(playerGuess); //Print the player array
+        //System.out.println("Current guesses:");
+        //hg.printArray(playerGuess); //Print the player array
         String s = "";
         for (i = 0; i < playerGuess.length; i++) {
             s += playerGuess[i];
             s += ' ';
         }
         jTextFieldOutput.setText(s);
-        if (flag) {
-            System.out.println("Correct guess");
-        } else {
-            System.out.println("Wrong guess");
+        if (!flag) {
+            //System.out.println("Wrong guess");
             tries++;
             //Setting true/false in array for showing or hiding images
             for (i = 0; i < 6; i++) {
@@ -957,7 +955,7 @@ public class HangManGame extends javax.swing.JFrame {
         }
         jLabelNotification.setText(String.valueOf(amountOfGuesses - tries) + " tries left");
         if (hg.isWordGuess(playerGuess, guess)) {
-            System.out.println("You won the game");
+            //System.out.println("You won the game");
             jLabelNotification.setText("You won the game");
             jLabelHint.setText("");
             tts.setVoice("dfki-poppy-hsmm");
@@ -970,7 +968,7 @@ public class HangManGame extends javax.swing.JFrame {
             resetGame();
 
         } else if (!hg.isWordGuess(playerGuess, guess) && tries == amountOfGuesses) {
-            System.out.println("You lost the game");
+            //System.out.println("You lost the game");
             jLabelNotification.setText("You lost the game");
             tts.setVoice("dfki-poppy-hsmm");
             tts.speak("You lost the game", 2.0f, false, false);

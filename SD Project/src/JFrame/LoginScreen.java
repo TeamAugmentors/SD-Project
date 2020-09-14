@@ -35,7 +35,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
     //creating object of register screen
     RegisterScreen rg = new RegisterScreen();
-    SpeechToText st = new SpeechToText();
+    //SpeechToText st = new SpeechToText();
 
     public LoginScreen() {
         initComponents();
@@ -272,12 +272,12 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(jButtonLogin);
         jButtonLogin.setBounds(650, 570, 290, 120);
 
-        jLabelNameWarning.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabelNameWarning.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelNameWarning.setForeground(new java.awt.Color(204, 0, 51));
         getContentPane().add(jLabelNameWarning);
         jLabelNameWarning.setBounds(590, 370, 220, 20);
 
-        jLabelPassWarning.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabelPassWarning.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelPassWarning.setForeground(new java.awt.Color(204, 0, 51));
         getContentPane().add(jLabelPassWarning);
         jLabelPassWarning.setBounds(590, 510, 220, 20);
@@ -348,8 +348,8 @@ public class LoginScreen extends javax.swing.JFrame {
             //voice assistant
             TextToSpeech tts = new TextToSpeech();
 
-            //tts.setVoice("dfki-poppy-hsmm");
-            //tts.speak("The star fields must have to be filled up",2.0f,false,false);
+            tts.setVoice("dfki-poppy-hsmm");
+            tts.speak("The star fields must have to be filled up",2.0f,false,false);
         }
     }//GEN-LAST:event_jButtonSignupActionPerformed
 
@@ -445,7 +445,6 @@ public class LoginScreen extends javax.swing.JFrame {
                     }
                     dispose();
                     //moving on to next JFRAME
-                    //new Symbol(username).setVisible(true);
                     new UserScreen(username).setVisible(true);
 
                 } else {

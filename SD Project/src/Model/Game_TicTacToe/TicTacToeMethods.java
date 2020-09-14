@@ -40,14 +40,14 @@ public class TicTacToeMethods {
     }
     
     //printing the board
-    public void printBoard(char[][] board){
+    /*public void printBoard(char[][] board){
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
                 System.out.print(board[i][j]+" ");
             }
             System.out.println();
         }
-    }
+    }*/
     
     //checking if any move is left or not
     public boolean isMoveLeft(char[][] board){
